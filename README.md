@@ -1,12 +1,5 @@
 # Cours-2022-2023
 
-## IUT Paris-Rives de Seine
+Ce site contient l'ensemble de mes supports de cours pour l'année universitaire 2022-2023.
 
-- [SQL](../cours-sql) : Interface de cours en SQL
-
-## UFR Math-Info
-
-## INSA Rouen
-
-## IUT Cherbourg
-
+Réalisé avec le thème [Hydeout](https://github.com/fongandrew/hydeout)
