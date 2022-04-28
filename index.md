@@ -1,6 +1,7 @@
 ---
 layout: index
 title: Cours-2022-2023
+favicon: "favicon-graduation.ico"
 ---
 
 # Cours-2022-2023
