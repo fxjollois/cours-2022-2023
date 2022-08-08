@@ -1,0 +1,366 @@
+---
+title: "Estimation et Tests"
+author: "FX Jollois"
+date: "TC - 2ème année - 2021/2022"
+output:
+  beamer_presentation:
+    theme: "Madrid"
+    colortheme: "seahorse"
+    fonttheme: "structurebold"
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{xcolor}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+set.seed(1234)
+```
+
+# Estimation
+
+## Introduction
+
+**Comment puis-je connaître un indicateur sur la population française ?**
+
+- Impossible à réaliser (trop coûteux, trop compliqué à mettre en oeuvre, ...)
+- Sélection d'un sous-ensemble de la population, appelé **échantillon**
+
+**Comment sélectionner correctement un échantillon ?**
+
+- Notion de représentativité
+- Méthodes de sondage pour répondre à ce problème
+
+## Que fait-on ?
+
+Quand on cherche à analyser un phénomène (biologique, économique, météorologique...), on a 2 possibilités
+
+### Loi de probabilité connue a priori
+On vérifie a posteriori que les observations faites à partir d’un échantillon sont en accord avec elle. On effectue alors un test d'ajustement entre la distribution théorique et la distribution observée
+
+### Loi de probabilité inconnue 
+Mais elle est suggérée par la description de l’échantillon (nature de la variable, forme de la distribution des fréquences, valeurs des paramètres descriptifs). Dans ce cas, il est nécessaire d’estimer les paramètres de la loi de probabilité à partir des paramètres établis sur l’échantillon.
+
+## Inférence statistique
+
+### Inférence
+Opération qui consiste à admettre une proposition en raison de son lien avec une proposition préalable tenue pour vraie.
+
+### Inférence statistique
+Ensemble de techniques permettant d'induire les caractéristiques d'un groupe général (la population) à partir de celles d'un groupe particulier (l'échantillon), en fournissant une mesure de la certitude de la prédiction (via la probabilité d'erreur)
+
+## 2 problèmes différents
+
+### Estimation
+Déterminer les **valeurs inconnues** des paramètres de la population à partir des données de l'échantillon. Il est alors nécessaire de déterminer la précision de ces estimations en établissant un *intervalle de confiance* autour des valeurs prédites.
+
+### Tests d'hypothèses
+A partir d'une hypothèse posée, déterminer les conséquences de cette hypothèse sur la population et/ou l'échantillon, et comparer ces conséquences aux observations faites sur l'échantillon. On conclut **en acceptant ou en rejetant l'hypothèse de travail** à partir de règles de décisions objectives. 
+
+## Distribution d'échantillonage
+
+Dans un problème d'estimation, il est nécessaire d'étudier la **loi de probabilité** suivie par l'estimateur
+
+Trois concepts importants :
+
+- Paramètres de la **population** (comme la proportion $p$, la moyenne $\mu$, ou la variance $\sigma^2$)
+- Paramètres de l'**échantillon** (comme la fréquence $f$, la moyenne $\bar{x}$, ou la variance $s^2$)
+- Variables aléatoires des paramètres (comme $\bar{X}$, ...)
+
+## Estimation
+
+- Problème statistique : estimation d'un paramètre inconnu de la population via un échantillon
+- Résumer l'échantillon à une statistique
+- Plusieurs catégories de paramètres :
+  - Paramètres de position
+  - Paramètres de dispersion
+  - Paramètres de liaison
+- Deux types d'estimation :
+  - Estimation ponctuelle
+  - Estimation par intervalle
+
+## Estimation ponctuelle
+
+- Estimation d'un résultat sur la population
+- Unique valeur mesurée dans l'échantillon
+
+### Définition
+Soit $\theta$ un paramètre inconnu intervenant dans la loi de probabilité (connue analytiquement) de la variable aléatoire $X$. Soient $x_1, x_2, \ldots, x_n$ les $n$ valeurs prises par la v.a. $X$ dans un échantillon de taille $n$. On appelle **estimateur** de $\theta$, noté $T_n$ la fonction qui fait correspondre aux valeurs $x_i$ de l'échantillon la valeur du paramètre $\theta$. On note la valeur numérique de cette estimation par
+$$ \hat\theta = T_n(x_1, x_2, \ldots, x_n) $$
+
+## Exemple d'estimation ponctuelle
+
+- Estimation de la taille moyenne de la population française
+- Echantillon : les étudiants de ce cours
+- Variable aléatoire suivant une loi normale
+- Proposer une estimation de la taille moyenne $\mu$, via l'échantillon ${x_i}$ ?
+  - la moyenne
+  - la médiane
+  - le mode
+  - la taille de l'individu 3
+  - \ldots
+
+## Quel estimateur ?
+
+- Meilleur estimateur de la taille moyenne ? 
+- Définition mathématique impossible de *meilleur*
+- Comparer les estimateurs avec certains critères :
+  - **Biais** : l'estimation ne doit pas être systématiquement décalée par rapport à la vraie valeur,
+  - **Précision** : la variation d'un échantillon à l'autre de l'estimation doit être faible,
+  - **Convergence** : lorsque la taille de l'échantillon augmente, l'estimateur converge vers le paramètre inconnu $\theta$,
+  - **Complexité** : le calcul de l'estimation ne doit pas nécessiter trop de calculs,
+  - **Robustesse** : les perturbations doivent avoir un impact très limité sur l'estimation.
+
+
+
+## Variable quantitative
+
+### Moyenne
+Soit $X$ une variable aléatoire d'espérance $\mu$ inconnue, la moyenne $\hat\mu$ (ou $\bar{x}$) de l'échantillon est un estimateur correct de $\mu$ ($E(\hat\mu) = \mu$ : sans biais et $V(\hat\mu) = \frac{\sigma^2}{n} \rightarrow 0$ : convergent).
+$$ \hat\mu = \frac{\sum_{i=1}^n x_i}{n} $$
+
+### Variance
+$\hat\sigma^2$ n'est pas un bon estimateur de $\sigma^2$ car $E(\hat\sigma^2) = \frac{n-1}{n} \sigma^2$. Par contre, $\hat{\sigma}^{*2}$ est un estimateur sans biais de $\sigma^2$, et convergent. Mais $\hat{\sigma}^*$ n'est pas un estimateur sans biais de $\sigma$.
+$$ \hat{\sigma}^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n} $$
+$$ \hat{\sigma}^{*2} = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n - 1} $$
+
+
+## Variable quantitative (suite)
+
+### Médiane
+Valeur pour laquelle 50 \% des individus ont une valeur plus grande et 50 \% plus petite. Intéressant car insensible aux données aberrantes, contrairement à la moyenne.
+$$ \hat{m} : p(X < \hat{m}) = 0.5 $$
+En triant les données $x_i$ par ordre croissant, on obtient la médiane avec
+\begin{center}
+\begin{tabular}{ll}
+Si $n$ pair   & $\hat{m} = \frac{\displaystyle x_{n/2} + x_{n/2+1}}{2} $ \\
+Si $n$ impair & $\hat{m} = \frac{\displaystyle x_{(n+1)}}{2} $ \\
+\end{tabular}
+\end{center}
+
+
+## Variable qualitative
+
+### Mode
+Mesure prise le plus fréquemment.
+$$ x_{mode} : p(X = x_{mode}) = \max_x p(X = x) $$
+
+### Proportion
+Soit $\hat{p}$ l'estimation d'une proportion inconnu $p$ et $k$ le nombre d'individus présentant la caractéristique étudiée, la proportion $p$ approxime la vraie valeur de $p$ :
+$$ \hat{p} = \frac{k}{n} $$
+
+
+## Variable qualitative
+
+### Ecart-type d'une proportion
+Soit $F_n = \frac{k}{n}$, c'est une v.a. construite par la somme de $n$ v.a. suivant une loi de Bernouilli et de même paramètre $p$. C'est donc (d'après le TCL) une v.a. dont la loi de probabilité tend vers une loi normale de moyenne $p$. Son écart-type est estimé par 
+$$ \hat{\sigma_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+
+Cette estimation n'est valable que pour les cas où $n > 30$.
+
+
+
+## Estimation par intervalles
+
+- Intervalle souvent plus intéressant et plus correct que l'affirmation $\hat\theta = c$
+- Estimation par intervalle de confiance (souvent symétrique)
+
+### Définition
+
+Soit $X$ une v.a., $\theta$ le paramètre inconnu et $\hat{\theta}$ son estimation sur $X$, on cherche ainsi $c1$ et $c2$ tel que 
+$$ p(c1 < X < c2 | \theta = \hat{\theta}) = 1 - \alpha $$
+
+### Choix de $\alpha$ dépendant du problème posé
+- Etude de marché prospective : $\alpha$ élevé (intervalles restreints)
+- Etude sur une maladie ou dans une centrale nucléaire : $\alpha$ très faible (intervalles grands)
+- Pratique : prendre un risque $\alpha$ égal à 5 \%.
+
+
+## Cas de la loi Normale centrée-réduite
+
+Table de valeurs connues pour $P(X < u)$ (fonction de répartition) [Table complète](https://fr.wikipedia.org/wiki/Loi_normale#Tables_num%C3%A9riques_et_calculs)
+
+$\rightarrow$ Au croisement, on lit $P(X < 0,31) = 0.6217$ 
+
+```{r}
+m = matrix(pnorm(seq(0, 2.49, by = 0.01)), ncol = 10, byrow = TRUE)
+m = as.data.frame(m)
+colnames(m) = paste0("0,0", 0:9)
+rownames(m) = sub("\\.", ",", as.character(seq(0, 2.4, by = .1)))
+kable(m, digits = 4, escape = F) %>%
+  kable_styling(font_size = 6) %>%
+  column_spec(3, bold = T, background = "lightgray") %>%
+  row_spec(4, bold = T, background = "lightgray")
+```
+
+
+## Quelques valeurs à connaître
+
+- $P(X < 1.64) = 0.9494974 = \sim 0.95$
+  - Si $X$ suit une loi Normale centrée réduite, il y a 95% de chance que sa valeur soit inférieur à 1.64
+- $P(X < 1.96) = 0.9750$
+  - Si $X$ suit une loi Normale centrée réduite, il y a 97.5% de chance que sa valeur soit inférieur à 1.96
+  
+Et pour les valeurs négatives ? On se base sur la symétrie de la loi Normale.
+
+- $P(X < -1.64) = P(X > 1.64) = 1 - P(X < 1.64) = \sim 0.95$
+- $P(X < -1.96) = P(X > 1.96) = 1 - P(X < 1.96) = \sim 0.975$
+
+### Conclusion
+Pour une variable $X$ suivant une loi Normale centrée-réduite, on a donc 95% de chances que sa valeur soit comprise dans l'intervalle $[-1.96; 1.96]$.
+
+## Intervalle de confiance d'une moyenne
+
+### Si $\sigma$ est connu
+On a l'intervalle de confiance suivant :
+$$ \hat\mu - u_{\alpha/2} \frac{\sigma}{\sqrt{n}} < \mu < \hat\mu + u_{\alpha/2} \frac{\sigma}{\sqrt{n}} $$
+où $u_{\alpha/2}$ est la valeur de la table de la loi normale pour laquelle $p(X > u_{\alpha/2}) = \frac{\alpha}{2}$. Puisqu'on choisit souvent $\alpha = 5\%$, on a $u_{\alpha/2} = 1.96$. 
+
+### Si $\sigma$ n'est pas connu
+On utilise ici l'intervalle de confiance suivant ($t_{\alpha/2}$ est la valeur de la table de la loi de Student pour laquelle $p(X > u_{\alpha/2}) = \frac{\alpha}{2}$) :
+$$ \hat{m} - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} < m < \hat{m} + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} $$
+Si $n$ est grand, on retrouve la valeur 1.96 pour $t_{\alpha/2}$ avec $\alpha = 5\%$.
+
+
+## Intervalle de confiance d'une proportion
+
+On se base sur le fait que si $n$ est grand, alors la variable aléatoire de la proportion suit approximativement une loi normale. On obtient donc l'intervalle suivant
+$$ \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} < X < \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+On a toujours $u_{\alpha/2} = 1.96$ pour $\alpha = 5\%$.
+
+
+## Exemple d'estimations
+
+- On a mesuré le niveau de pluie pendant 9 ans, et on a obtenu les valeurs suivantes :
+  - $\bar{x} = 610.2222$ et $s = 111.5289$
+
+- $X$ : niveau de pluie de la région
+  - Suit une loi Normale $N(\mu, \sigma)$
+
+- Estimation de la moyenne $\mu$ par $\bar{x} = 610.2222$
+- Estimation par intervalle de confiance à 5% : $[537.3; 683.1]$
+
+# Tests statistiques
+
+## Notions générales sur les tests statistiques
+
+- Idée : niveau de pluie en augmentation
+- Niveau de pluie suit une loi $N(600, 100)$ (étude précédente)
+- Mesure du niveau de pluie pendant 9 ans
+  - $\bar{x} = 610.2222$ et $s = 111.5289$
+- Que peut-on conclure ?
+- Opposer deux hypothèses contradictoires :
+  - [$H_0$] le niveau de pluie n'a pas augmenté, donc $\mu = 600$
+  - [$H_1$] le niveau de pluie a augmenté, donc $\mu > 600$.
+- Choix d'une règle de décision
+
+
+## Notions générales sur les tests statistiques
+
+> Comment tester ces hypothèses ? 
+
+- Intérêt naturel porté à $\hat\mu$, moyenne des observations, et donc estimation du niveau de pluie
+- Variable considérée comme la **variable de décision**
+- Si $H_0$ vrai, $\hat\mu$ suit une loi $N(600, \frac{100}{\sqrt{9}})$
+
+### Règle de décision
+- Si $\hat\mu$ est trop grand, choix de l'hypothèse $H_1$
+  - Donc si $p(\hat\mu > k) = 0.05$
+  - 5% de chance de se tromper
+- Sinon, conservation de  $H_0$
+
+## Notions générales sur les tests statistiques
+
+- Test avec $k = 600 + \frac{100}{\sqrt{9}} \times 1.64 = 655$
+  - Si $\hat\mu > 655$, alors on rejette $H_0$ pour conserver $H_1$
+  - Si $\hat\mu \leq 655$, alors on conserve $H_0$
+
+### Ensemble des évènements 
+- $\{\hat\mu > 655\}$ : **région critique** ou région de rejet
+- $\{\hat\mu \leq 655\}$ : **région d'acceptation**
+
+::: example
+### Sur les données
+$\hat\mu = 610.2$
+
+$\rightarrow$ Conservation de $H_0$ (pas d'augmentation du niveau de pluie)
+:::
+
+## Notions générales sur les tests statistiques
+
+- Mais il existe une possibilité de se tromper
+  - Croire le chercheur alors qu'il avait tort
+  - Ne pas croire ce chercheur alors qu'il avait raison
+
+- Test présentant une forte probabilité d'être inexact
+- Si augmentation de la pluie, le niveau suit une loi $N(650,\frac{100}{\sqrt 9})$
+
+### Erreur commise quand $\hat\mu$ inférieur à 655
+- Probabilité $\beta = p(\hat\mu < 655)$
+- $u = \frac{\hat\mu - 650}{100 / \sqrt 9}$ suit une loi $N(0,1)$
+- $\beta = p(u < \frac{655 - 650}{100 / \sqrt 9}) = p(u < 0.15)$
+- $\beta = 0.56$, ce qui est effectivement considérable
+
+## Notions générales sur les tests statistiques
+
+- Deux probabilités d'erreur
+  - $\alpha$ : risque de première espèce
+  - $\beta$  :  risque de seconde espèce
+
+| | $H_0$ vraie | $H_1$ vraie |
+|-|-|-|
+| Choix $H_0$    | $1 - \alpha$ | $\beta$ |
+| Choix $H_1$    | $\alpha$ | $1 - \beta$ |
+
+- Dans la pratique, plus d'importance à l'hypothèse nulle
+- Calcul de $\beta$ souvent impossible
+- $1 - \beta$ est appelé **puissance du test**
+- Choix des probabilités d'erreur $\alpha$ de 5\%, 1\% ou 10\%
+
+
+## Notions générales sur les tests statistiques
+
+### Pour effectuer un test, voici les étapes à suivre
+1. Etablir deux hypothèses contradictoires, 
+1. Déterminer la variable de décision,
+1. Calculer la région critique en fonction de $\alpha$,
+1. Calculer si possible la puissance $1 - \beta$,
+1. Calculer la valeur expérimentale de la variable de décision,
+1. Conclure : rejet ou acceptation de $H_0$.
+
+### Types de test
+- Unilatéral : on cherche à tester si une variable a une moyenne supérieure (ou inférieure) à une certaine valeur
+  - risque sur un seul côté
+- Bilatéral : on cherche à tester  si une variable a une moyenne égale à une certaine valeur
+  - risque des deux côtés
+
+## Exemple de test
+
+- Niveau de pluie suit une loi $N(600, 100)$ (étude précédente)
+- Est-ce toujours le même ?
+
+- On a mesuré le niveau de pluie pendant 9 ans, et on a obtenu les valeurs suivantes :
+  - $\bar{x} = 610.2222$ et $s = 111.5289$
+  - Intervalle de confiance à 5% : $[537.3; 683.1]$
+
+- Hypothèses
+  - [$H_0$] : le niveau n'a pas changé
+  - [$H_1$] : le niveau a changé
+- Région critique : en dehors de l'intervalle de confiance
+
+$\rightarrow$ Conservation de $H_0$ (pas de changement du niveau de pluie)
