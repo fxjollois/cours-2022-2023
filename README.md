@@ -1,6 +1,6 @@
 # Cours 2022-2023
 
-en construction
+Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'année 2022-2023.
 
 ## IUT Paris-Rives de Seine
 

@@ -2,7 +2,7 @@
 
 - [Introduction à MongoDB](python-mongodb.slides.html)
 
-- [TP à faire](https://fxjollois.github.io/cours-2021-2022/du-ads/python-mongodb-evaluation)
+- [TP à faire](python-mongodb-evaluation)
 
 ## Pour travail à la maison
 

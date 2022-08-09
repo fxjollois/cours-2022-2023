@@ -231,7 +231,7 @@ Vous devriez avoir à la fin quelque chose proche de ce [résultat](https://publ
 
 Espace de dépôt du travail (pensez à mettre votre nom dans le nom du fichier ) : 
 
-<https://cloud.parisdescartes.fr/index.php/s/RDMjcfYTkeQQsc4>
+
 
 ### Réaliser les *feuilles* suivantes :
 
