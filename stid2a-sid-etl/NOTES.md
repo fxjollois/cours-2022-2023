@@ -8,9 +8,9 @@
     - 6 x 3 heures en FA
     - 12 x 1,5 heures en FI
 - Programme possible
-    1. Rappel SQL : création de tables et de contraintes
-    2. Rappel SQL : requêtage
-    3. Introduction aux SID
+    1. Introduction aux SID
+    2. Rappel SQL : création de tables et de contraintes
+    3. Rappel SQL : requêtage
     4. Modélisation d'un SID
     5. TD Modélisation
     6. TD Modélisation et/ou évaluation
