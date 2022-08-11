@@ -6,13 +6,9 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 
 ### Département STID
 
-- BUT STID 2ème année - Ressource *SID* et SAE *Intégration de données*
-    - **Formation initiale**
-        - [EMS](stid2a-sid-etl/fi-ems)
-        - [VCOD](stid2a-sid-etl/fi-vcod)
-    - **Formation en alternance**
-        - [EMS](stid2a-sid-etl/fa-ems) 
-        - [VCOD](stid2a-sid-etl/fa-vcod)
+- BUT STID 2ème année - **Ressource *SID* et SAE *Intégration de données* **
+    - **Formation initiale** : [EMS](stid2a-sid-etl/fi-ems) - [VCOD](stid2a-sid-etl/fi-vcod)
+    - **Formation en alternance** : [EMS](stid2a-sid-etl/fa-ems) - [VCOD](stid2a-sid-etl/fa-vcod)
     
 - DU Data Science : 
     - [Python et MongoDB](du-ads)
