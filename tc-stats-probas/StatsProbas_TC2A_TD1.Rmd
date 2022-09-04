@@ -1,31 +1,16 @@
 ---
 title: "Rappels de Statistique"
 author: "FX Jollois"
-date: "TC - 2ème année - 2021/2022"
+date: "BUT TC - 2ème année"
 output:
-  beamer_presentation:
-    theme: "Madrid"
-    colortheme: "seahorse"
-    fonttheme: "structurebold"
-header-includes:
-- \usepackage{booktabs}
-- \usepackage{longtable}
-- \usepackage{array}
-- \usepackage{multirow}
-- \usepackage{wrapfig}
-- \usepackage{float}
-- \usepackage{colortbl}
-- \usepackage{pdflscape}
-- \usepackage{tabu}
-- \usepackage{threeparttable}
-- \usepackage{threeparttablex}
-- \usepackage[normalem]{ulem}
-- \usepackage{makecell}
-- \usepackage{xcolor}
+  xaringan::moon_reader:
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align='center', fig.height=4)
 library(tidyverse)
 library(knitr)
 library(kableExtra)
@@ -45,31 +30,53 @@ library(kableExtra)
 
 - Essor important avec le développement des outils informatiques et du web
 
+---
+
 ## Définitions de base
 
-- **Population** : ensemble d'entités (personnes, objets...) étudiés
-- **Individu** (ou *unité statistique*) : entité étudié
-- **Variable** : caractéristique étudié sur chaque individu
-- **Observation** : mesure 
-- **Série statistique** : série d'observations recueillies sur les individus
-- **Tableau de données** : stockage de la série statistique
-  - Individus croisant des variables 
-  - Chaque ligne représente un individu
-  - Chaque colonne représente une variable (ou attribut)
-  - C'est ce qu'on fait classiquement dans un tableur de type Excel
+- Population : ensemble d'entités (personnes, objets...) étudiés
 
-## Données *Diamants*
+--
+
+- Individu (ou *unité statistique*) : entité étudié
+
+--
+
+- Variable : caractéristique étudié sur chaque individu
+
+--
+
+- Observation : mesure 
+
+--
+
+- Série statistique : série d'observations recueillies sur les individus
+
+--
+
+- Tableau de données : stockage de la série statistique
+    - Individus croisant des variables 
+    - Chaque ligne représente un individu
+    - Chaque colonne représente une variable (ou attribut)
+    - C'est ce qu'on fait classiquement dans un tableur de type Excel
+
+---
+## Données *diamants*
 
 - Exemple utilisé dans ce document
 - ~54000 diamants (10 premières lignes ici)
 
 ```{r donnees}
-kable(diamonds %>% slice(sample(1:nrow(diamonds), 10)), format = "latex") %>%
-  kable_styling(position = "center", latex_options = c("striped", "scale_down"))
+kable(diamonds %>% slice(sample(1:nrow(diamonds), 10)), format = "html") %>%
+  kable_styling(position = "center")
 ```
 
+---
 ## Recensement vs Sondage
 
+2 méthodes de recueil de données
+
+--
 ### Recensement
 
 Etude de tous les individus d'une population
@@ -77,6 +84,7 @@ Etude de tous les individus d'une population
 - Recueil exhaustif de toutes les informations sur tous les entités
 - Difficile à mettre en œuvre la plupart du temps
 
+--
 
 ### Sondage
 
@@ -85,48 +93,67 @@ Etude d'une partie de la population pour extrapolation sur l'ensemble de la popu
 - Partie des individus étudiés = **échantillon**
 - Représentativité de l'échantillon ?
 
+---
 ## Type de variables
 
 ### Variable quantitative
 
 - Caractéristiques numériques : opérations de type somme ayant un sens
-- **Continue** : 
-  - Mesurable
-  - Ex : taille, poids, durée...
-- **Discrète** :
-  - Dénombrable ou mesurable en espace fini
-  - Ex : âge, quantité en stock...
 
+--
+
+### Continue
+
+- Mesurable
+- Ex : taille, poids, durée...
+
+--
+
+### Discrète
+
+- Dénombrable ou mesurable en espace fini
+- Ex : âge, quantité en stock...
+
+---
 ## Type de variables
 
 ### Variable qualitative
 
 - Caractéristiques non numériques : opérations de type somme n'ayant pas de sens
-  - Valeurs possibles : **Modalités** (ou catégories)
-- **Nominale** :
-  - Modalités n'ayant pas de lien entre elles
-  - Ex : couleur des yeux, sexe...
-  - Cas particulier : *binaire*
-- **Ordinale** : 
-  - Modalités devant être triées dans un ordre spécifique
-  - Ex : mois, sentiment...
+- Valeurs possibles : **Modalités** (ou catégories)
 
+--
+
+### Nominale
+
+- Modalités n'ayant pas de lien entre elles
+- Ex : couleur des yeux, sexe...
+- Deux cas particulier : 
+  - *Binaire* : 2 valeurs possibles uniquement (Ex : oui/non, présence/absence...)
+  - *Ordinale* : Modalités devant être triées dans un ordre spécifique (Ex : mois, sentiment...)
+
+
+---
 ## Transformation de variable
 
 ### Quantitative en qualitative
 
 - Courant de transformer une variable **quantitative** en variable **qualitative ordinale**
-  - Ex : Catégorie d'âge, Nombre d'enfants du foyer, \ldots
+  - Ex : Catégorie d'âge, Nombre d'enfants du foyer, ...
+
 - Différents problèmes se posent
   - Combien de modalités (*intervalles* ici) ? 
   - Taille identique des intervalles ou variable (*amplitude*) ?
   - Seuils des intervalles ?
 
+
+---
 ## Transformation de variable
 
 ### Standardisation ou normalisation d'une variable quantitative
 
 - Obligatoire pour l'utilisation de certaines méthodes statistiques
+
 - 2 opérations sont réalisées :
   - Centrage : on retire la moyenne à chaque valeur
   - Réduction : on divise par la variance
@@ -134,15 +161,20 @@ $$
   x_{norm} = \frac{x - \bar{x}}{\sigma^2}
 $$
 
+
+---
 ## Premier problème : décrire les données
 
 On parle de **Statistique descriptive** ou **exploratoire**
 
+--
 ### Objectifs 
 
 - Résumer l'information contenue dans les données
 - Faire ressortir des éléments intéressants
 - Poser des hypothèses sur des phénomènes potentiellement existant dans les données
+
+--
 
 ### Outils
 
@@ -150,42 +182,46 @@ On parle de **Statistique descriptive** ou **exploratoire**
 - Description graphique (histogramme, diagramme en barres, nuage de points...)
 
 
+---
 ## Variable quantitative
 
 - Moyenne $\bar{x}$
 $$
 \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
 $$
+
+--
+
 - Variance (et écart-type $\sigma(x)$)
 $$
   \sigma^2(x) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
 $$
 
+---
 ## Variable quantitative
 
 - Médiane $med(x)$ : valeur permettant de séparer les observations ordonnées prises par $x$ en 2 groupes de même taille
 $$
-med(x) = m | p(x \le m) = .5
+med(x) = m | P(x \le m) = .5
 $$
   - si $n$ est impair : $med(x) = x_{(n + 1) / 2}$
   - si $n$ est pair : $med(x) = \frac{x_{n/2} + x_{n/2 + 1}}{2}$
-  
+
+--
+
 - Quantile $q_p(x)$ : valeur pour laquelle une proportion $p$ d'observations sont inférieures
 $$
-  q_p(x) = q | p(x \le q) = p
+  q_p(x) = q | P(x \le q) = p
 $$
   - Quartiles $Q1$ et $Q3$ : respectivement 25% et 75% (utilisés dans les boîtes à moustaches)
   
 
+---
 ## Variable quantitative
 
 Exemple : prix des diamants
 
-::: columns
-
-:::: column
-
-### Représentation numérique
+.pull-left[### Représentation numérique
 
 ```{r qt-num}
 x = diamonds$price
@@ -196,68 +232,76 @@ tib = tibble(
 kable(tib) %>%
   kable_styling(position = "center")
 ```
+]
 
-::::
+--
 
-:::: column
-
-### A regarder aussi :
+.pull-right[### A regarder aussi :
 
 - Divergence moyenne et médiane 
   - Valeurs extrêmes présentes
   - Déséquilibre de la répartition des valeurs 
 - Présence de valeurs aberrantes
   - On parle d'**outliers**
+]
 
-::::
-
-:::
-
+---
 ## Variable quantitative
 
 ### Représentation graphique 
 
-Histogramme et boîte à moustaches
+Histogramme 
 
-```{r qt-graph-tous, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
+```{r qt-graph-hist, warning=FALSE, message=FALSE}
 library(cowplot)
-g1 = ggplot(diamonds, aes(price)) + 
+ggplot(diamonds, aes(price)) + 
   geom_histogram(fill = "steelblue") + 
   geom_vline(xintercept = mean(diamonds$price), alpha = .5) +
   annotate("text", x = mean(diamonds$price), y = 15000, label = "Moyenne", hjust = -.1, size = 7) +
   labs(y = "", x = "") +
   theme_minimal() + xlim(c(0, 20000)) +
   theme(text = element_text(size = 25))
-g2 = ggplot(diamonds, aes(price, "")) + 
+```
+
+---
+## Variable quantitative
+
+### Représentation graphique 
+
+Boîte à moustaches
+
+```{r qt-graph-box, warning=FALSE, message=FALSE}
+library(cowplot)
+ggplot(diamonds, aes(price, "")) + 
   geom_boxplot(fill = "steelblue", outlier.alpha = 0.5) + 
   labs(y = "", x = "") +
   theme_minimal() + xlim(c(0, 20000)) +
   theme(text = element_text(size = 25))
-plot_grid(g1, g2, 
-          ncol = 1, rel_heights = c(2, 1),
-          align = 'v', axis = 'lr')  
 ```
 
 
+---
 ## Variable qualitative
 
 ### Nominale
 
-- Modalités de la variable $x$ : $m_j$ (avec $j=1,\ldots,p$)
+- Modalités de la variable $x$ : $m_j$ (avec $j=1,...,p$)
 - Effectif (ou occurrences) d'une modalité $n_j$ : nombre d'individus ayant la modalité $m_j$
 - Fréquence d'une modalité $f_j$
 $$
-  f_j = \frac{n_j}{n}
+f_j = \frac{n_j}{n}
 $$
+
+--
 
 ### Ordinale
 
 - Effectif cumulé $n_j^{cum}$ : nombre d'individus ayant une modalité entre $n_1$ et $n_j$
-- Fréquence cumulée 
-$$
-  n_j^{cum} = \sum_{k=1}^j n_k \mbox{ and } f_j^{cum} = \sum_{k=1}^j f_k
-$$
+- Fréquence cumulée
 
+$$n_j^{cum} = \sum_{k=1}^j n_k \mbox{ and } f_j^{cum} = \sum_{k=1}^j f_k$$
+
+---
 ## Variable qualitative
 
 Exemple : Qualité de découpe (*ordinale* de plus)
@@ -273,23 +317,27 @@ tib = tibble(
   Fréquences = as.numeric(prop.table(tab)),
   "Fréquences cumulées" = cumsum(prop.table(tab))
 )
-kbl(tib, digits = 2, format = "latex") %>% column_spec(1:5, width = "5em") %>%
-  kable_styling(position = "center", latex_options = "scale_down")
+kbl(tib, digits = 2, format = "html") %>% column_spec(1:5, width = "5em") %>%
+  kable_styling(position = "center")
 ```
+
+--
 
 ### A regarder aussi :
 
+.small[
 - Différence entre les proportions 
 - Si modalités peu fréquentes, regroupement de modalités à envisager
-  - Attention au sens de ces regroupements
+]
 
+---
 ## Variable qualitative
 
 ### Représentation graphique
 
 Diagramme en barres
 
-```{r ql-graph-bar, out.width='80%', fig.align='center'}
+```{r ql-graph-bar}
 ggplot(diamonds, aes(cut, fill = cut)) +
   geom_bar(show.legend = FALSE) +
   scale_fill_brewer(palette = "Dark2") +
@@ -297,6 +345,7 @@ ggplot(diamonds, aes(cut, fill = cut)) +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Quantitative vs quantitative
 
 - Covariance
@@ -304,7 +353,9 @@ $$
   cov(x,y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x}) (y_i - \bar{y})
 $$
   - Problème : non bornée et donc non exploitable
-  
+
+--
+
 - Coefficient de corrélation linéaire (de *Pearson*)
 $$
   \rho(x,y) = \frac{cov(x,y)}{\sigma^2(x) \sigma^2(y)}
@@ -315,6 +366,7 @@ $$
     - $1$ : lien positif fort (si $x$ augmente, $y$ augmente)
     - $-1$ : lien négatif fort (si $x$ augmente, $y$ diminue)
 
+---
 ## Quantitative vs quantitative
 
 Exemple : Prix et Carat
@@ -332,21 +384,25 @@ kable(tib, digits = 2) %>%
   kable_styling(position = "center")
 ```
 
+--
+
 ### A regarder aussi :
 
 - Présence d'**outliers** avec un comportement atypique
 
+---
 ## Quantitative vs quantitative
 
 ### Représentation graphique 
 Nuage de points
 
-```{r qtqt-graph, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
+```{r qtqt-graph, warning=FALSE, message=FALSE}
 ggplot(diamonds, aes(carat, price)) + 
   geom_point(color = "steelblue") + theme_minimal() +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Anscombe
 
 La visualisation est aussi importante (voire plus) que la représentation numérique !
@@ -374,9 +430,10 @@ kable(c, digits = 2) %>%
   kable_styling(position = "center")
 ```
 
+---
 ## Anscombe
 
-```{r anscombe-graph, out.width='90%', fig.align='center'}
+```{r anscombe-graph}
 b = Reduce(rbind, a)
 ggplot(b, aes(x, y)) +
   geom_point(size = 4) +
@@ -385,6 +442,7 @@ ggplot(b, aes(x, y)) +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Qualitative vs qualitative
 
 - Table de contingence
@@ -405,16 +463,20 @@ kable(tab) %>%
   kable_styling(position = "center")
 ```
 
+---
 ## Qualitative vs qualitative
 
 - Profils lignes et colonnes
   - Distribution d'une variable conditionnellement aux modalités de l'autre
+  - Pour une ligne $i$ : $\frac{n_{ij}}{n_{i.}}$
+  - Pour une colonne $j$ : $\frac{n_{ij}}{n_{.j}}$
 
+---
 ## Qualitative vs qualitative
 
 Exemple : Qualité et couleur
 
-### Représentation numérique
+.pull-left[### Représentation numérique
 
 ```{r qlql-num}
 t = t(table(diamonds$cut, diamonds$color))
@@ -422,17 +484,22 @@ tib = tibble(as.data.frame.matrix(t) %>% rownames_to_column("color"))
 kable(tib) %>%
   kable_styling(position = "center")
 ```
+]
 
-### A regarder aussi :
+--
+
+.pull-right[### A regarder aussi :
 
 - Couple de modalités très peu pris
 - Ici aussi, regroupement de modalités à envisager éventuellement
+]
 
+---
 ## Qualitative vs qualitative
 
 ### Représentation graphique 
 
-```{r qtql-graph, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
+```{r qtql-graph, warning=FALSE, message=FALSE}
 ggplot(diamonds, aes(cut, fill = color)) +
   geom_bar(position = "dodge", color = "black") +
   scale_fill_brewer(palette = "Blues") +
@@ -441,11 +508,12 @@ ggplot(diamonds, aes(cut, fill = color)) +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Qualitative vs qualitative
 
 ### Représentation graphique 
 
-```{r qtql-graph-bis, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
+```{r qtql-graph-bis, warning=FALSE, message=FALSE}
 ggplot(diamonds, aes(color, fill = cut)) +
   geom_bar(position = "dodge", color = "black") +
   scale_fill_brewer(palette = "Dark2") +
@@ -454,6 +522,7 @@ ggplot(diamonds, aes(color, fill = cut)) +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Qualitative vs qualitative
 
 Exemple : Qualité et couleur
@@ -469,9 +538,12 @@ kable(tib, digits = 2) %>%
   kable_styling(position = "center")
 ```
 
+---
 ## Qualitative vs qualitative
 
 ### Représentation graphique 
+
+Profils colonnes
 
 ```{r qtql-graph-2, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
 ggplot(diamonds, aes(cut, fill = color)) +
@@ -481,6 +553,7 @@ ggplot(diamonds, aes(cut, fill = color)) +
   theme(text = element_text(size = 25))
 ```
 
+---
 ## Qualitative vs qualitative
 
 Exemple : Qualité et couleur
@@ -496,9 +569,12 @@ kable(tib, digits = 2) %>%
   kable_styling(position = "center")
 ```
 
+---
 ## Qualitative vs qualitative
 
 ### Représentation graphique 
+
+Profils lignes
 
 ```{r qtql-graph-3, warning=FALSE, message=FALSE, out.width='80%', fig.align='center'}
 ggplot(diamonds, aes(color, fill = cut)) +
@@ -509,24 +585,24 @@ ggplot(diamonds, aes(color, fill = cut)) +
 ```
 
 
+---
 ## Qualitative vs quantitative
 
 - Soit $Y$ la variable qualitative à $m$ modalités, et $X$ la variable quantitative
 - Sous-populations déterminées par les modalités de $Y$
-- Indicateurs calculés pour chaque modalité
+- Indicateurs calculés pour chaque modalité k
 
-$$
-  \bar{x_j} = \frac{1}{n_j} \sum_{i | y_i = j} x_i
-$$
-$$
-  \sigma^2(x_j) = \frac{1}{n_j} \sum_{i | y_i = j} (x_i - \bar{x_j})^2
-$$
 
+$$\bar{x_j} = \frac{1}{n_j} \sum_{i | y_i = j} x_i$$
+
+$$\sigma^2(x_j) = \frac{1}{n_j} \sum {}_{i | y_i = j} (x_i - \bar{x_j})^2$$
+
+---
 ## Qualitative vs quantitative
 
 Exemple : Qualité et prix
 
-### Représentation numérique
+.pull-left[### Représentation numérique
 
 ```{r qlqt-num, message=FALSE}
 tib = diamonds %>% 
@@ -535,11 +611,16 @@ tib = diamonds %>%
 kable(tib, digits = 2) %>%
   kable_styling(position = "center")
 ```
+]
 
-### A regarder aussi :
+--
+
+.pull-right[### A regarder aussi :
 
 - Outliers
+]
 
+---
 ## Qualitative vs quantitative
 
 ### Représentation graphique 
@@ -555,9 +636,12 @@ ggplot(diamonds, aes(cut, price, fill = cut)) +
 
 
 
+---
 ## Deuxième problème : Extrapoler à partir de données
 
 On parle alors de **statistique inférentielle**
+
+--
 
 ### Cadre
 
@@ -565,14 +649,18 @@ On parle alors de **statistique inférentielle**
 - Modèle probabiliste sur la population 
 - Méthodes d'échantillonnage pour choisir au mieux l'échantillon
 
+--
+
 ### Objectifs 
 
 - Etendre les conclusions faites sur l'échantillon à toute la population
-- Valider (ou non) des hypothèses faites sur la population en analysant l'échantillon
+- Valider des hypothèses faites sur la population en analysant l'échantillon
+
+--
 
 ### Outils
 
-- Estimation : approximer des paramètres de la population à partir de l'échantillon
+- Estimation : approximer des paramètres de la population
 - Test : valider les hypothèses
 - Modélisation : rechercher des liens entre variables
 

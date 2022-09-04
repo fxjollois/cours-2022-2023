@@ -2,7 +2,9 @@
 
 ## DUT TC - 2ème année
 
-- [Séance 1](StatsProbas_TC2A_TD1.pdf) - Rappel de statistiques descriptives
+- [Séance 1](StatsProbas_TC2A_TD1.html) - Rappel de statistiques descriptives
+
+<!--
 - [Séance 2](StatsProbas_TC2A_TD2.pdf) - Variables aléatoires et lois usuelles
 - [Séance 3](StatsProbas_TC2A_TD3.html) - Exercices autour des lois et du calcul de probabilités
 - [Séance 4](StatsProbas_TC2A_TD4.pdf) - Estimation et Test
@@ -11,8 +13,8 @@
 - [Séance 7](StatsProbas_TC2A_TP1.html) - Estimation et tests sous Excel
 - [Séance 8](StatsProbas_TC2A_TP2.html) - Travail sous Excel
 
-
 Lien vers les cours **eCampus** :
 
 - [RCP - Groupes GIIa, GIIb, GIIc](https://ecampus.unicaen.fr/course/view.php?id=22901)
 - [OS - Groupe GIII](https://ecampus.unicaen.fr/course/view.php?id=22902)
+-->

@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Rappels de Statistique</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="FX Jollois" />
+    <script src="StatsProbas_TC2A_TD1_files/header-attrs-2.13/header-attrs.js"></script>
+    <link href="StatsProbas_TC2A_TD1_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="StatsProbas_TC2A_TD1_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="StatsProbas_TC2A_TD1_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="StatsProbas_TC2A_TD1_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Rappels de Statistique
+]
+.author[
+### FX Jollois
+]
+.date[
+### BUT TC - 2ème année
+]
+
+---
+
+
+
+
+## Qu'est-ce que la statistique ?
+
+- Ensemble de méthodes permettant de décrire et d'analyser des observations (communément appelées **données** de nos jours)
+
+- Utilisé maintenant dans tous les secteurs d'activités
+  - Economie et finance : marketing, sondages...
+  - Industrie : fiabilité, contrôle qualité...
+  - Santé : recherche médicale, gestion des hôpitaux...
+  - Environnement : prévisions climatiques et météorologiques, pollution...
+  - Web : réseaux, publicité...
+  - ...
+
+- Essor important avec le développement des outils informatiques et du web
+
+---
+
+## Définitions de base
+
+- Population : ensemble d'entités (personnes, objets...) étudiés
+
+--
+
+- Individu (ou *unité statistique*) : entité étudié
+
+--
+
+- Variable : caractéristique étudié sur chaque individu
+
+--
+
+- Observation : mesure 
+
+--
+
+- Série statistique : série d'observations recueillies sur les individus
+
+--
+
+- Tableau de données : stockage de la série statistique
+    - Individus croisant des variables 
+    - Chaque ligne représente un individu
+    - Chaque colonne représente une variable (ou attribut)
+    - C'est ce qu'on fait classiquement dans un tableur de type Excel
+
+---
+## Données *diamants*
+
+- Exemple utilisé dans ce document
+- ~54000 diamants (10 premières lignes ici)
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; carat &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; cut &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; color &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; clarity &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; depth &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; table &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; price &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; x &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; y &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; z &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1.02 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Premium &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SI2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 62.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4151 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.45 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.02 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.31 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ideal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; IF &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1046 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.38 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.72 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1.34 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ideal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SI1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7893 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.07 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.38 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.90 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Good &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; VS2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4234 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.87 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.71 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Good &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; VS2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 64.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.62 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.60 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.37 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Premium &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; VS1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1124 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.80 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1.20 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Ideal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; VS2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 62.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8486 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.83 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.24 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.95 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Very Good &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; I &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SI1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3378 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.92 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.41 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Good &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SI2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 63.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 638 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.68 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.75 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.01 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Very Good &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; VVS2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 62.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 552 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.95 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.98 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.47 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Recensement vs Sondage
+
+2 méthodes de recueil de données
+
+--
+### Recensement
+
+Etude de tous les individus d'une population
+
+- Recueil exhaustif de toutes les informations sur tous les entités
+- Difficile à mettre en œuvre la plupart du temps
+
+--
+
+### Sondage
+
+Etude d'une partie de la population pour extrapolation sur l'ensemble de la population
+
+- Partie des individus étudiés = **échantillon**
+- Représentativité de l'échantillon ?
+
+---
+## Type de variables
+
+### Variable quantitative
+
+- Caractéristiques numériques : opérations de type somme ayant un sens
+
+--
+
+### Continue
+
+- Mesurable
+- Ex : taille, poids, durée...
+
+--
+
+### Discrète
+
+- Dénombrable ou mesurable en espace fini
+- Ex : âge, quantité en stock...
+
+---
+## Type de variables
+
+### Variable qualitative
+
+- Caractéristiques non numériques : opérations de type somme n'ayant pas de sens
+- Valeurs possibles : **Modalités** (ou catégories)
+
+--
+
+### Nominale
+
+- Modalités n'ayant pas de lien entre elles
+- Ex : couleur des yeux, sexe...
+- Deux cas particulier : 
+  - *Binaire* : 2 valeurs possibles uniquement (Ex : oui/non, présence/absence...)
+  - *Ordinale* : Modalités devant être triées dans un ordre spécifique (Ex : mois, sentiment...)
+
+
+---
+## Transformation de variable
+
+### Quantitative en qualitative
+
+- Courant de transformer une variable **quantitative** en variable **qualitative ordinale**
+  - Ex : Catégorie d'âge, Nombre d'enfants du foyer, ...
+
+- Différents problèmes se posent
+  - Combien de modalités (*intervalles* ici) ? 
+  - Taille identique des intervalles ou variable (*amplitude*) ?
+  - Seuils des intervalles ?
+
+
+---
+## Transformation de variable
+
+### Standardisation ou normalisation d'une variable quantitative
+
+- Obligatoire pour l'utilisation de certaines méthodes statistiques
+
+- 2 opérations sont réalisées :
+  - Centrage : on retire la moyenne à chaque valeur
+  - Réduction : on divise par la variance
+$$
+  x_{norm} = \frac{x - \bar{x}}{\sigma^2}
+$$
+
+
+---
+## Premier problème : décrire les données
+
+On parle de **Statistique descriptive** ou **exploratoire**
+
+--
+### Objectifs 
+
+- Résumer l'information contenue dans les données
+- Faire ressortir des éléments intéressants
+- Poser des hypothèses sur des phénomènes potentiellement existant dans les données
+
+--
+
+### Outils
+
+- Description numérique (moyenne, occurrences, corrélation...)
+- Description graphique (histogramme, diagramme en barres, nuage de points...)
+
+
+---
+## Variable quantitative
+
+- Moyenne `\(\bar{x}\)`
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
+$$
+
+--
+
+- Variance (et écart-type `\(\sigma(x)\)`)
+$$
+  \sigma^2(x) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+---
+## Variable quantitative
+
+- Médiane `\(med(x)\)` : valeur permettant de séparer les observations ordonnées prises par `\(x\)` en 2 groupes de même taille
+$$
+med(x) = m | P(x \le m) = .5
+$$
+  - si `\(n\)` est impair : `\(med(x) = x_{(n + 1) / 2}\)`
+  - si `\(n\)` est pair : `\(med(x) = \frac{x_{n/2} + x_{n/2 + 1}}{2}\)`
+
+--
+
+- Quantile `\(q_p(x)\)` : valeur pour laquelle une proportion `\(p\)` d'observations sont inférieures
+$$
+  q_p(x) = q | P(x \le q) = p
+$$
+  - Quartiles `\(Q1\)` et `\(Q3\)` : respectivement 25% et 75% (utilisés dans les boîtes à moustaches)
+  
+
+---
+## Variable quantitative
+
+Exemple : prix des diamants
+
+.pull-left[### Représentation numérique
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Statistique &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Valeur &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Moyenne &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3932.80 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ecart-Type &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3989.44 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Variance &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15915629.42 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Médiane &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2401.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Minimum &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 326.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Maximum &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18823.00 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+--
+
+.pull-right[### A regarder aussi :
+
+- Divergence moyenne et médiane 
+  - Valeurs extrêmes présentes
+  - Déséquilibre de la répartition des valeurs 
+- Présence de valeurs aberrantes
+  - On parle d'**outliers**
+]
+
+---
+## Variable quantitative
+
+### Représentation graphique 
+
+Histogramme 
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qt-graph-hist-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Variable quantitative
+
+### Représentation graphique 
+
+Boîte à moustaches
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qt-graph-box-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+## Variable qualitative
+
+### Nominale
+
+- Modalités de la variable `\(x\)` : `\(m_j\)` (avec `\(j=1,...,p\)`)
+- Effectif (ou occurrences) d'une modalité `\(n_j\)` : nombre d'individus ayant la modalité `\(m_j\)`
+- Fréquence d'une modalité `\(f_j\)`
+$$
+f_j = \frac{n_j}{n}
+$$
+
+--
+
+### Ordinale
+
+- Effectif cumulé `\(n_j^{cum}\)` : nombre d'individus ayant une modalité entre `\(n_1\)` et `\(n_j\)`
+- Fréquence cumulée
+
+`$$n_j^{cum} = \sum_{k=1}^j n_k \mbox{ and } f_j^{cum} = \sum_{k=1}^j f_k$$`
+
+---
+## Variable qualitative
+
+Exemple : Qualité de découpe (*ordinale* de plus)
+
+### Représentation numérique
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Modalités &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Effectifs &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Effectifs cumulés &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fréquences &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fréquences cumulées &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Fair &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 1610 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 1610 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.03 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Good &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 4906 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 6516 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.09 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Very Good &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 12082 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 18598 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.22 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.34 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Premium &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 13791 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 32389 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.26 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.60 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; Ideal &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 21551 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 53940 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 0.40 &lt;/td&gt;
+   &lt;td style="text-align:right;width: 5em; "&gt; 1.00 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+### A regarder aussi :
+
+.small[
+- Différence entre les proportions 
+- Si modalités peu fréquentes, regroupement de modalités à envisager
+]
+
+---
+## Variable qualitative
+
+### Représentation graphique
+
+Diagramme en barres
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/ql-graph-bar-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Quantitative vs quantitative
+
+- Covariance
+$$
+  cov(x,y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x}) (y_i - \bar{y})
+$$
+  - Problème : non bornée et donc non exploitable
+
+--
+
+- Coefficient de corrélation linéaire (de *Pearson*)
+$$
+  \rho(x,y) = \frac{cov(x,y)}{\sigma^2(x) \sigma^2(y)}
+$$
+  - Covariance des variables normalisées
+  - Valeurs comprises entre -1 et 1
+    - `\(0\)` : pas de lien linéaire (autre type de lien possible)
+    - `\(1\)` : lien positif fort (si `\(x\)` augmente, `\(y\)` augmente)
+    - `\(-1\)` : lien négatif fort (si `\(x\)` augmente, `\(y\)` diminue)
+
+---
+## Quantitative vs quantitative
+
+Exemple : Prix et Carat
+
+### Représentation numérique
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Statistique &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Valeur &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Covariance &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1742.77 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Corrélation &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.92 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+### A regarder aussi :
+
+- Présence d'**outliers** avec un comportement atypique
+
+---
+## Quantitative vs quantitative
+
+### Représentation graphique 
+Nuage de points
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qtqt-graph-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Anscombe
+
+La visualisation est aussi importante (voire plus) que la représentation numérique !
+
+Entre ces quatres séries :
+
+- même moyenne et même variance pour `\(x\)` et `\(y\)`
+- même coefficient de corrélation entre les deux
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 2 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 3 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 4 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Moyenne(x) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.00 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Moyenne(y) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.50 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ecart-type(x) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.32 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ecart-type(y) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.03 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Covariance &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.50 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Corrélation &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.82 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Anscombe
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/anscombe-graph-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Qualitative vs qualitative
+
+- Table de contingence
+  - Croisement des 2 ensembles de modalités, avec le nombre d'individus ayant chaque couple de modalités
+  - `\(n_{ij}\)` : Nombre d'observations ayant la modalité `\(i\)` pour `\(x\)` et `\(j\)` pour `\(y\)`
+  - `\(n_{i.}\)` : Effectif marginal (nombre d'observations ayant la modalité `\(i\)` pour `\(x\)`)
+  - `\(n_{.j}\)` : Effectif marginal (nombre d'observations ayant la modalité `\(j\)` pour `\(y\)`)
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; 1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; ... &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; j &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; ... &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; l &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; i &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; n_ij &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; n_i. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ... &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; k &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; n_.j &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; n_.. = n &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Qualitative vs qualitative
+
+- Profils lignes et colonnes
+  - Distribution d'une variable conditionnellement aux modalités de l'autre
+  - Pour une ligne `\(i\)` : `\(\frac{n_{ij}}{n_{i.}}\)`
+  - Pour une colonne `\(j\)` : `\(\frac{n_{ij}}{n_{.j}}\)`
+
+---
+## Qualitative vs qualitative
+
+Exemple : Qualité et couleur
+
+.pull-left[### Représentation numérique
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; color &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fair &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Very Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Premium &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Ideal &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 163 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 662 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1513 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1603 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2834 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 224 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 933 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2400 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2337 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3903 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 312 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 909 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2164 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2331 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3826 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 314 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 871 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2299 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2924 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4884 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; H &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 303 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 702 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1824 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2360 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3115 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; I &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 175 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 522 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1204 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1428 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2093 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; J &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 307 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 678 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 808 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 896 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+--
+
+.pull-right[### A regarder aussi :
+
+- Couple de modalités très peu pris
+- Ici aussi, regroupement de modalités à envisager éventuellement
+]
+
+---
+## Qualitative vs qualitative
+
+### Représentation graphique 
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qtql-graph-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Qualitative vs qualitative
+
+### Représentation graphique 
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qtql-graph-bis-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+## Qualitative vs qualitative
+
+Exemple : Qualité et couleur
+
+### Représentation numérique
+
+Profils colonnes ici (sommes en colonnes = 100%)
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; color &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fair &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Very Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Premium &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Ideal &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.13 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.18 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.21 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.23 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; H &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.14 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; I &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; J &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.07 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.06 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.04 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Qualitative vs qualitative
+
+### Représentation graphique 
+
+Profils colonnes
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qtql-graph-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+## Qualitative vs qualitative
+
+Exemple : Qualité et couleur
+
+### Représentation numérique
+
+Profils lignes ici (sommes en lignes = 100%)
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; color &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Fair &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Very Good &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Premium &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Ideal &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.42 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.02 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.40 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.40 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.08 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.43 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; H &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.08 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.38 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; I &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.39 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; J &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.32 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Qualitative vs qualitative
+
+### Représentation graphique 
+
+Profils lignes
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qtql-graph-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+## Qualitative vs quantitative
+
+- Soit `\(Y\)` la variable qualitative à `\(m\)` modalités, et `\(X\)` la variable quantitative
+- Sous-populations déterminées par les modalités de `\(Y\)`
+- Indicateurs calculés pour chaque modalité k
+
+
+`$$\bar{x_j} = \frac{1}{n_j} \sum_{i | y_i = j} x_i$$`
+
+`$$\sigma^2(x_j) = \frac{1}{n_j} \sum {}_{i | y_i = j} (x_i - \bar{x_j})^2$$`
+
+---
+## Qualitative vs quantitative
+
+Exemple : Qualité et prix
+
+.pull-left[### Représentation numérique
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; cut &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Moyenne &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Ecart-type &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Médiane &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Fair &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4358.76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3560.39 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3282.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Good &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3928.86 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3681.59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3050.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Very Good &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3981.76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3935.86 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2648.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Premium &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4584.26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4349.20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3185.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ideal &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3457.54 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3808.40 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1810.0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+--
+
+.pull-right[### A regarder aussi :
+
+- Outliers
+]
+
+---
+## Qualitative vs quantitative
+
+### Représentation graphique 
+Boîte à moustaches
+
+&lt;img src="StatsProbas_TC2A_TD1_files/figure-html/qlqt-graph-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+## Deuxième problème : Extrapoler à partir de données
+
+On parle alors de **statistique inférentielle**
+
+--
+
+### Cadre
+
+- Données issues d'un échantillon d'une population
+- Modèle probabiliste sur la population 
+- Méthodes d'échantillonnage pour choisir au mieux l'échantillon
+
+--
+
+### Objectifs 
+
+- Etendre les conclusions faites sur l'échantillon à toute la population
+- Valider des hypothèses faites sur la population en analysant l'échantillon
+
+--
+
+### Outils
+
+- Estimation : approximer des paramètres de la population
+- Test : valider les hypothèses
+- Modélisation : rechercher des liens entre variables
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
