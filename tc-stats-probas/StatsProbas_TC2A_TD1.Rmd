@@ -34,27 +34,27 @@ library(kableExtra)
 
 ## Définitions de base
 
-- Population : ensemble d'entités (personnes, objets...) étudiés
+- **Population** : ensemble d'entités (personnes, objets...) étudiées
 
 --
 
-- Individu (ou *unité statistique*) : entité étudié
+- **Individu** (ou *unité statistique*) : entité étudiée
 
 --
 
-- Variable : caractéristique étudié sur chaque individu
+- **Variable** : caractéristique étudiée sur chaque individu
 
 --
 
-- Observation : mesure 
+- **Observation** : mesure 
 
 --
 
-- Série statistique : série d'observations recueillies sur les individus
+- **Série statistique** : série d'observations recueillies sur les individus
 
 --
 
-- Tableau de données : stockage de la série statistique
+- **Tableau de données** : stockage de la série statistique
     - Individus croisant des variables 
     - Chaque ligne représente un individu
     - Chaque colonne représente une variable (ou attribut)
@@ -81,7 +81,7 @@ kable(diamonds %>% slice(sample(1:nrow(diamonds), 10)), format = "html") %>%
 
 Etude de tous les individus d'une population
 
-- Recueil exhaustif de toutes les informations sur tous les entités
+- Recueil exhaustif de toutes les informations sur toutes les entités
 - Difficile à mettre en œuvre la plupart du temps
 
 --
@@ -126,11 +126,12 @@ Etude d'une partie de la population pour extrapolation sur l'ensemble de la popu
 
 ### Nominale
 
-- Modalités n'ayant pas de lien entre elles
-- Ex : couleur des yeux, sexe...
-- Deux cas particulier : 
-  - *Binaire* : 2 valeurs possibles uniquement (Ex : oui/non, présence/absence...)
-  - *Ordinale* : Modalités devant être triées dans un ordre spécifique (Ex : mois, sentiment...)
+- Modalités n'ayant pas de lien entre elles (Ex : couleur des yeux, sexe...)
+- Cas particulier *Binaire* : 2 valeurs possibles uniquement (Ex : oui/non, présence/absence...)
+  
+### Ordinale 
+
+- Modalités devant être triées dans un ordre spécifique (Ex : mois, sentiment...)
 
 
 ---
@@ -214,6 +215,7 @@ $$
   q_p(x) = q | P(x \le q) = p
 $$
   - Quartiles $Q1$ et $Q3$ : respectivement 25% et 75% (utilisés dans les boîtes à moustaches)
+  - Quantiles usuels : $.01$ (1%), $.1$ (10%), $.9$ (90%) et $.99$ (99%)
   
 
 ---
