@@ -152,6 +152,7 @@ function maj2(){
 </table>
 
 ### Pile ou face à répétition
+
 On joue à pile ou face, 4 fois de suite. Et on note les résultats (dans l'ordre).
 
 1. Déterminer la loi de probabilité 
