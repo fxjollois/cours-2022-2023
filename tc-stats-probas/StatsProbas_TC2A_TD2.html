@@ -43,7 +43,7 @@ class: center, middle, inverse, title-slide
 
 --
 
-- **Ensemble des parties** : ensemble constitué de tous les sous-ensembles possible de `\(\Omega\)` (noté `\(\mathcal{P}(\Omega)\)`)
+- **Ensemble des parties** : ensemble constitué de tous les sous-ensembles possibles de `\(\Omega\)` (noté `\(\mathcal{P}(\Omega)\)`)
 
 --
 
@@ -95,7 +95,7 @@ Lancer d'un dé à 6 faces (non pipé), avec un jeu où on doit faire un nombre 
 
 --
 
-.center[![:scale 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/2560px-Venn0001.svg.png)]
+.center[![:scale 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/2560px-Venn0111.svg.png)]
 
 ---
 ## Rappels de probabilités : Evènements 
@@ -105,7 +105,7 @@ Lancer d'un dé à 6 faces (non pipé), avec un jeu où on doit faire un nombre 
 
 --
 
-.center[![:scale 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/2560px-Venn0111.svg.png)]
+.center[![:scale 80%](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/2560px-Venn0001.svg.png)]
 
 ---
 ## Rappels de probabilités : Evènements 
@@ -142,26 +142,32 @@ Lancer d'un dé à 6 faces (non pipé), avec un jeu où on doit faire un nombre 
 ---
 ## Rappels de probabilités
 
-**Probabilité** : fonction permettant de mesurer la chance de réalisation d'un évènement
+**Probabilité** : fonction permettant de mesurer la chance (ou le risque) de réalisation d'un évènement
 
 Quelques opérations :
 
 - `\(P(\emptyset) = 0\)` et `\(P(\Omega)=1\)`
+
 --
 
 - `\(0 \le P(A) \le 1\)`
+
 --
 
 - `\(P(A) = \sum_{\omega_i \in A} P(\omega_i)\)`
+
 --
 
 - `\(P(\bar{A}) = 1 - P(A)\)`
+
 --
 
 - `\(P(A) \le P(B)\)` si `\(A \subset B\)`
+
 --
 
 - `\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)`
+
 --
 
 - `\(P(\bigcup_i A_i) \le \sum_i P(A_i)\)`
@@ -176,6 +182,8 @@ $$
 --
 
 - Indépendance de 2 évènements `\(A\)` et `\(B\)`
+  - 2 évènements disjoints ne sont pas considérés comme indépendant
+  
 $$
   P(A \cap B) = P(A) P(B)
 $$
@@ -185,7 +193,6 @@ $$
 $$
   P(B / A) = P(B)
 $$
-  - 2 évènements disjoints ne sont pas considérés comme indépendant
 --
 
 - Théorème de Bayes
@@ -197,7 +204,7 @@ $$
 ## Variable aléatoire 
 
 ### Variable aléatoire
-Mesure d'un phénomène (*variable*) dont le résultat est déterminée par une expérience *aléatoire* (*i.e*. dépendant du hasard)
+Mesure d'un phénomène (*variable*) dont le résultat est déterminé par une expérience *aléatoire* (*i.e*. dépendant du hasard)
 
 --
 
@@ -386,7 +393,7 @@ On dispose de 10 boules numérotées de 1 à 10 dans une urne.
 
 ### Réponses
 
-Soit `\(X\)` une v.a. de loi uniforme discrète, à valeur entre 1 et 10. 
+Soit `\(\mathbf{X}\)` une v.a. de loi uniforme discrète, à valeur entre 1 et 10. 
 
 1. `\(P(X = 5) = \frac{1}{10}\)`
 1. `\(P(X_1 = 5 \mbox{ et } X_2 = 5) = P(X_1 = 5) P(X_2 = 5) = \frac{1}{100}\)` (car idépendance entre les 2 évènements)
@@ -444,7 +451,7 @@ On est en présence d'une assemblée de 250 personnes, dont 40 gauchers.
 
 ### Réponses
 
-Soit `\(X\)` une v.a. de loi de Bernouilli, valant 1 si la personne est gauchère, 0 sinon.
+Soit `\(\mathbf{X}\)` une v.a. de loi de Bernouilli, valant 1 si la personne est gauchère, 0 sinon.
 
 1. `\(P(X = 1) = \frac{40}{250} = .16\)`
 1. `\(P(X = 0) = 1 - P(X = 1) = 1 - .16 = .84\)` (complémentaire)
@@ -528,7 +535,7 @@ Supposons que nous avons formé 100 groupes de 2000 personnes, avec la même pro
 
 ### Réponses
 
-Soit `\(X\)` une v.a. de loi Binomiale, avec `\(p = .16\)` et `\(n = 100\)`
+Soit `\(\mathbf{X}\)` une v.a. de loi Binomiale, avec `\(p = .16\)` et `\(n = 100\)`
 
 1. `\(E(X) = np = 100 * .16 = 16\)`
 1. `\(P(X = 0) = C_0^{100} .16^0 .84^{100} = .84^{100} &lt; 0.0001\)` (très très faible) et `\(P(X = 100) = .16^{100} &lt; 0.0001\)` (aussi très très faible)
