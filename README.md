@@ -2,9 +2,7 @@
 
 Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'année 2022-2023.
 
-## IUT Paris-Rives de Seine
-
-### Département STID
+## IUT Paris-Rives de Seine - Département STID
 
 - BUT STID 2ème année - **Ressource *SID* et SAE *Intégration de données* **
     - **Formation initiale** : [EMS](stid2a-sid-etl/fi-ems) - [VCOD](stid2a-sid-etl/fi-vcod)
@@ -17,13 +15,15 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
     - [Introduction à Tableau](du-dataviz/tableau)
     - [Introduction à d3.js](du-dataviz/d3js)
 
+## Autres
 
 ### Département INFO
 
-- LP IoT :
-    - [Analyse Statistique des Données](lp-iot--python-ds)
+- [Analyse Statistique des Données](lp-iot--python-ds) (LP IoT)
 
-## Autres
+### UFR Math-Info, Université Paris Cité
+
+- [Extraction de connaissances à partir de données structurées et non structurées](m1-dci-ecd) (Master Informatique - parcours DCI)
 
 ### INSA ROUEN
 
