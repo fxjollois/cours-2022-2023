@@ -1,24 +1,40 @@
 # Rappels de SQL
 
-Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. Celui-ci représente un data warehouse (enfin, plutôt data mart) centré sur le chiffre d'affaires (CA) d'une entreprise en fonction de 3 dimensions (provenance, mois et département - ces deux dernières comprenant une hiérarchie). Voici les 4 tables le contenant (avec les liens pour les télécharger).
+Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. Celui-ci représente un *data warehouse* (enfin, plutôt *data mart*) centré sur le chiffre d'affaires (CA) d'une entreprise en fonction de 3 dimensions (provenance, mois et département - ces deux dernières comprenant une hiérarchie). Voici les 4 tables le contenant (avec le schéma).
 
-- [CA](https://fxjollois.github.io/donnees/ca/csv/ca.csv)
-- [Mois](https://fxjollois.github.io/donnees/ca/csv/mois.csv)
-- [Groupe](https://fxjollois.github.io/donnees/ca/csv/groupe.csv)
-- [Provenance](https://fxjollois.github.io/donnees/ca/csv/provenance.csv)
+<iframe width="560" height="315" src='https://dbdiagram.io/embed/618e4ed202cf5d186b53080c'> </iframe>
 
-Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer.
+Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. L'option `outobs` permet de faire un `LIMIT` (qui lui n'est pas possible sous SAS).
 
 ```sas
 PROC SQL outobs = 10;
-	SELECT *
-		FROM ca.CA;
+	-- votre requête;
 QUIT;
 ```
 
 ## Répondez aux demandes suivantes en utilisant exclusivement la PROC SQL
 
-1. Ecrire le programme permettant d'importer les 4 tables dans une librairie (nommé idéalement `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
+1. Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
+1. Importer les tables avec le code suivant :
+```sas
+%macro import(fic);
+filename csvFile "temp.csv";
+proc http method="get" out=csvFile url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv";
+run;
+PROC IMPORT datafile=csvFile 
+			out=temp dbms=csv replace;
+	getnames=yes;
+	delimiter=";";
+run;
+proc sql;
+	insert into ca.&fic. select * from temp;
+%mend;
+
+%import(provenance);
+%import(mois);
+%import(groupe);
+%import(ca);
+```
 1. Créer une vue comprenant l'ensemble des informations contenus dans les 4 tables, que vous nommerez `CA_ALL`
 1. Lister les groupes du département `"Ménage"`
 1. Combien de département ont un sous-groupe nommé "Divers" ? idem mais avec le mot "divers" dedans ?
