@@ -6,7 +6,7 @@ Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. C
 
 Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. L'option `outobs` permet de faire un `LIMIT` (qui lui n'est pas possible sous SAS).
 
-```sas
+```{sas}
 PROC SQL outobs = 10;
 	-- votre requête;
 QUIT;
@@ -16,7 +16,7 @@ QUIT;
 
 1. Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
 1. Importer les tables avec le code suivant :
-```sas
+```{sas}
 %macro import(fic);
 filename csvFile "temp.csv";
 proc http method="get" out=csvFile url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv";
