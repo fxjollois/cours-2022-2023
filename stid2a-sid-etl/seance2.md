@@ -2,7 +2,7 @@
 
 Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. Celui-ci représente un *data warehouse* (enfin, plutôt *data mart*) centré sur le chiffre d'affaires (CA) d'une entreprise en fonction de 3 dimensions (provenance, mois et département - ces deux dernières comprenant une hiérarchie). Voici les 4 tables le contenant (avec le schéma).
 
-<iframe width="560" height="315" src='https://dbdiagram.io/embed/618e4ed202cf5d186b53080c'> </iframe>
+<iframe width="1000" height = "500" src='https://dbdiagram.io/embed/618e4ed202cf5d186b53080c'> </iframe>
 
 Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. L'option `outobs` permet de faire un `LIMIT` (qui lui n'est pas possible sous SAS).
 
