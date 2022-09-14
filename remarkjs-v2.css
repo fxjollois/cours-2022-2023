@@ -123,3 +123,8 @@
     float: right;
     padding-top: 1em;
   }
+
+
+.small {
+    font-size: .7em;
+}

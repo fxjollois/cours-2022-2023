@@ -11,6 +11,7 @@ Lien vers les plateformes de l'UFR Math-Info :
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
 - [RStudio](https://rstudio.ens.math-info.univ-paris5.fr/)
 
+0. Introduction à Python
 1. Manipulation de données
 2. Visualisation de données
 3. Analyse de données (ACP, AFC...)
@@ -19,6 +20,5 @@ Lien vers les plateformes de l'UFR Math-Info :
 6. Arbres de décision
 7. Règles d'association
 8. Réseaux de neurones (MLP)
-9. 
-10. 
+9. Evaluation
 -->
