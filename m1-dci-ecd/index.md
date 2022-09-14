@@ -2,6 +2,7 @@
 
 ## Master Informatique - Parcours DCI (Données, Connaissances, Intelligence)
 
+0. [Introduction à Python](seance1-intro-python.html)
 
 <!--
 10 séances de 3 heures avec comme sujet : dataming/textmining
@@ -11,7 +12,6 @@ Lien vers les plateformes de l'UFR Math-Info :
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
 - [RStudio](https://rstudio.ens.math-info.univ-paris5.fr/)
 
-0. Introduction à Python
 1. Manipulation de données
 2. Visualisation de données
 3. Analyse de données (ACP, AFC...)
