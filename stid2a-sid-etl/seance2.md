@@ -12,14 +12,13 @@ PROC SQL outobs = 10;
 QUIT;
 ```
 
-## Répondez aux demandes suivantes en utilisant exclusivement la PROC SQL
+## Importation des données
 
-1. Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
-1. Importer les tables avec le code suivant :
+Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel). Puis, importer les tables avec le code suivant :
 
 ```
 %macro import(fic);
-filename csvFile "temp.csv";
+filename csvFile "z:/temp.csv";
 proc http method="get" out=csvFile url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv";
 run;
 PROC IMPORT datafile=csvFile 
@@ -36,6 +35,8 @@ proc sql;
 %import(groupe);
 %import(ca);
 ```
+
+## Répondez aux demandes suivantes en utilisant exclusivement la PROC SQL
 
 1. Créer une vue comprenant l'ensemble des informations contenus dans les 4 tables, que vous nommerez `CA_ALL`
 1. Lister les groupes du département "Ménage"
