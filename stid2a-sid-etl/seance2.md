@@ -18,13 +18,12 @@ Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dan
 
 ```
 %macro import(fic);
-filename csvFile "z:/temp.csv";
-proc http method="get" out=csvFile url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv";
-run;
-PROC IMPORT datafile=csvFile 
-			out=temp dbms=csv replace;
-	getnames=yes;
-	delimiter=";";
+filename fic1 "z:/temp.csv";
+proc http method="get" out=fic1 url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv"; run;
+filename fic2 "z:/temp.csv" encoding="utf-8";
+PROC IMPORT datafile=fic2 out=temp dbms=csv replace; 
+	getnames=yes; 
+	delimiter=";"; 
 run;
 proc sql;
 	insert into ca.&fic. select * from temp;
