@@ -4,13 +4,15 @@ Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. C
 
 <iframe width="1000" height = "500" src='https://dbdiagram.io/embed/618e4ed202cf5d186b53080c'> </iframe>
 
-Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. L'option `outobs` permet de faire un `LIMIT` (qui lui n'est pas possible sous SAS).
+Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. 
 
 ```{sas}
-PROC SQL outobs = 10;
+PROC SQL;
 	-- votre requête;
 QUIT;
 ```
+
+Vous trouverez dans [ces slides](https://docs.google.com/presentation/d/e/2PACX-1vQQ8FiVv-JWgBmZYArKqmJKIZsOXkkhLS_JUGy_83yNnvvaqJ-ZZTWxGsTxBbawmmDClCS1rwHubYAZ/pub?start=false&loop=false&delayms=3000) un ensemble de rappels sur le langage SQL.
 
 ## Importation des données
 
