@@ -16,6 +16,7 @@ QUIT;
 
 1. Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
 1. Importer les tables avec le code suivant :
+
 ```
 %macro import(fic);
 filename csvFile "temp.csv";
