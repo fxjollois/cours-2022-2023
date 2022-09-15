@@ -35,6 +35,7 @@ proc sql;
 %import(groupe);
 %import(ca);
 ```
+
 1. Créer une vue comprenant l'ensemble des informations contenus dans les 4 tables, que vous nommerez `CA_ALL`
 1. Lister les groupes du département "Ménage"
 1. Combien de département ont un sous-groupe nommé "Divers" ? idem mais avec le mot "divers" dedans ?
