@@ -28,6 +28,7 @@ PROC IMPORT datafile=csvFile
 run;
 proc sql;
 	insert into ca.&fic. select * from temp;
+quit;
 %mend;
 
 %import(provenance);
