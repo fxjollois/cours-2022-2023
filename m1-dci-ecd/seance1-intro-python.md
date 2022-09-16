@@ -20,17 +20,19 @@ Langage de programmation en pleine croissance dans le domaine de la **Data Scien
 ---
 ## Notebook
 
-- Module `jupyter` : travail avec des `notebooks`
-    - Documents contenant à la fois le code, les résultat et du texte
-    - D'abord installer le module dans python, avec la commande `pip3` dans un terminal de commande.
+Module `jupyter` : travail avec des `notebooks`
+
+- Documents contenant à la fois le code, les résultat et du texte
+- D'abord installer le module dans python, avec la commande `pip3` dans un terminal de commande.
 ```bash
 pip3 install jupyter
 ```
-    - Une fois le module installé, il est possible de lancer le serveur jupyter avec la commande suivante, à faire dans un terminale de commande.
+
+- Une fois le module installé, il est possible de lancer le serveur jupyter avec la commande suivante, à faire dans un terminale de commande.
 ```bash
 jupyter notebook
 ```
-    - Appuyer sur `Ctrl` + `C` pour stopper le processus.
+- Appuyer sur `Ctrl` + `C` pour stopper le processus.
 
 ---
 ## Types de données
