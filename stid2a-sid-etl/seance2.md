@@ -4,30 +4,32 @@ Nous utiliserons SAS pour réaliser les requêtes SQL sur le data-mart **CA**. C
 
 <iframe width="1000" height = "500" src='https://dbdiagram.io/embed/618e4ed202cf5d186b53080c'> </iframe>
 
-Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. L'option `outobs` permet de faire un `LIMIT` (qui lui n'est pas possible sous SAS).
+Pour exécuter une requête, vous devez utiliser donc la procédure `SQL`, comme dans l'exemple ci-dessous. Attention, cette procédure est dite interactive, il faut donc la quitter (avec `QUIT;`) pour la terminer. 
 
 ```{sas}
-PROC SQL outobs = 10;
+PROC SQL;
 	-- votre requête;
 QUIT;
 ```
 
-## Répondez aux demandes suivantes en utilisant exclusivement la PROC SQL
+Vous trouverez dans [ces slides](https://docs.google.com/presentation/d/e/2PACX-1vQQ8FiVv-JWgBmZYArKqmJKIZsOXkkhLS_JUGy_83yNnvvaqJ-ZZTWxGsTxBbawmmDClCS1rwHubYAZ/pub?start=false&loop=false&delayms=3000) un ensemble de rappels sur le langage SQL.
 
-1. Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel)
-1. Importer les tables avec le code suivant :
-```{sas}
+## Importation des données
+
+Ecrire le programme permettant de créer les 4 tables (vides pour le moment) dans une librairie (nommé `"CA"`) dédié au data-mart (qui se situera sur votre espace personnel). Puis, importer les tables avec le code suivant :
+
+```
 %macro import(fic);
-filename csvFile "temp.csv";
-proc http method="get" out=csvFile url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv";
-run;
-PROC IMPORT datafile=csvFile 
-			out=temp dbms=csv replace;
-	getnames=yes;
-	delimiter=";";
+filename fic1 "z:/temp.csv";
+proc http method="get" out=fic1 url="https://fxjollois.github.io/donnees/ca/csv/&fic..csv"; run;
+filename fic2 "z:/temp.csv" encoding="utf-8";
+PROC IMPORT datafile=fic2 out=temp dbms=csv replace; 
+	getnames=yes; 
+	delimiter=";"; 
 run;
 proc sql;
 	insert into ca.&fic. select * from temp;
+quit;
 %mend;
 
 %import(provenance);
@@ -35,6 +37,9 @@ proc sql;
 %import(groupe);
 %import(ca);
 ```
+
+## Répondez aux demandes suivantes en utilisant exclusivement la PROC SQL
+
 1. Créer une vue comprenant l'ensemble des informations contenus dans les 4 tables, que vous nommerez `CA_ALL`
 1. Lister les groupes du département "Ménage"
 1. Combien de département ont un sous-groupe nommé "Divers" ? idem mais avec le mot "divers" dedans ?

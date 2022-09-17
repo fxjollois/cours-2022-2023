@@ -5,13 +5,14 @@
 0. [Introduction à Python](seance1-intro-python.html)
     - [correction](seance1-correction.html)
 
+Lien vers les plateformes de l'UFR Math-Info : 
+- [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
+- [RStudio](https://rstudio.ens.math-info.univ-paris5.fr/)
+
 <!--
 10 séances de 3 heures avec comme sujet : dataming/textmining
 sous python ?
 
-Lien vers les plateformes de l'UFR Math-Info : 
-- [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
-- [RStudio](https://rstudio.ens.math-info.univ-paris5.fr/)
 
 1. Manipulation de données
 2. Visualisation de données

@@ -20,17 +20,19 @@ Langage de programmation en pleine croissance dans le domaine de la **Data Scien
 ---
 ## Notebook
 
-- Module `jupyter` : travail avec des `notebooks`
-    - Documents contenant à la fois le code, les résultat et du texte
-    - D'abord installer le module dans python, avec la commande `pip3` dans un terminal de commande.
+Module `jupyter` : travail avec des `notebooks`
+
+- Documents contenant à la fois le code, les résultat et du texte
+- D'abord installer le module dans python, avec la commande `pip3` dans un terminal de commande.
 ```bash
 pip3 install jupyter
 ```
-    - Une fois le module installé, il est possible de lancer le serveur jupyter avec la commande suivante, à faire dans un terminale de commande.
+
+- Une fois le module installé, il est possible de lancer le serveur jupyter avec la commande suivante, à faire dans un terminale de commande.
 ```bash
 jupyter notebook
 ```
-    - Appuyer sur `Ctrl` + `C` pour stopper le processus.
+- Appuyer sur `Ctrl` + `C` pour stopper le processus.
 
 ---
 ## Types de données
@@ -150,6 +152,7 @@ len(a)
 - Séquence par défaut est par pas de 1 (par exemple, 1:5 renvoie les positions 1, 2, 3, 4, 5)
     - Sans le premier (ou le dernier), début (ou fin) de la chaîne
     - Paramètre à la séquence, permettant de jouer sur le pas entre les valeurs de la séquence
+  
 ```python
 a = 'bonjour'
 a[1:5]
@@ -522,6 +525,7 @@ afficheBonjour("Jollois")
 ## Fonctions - Paramètres
 
 - Si plusieurs paramètres, appel classique ou avec nommage des paramètres
+
 ```python
 def afficheBonjour(nom, prenom):
     print("Bonjour", prenom, nom)
@@ -532,6 +536,7 @@ afficheBonjour(prenom = "FX", nom = "Jollois")
 ```
 
 - Valeur par défaut pour un paramètre
+
 ```python
 def afficheBonjour(nom, prenom = "?"):
     print("Bonjour", prenom, nom)
