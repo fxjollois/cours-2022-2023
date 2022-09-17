@@ -3,6 +3,7 @@
 ## Master Informatique - Parcours DCI (Données, Connaissances, Intelligence)
 
 0. [Introduction à Python](seance1-intro-python.html)
+    - [correction](seance1-correction.html)
 
 <!--
 10 séances de 3 heures avec comme sujet : dataming/textmining
