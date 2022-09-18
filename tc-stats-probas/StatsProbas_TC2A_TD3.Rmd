@@ -100,9 +100,9 @@ function maj(){
 </table>
 
 <table>
-  <tr><th>Proba</th><th>Valeur</th></tr>
-  <tr><td>P(X = K)</td><td id="Pegal">--</td></tr>
-  <tr><td>P(X &le; K)</td><td id="Pinf">--</td></tr>
+  <tr><th>Proba</th><th></th><th>Valeur</th></tr>
+  <tr><td>P(X = K)</td><td>=</td><td id="Pegal">--</td></tr>
+  <tr><td>P(X &le; K)</td><td>=</td><td id="Pinf">--</td></tr>
 </table>
 
 ### Outil de calcul des probabilités d'une loi de Poisson
@@ -149,9 +149,9 @@ function maj2(){
 </table>
 
 <table>
-  <tr><th>Proba</th><th>Valeur</th></tr>
-  <tr><td>P(X = K)</td><td id="Pegal2">--</td></tr>
-  <tr><td>P(X &le; K)</td><td id="Pinf2">--</td></tr>
+  <tr><th>Proba</th><th></th><th>Valeur</th></tr>
+  <tr><td>P(X = K)</td><td>=</td><td id="Pegal2">--</td></tr>
+  <tr><td>P(X &le; K)</td><td>=</td><td id="Pinf2">--</td></tr>
 </table>
 
 ### Pile ou face à répétition
