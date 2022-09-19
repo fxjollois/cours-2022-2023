@@ -448,7 +448,7 @@ function arrondi(x, d){
 function maj(){
     N = parseInt(document.getElementById('entN').value);
     N = Math.max(N,1);
-    N = Math.min(N,1000);
+    N = Math.min(N,10000);
     document.getElementById('entN').value = N;
     document.getElementById('nbN').innerHTML = N;
     p = parseFloat(document.getElementById('entp').value);
@@ -483,7 +483,7 @@ N
 <input id="entN" value="25" onChange="maj();">
 </td>
 <td>
-entre 1 et 1000
+entre 1 et 10000
 </td>
 </tr>
 <tr>
