@@ -191,14 +191,21 @@ Supposons un enseignant de statistiques $\mathbf{J}$ ayant un groupe de rock[[*]
   -->
 
 
-### Guichet de poste
+### Gestion d'un magasin
 
-Dans une poste d’un petit village, on remarque qu’entre 10 heures et 11 heures, la probabilité pour que deux personnes entrent durant la même minute est considérée comme nulle et que l’arrivée des personnes est indépendante de la minute considérée. On a observé que la probabilité pour qu’une personne se présente entre la minute $m$ et la minute $m+1$ est : $p = 0.1$. On veut calculer la probabilité pour que $n$ personnes se
-présentent au guichet entre 10h et 11h.
+Dans un magasin, entre 10h et 11h, on observe que la probabilité qu'une personne se présente entre la minute $m$ et la minute $m+1$ est égale à 10%. On veut calculer la probabilité pour que $n$ personnes viennent dans ce magasin entre 10h et 11h.
+
+1. Définir une variable aléatoire adaptée. Combien de personnes peut on espérer dans l'heure considérée ?
+1. Donner les probabilités qu'aucune personne ne vienne ? qu'une seule personne ? que 6 personnes viennent ?
+1. Sachant qu'à partir de 10 personnes dans le magasin, je dois prévoir 1 personne en plus. Quelle est la probabilité pour qu'au moins 10 personnes se présentent au magasin entre 10h et 11h ?
+
+<!--
+Dans une poste d’un petit village, on remarque qu’entre 10 heures et 11 heures, la probabilité pour que deux personnes entrent durant la même minute est considérée comme nulle et que l’arrivée des personnes est indépendante de la minute considérée. On a observé que la probabilité pour qu’une personne se présente entre la minute $m$ et la minute $m+1$ est : $p = 0.1$. On veut calculer la probabilité pour que $n$ personnes se présentent au guichet entre 10h et 11h.
 
 1. Définir une variable aléatoire adaptée. Combien de personnes peut on espérer dans l'heure considérée ?
 1. Donner les probabilités qu'aucune personne ne vienne ? qu'une seule personne ? que 6 personnes viennent ?
 2. Quelle est la probabilité pour qu'au moins 10 personnes se présentent au guichet entre 10h et 11h ?
+-->
 
 ### Centenaire
 
