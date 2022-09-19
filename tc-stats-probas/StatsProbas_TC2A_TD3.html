@@ -448,7 +448,7 @@ function arrondi(x, d){
 function maj(){
     N = parseInt(document.getElementById('entN').value);
     N = Math.max(N,1);
-    N = Math.min(N,10000);
+    N = Math.min(N,1000);
     document.getElementById('entN').value = N;
     document.getElementById('nbN').innerHTML = N;
     p = parseFloat(document.getElementById('entp').value);
@@ -483,7 +483,7 @@ N
 <input id="entN" value="25" onChange="maj();">
 </td>
 <td>
-entre 1 et 10000
+entre 1 et 1000
 </td>
 </tr>
 <tr>
@@ -678,23 +678,22 @@ seule réponse juste.</p>
 </div>
 <div id="prospection-chanceuse-ou-efficiente" class="section level3">
 <h3>Prospection chanceuse ou efficiente</h3>
-<p>Supposons que nous avons un ensemble de 2000 prospects, et on suppose
-qu’on a en général un taux de conversion de 20%.</p>
+<p>Supposons que nous avons un ensemble de 500 prospects, et on suppose
+qu’on a en général un taux de conversion de 20%. Nous avons 3 produits
+différents à vendre à ces prospects, le taux de conversion est supposé
+le même entre les 3.</p>
 <ol style="list-style-type: decimal">
 <li>Que puis-je dire de la variable aléatoire modélisant le nombre de
 clients, après une campagne auprès de ces prospects ?</li>
-<li>Suite à cette campagne, nous avons réussi à avoir au final 500
-clients. Peut-on dire qu’on a bien été performant ?</li>
-<li>Supposons maintenant que nous avons 3 produits différents à vendre à
-ces prospects, le taux de conversion est supposé le même entre les
-3.</li>
-</ol>
-<ul>
+<li>Suite à cette campagne, nous avons réussi à avoir 130 clients sur le
+produit 1, 110 clients sur le produit 2 et 80 clients sur le produit 3.
+Que peut-on dire de la performance de notre campagne pour chaque produit
+?</li>
 <li>Quelle est la probabilité qu’une personne achète les 3 produits ?
 Seulement 2 ? Seulement 1 ? Aucun ?</li>
-<li>Comment puis-je modéliser le résultat de la campagne marketing sur
-ces 3 produits ?</li>
-</ul>
+<li>Au final, combien de clients (quelque soit le produit) puis-je
+espérer avoir ?</li>
+</ol>
 <!--
 Supposons un enseignant de statistiques $\mathbf{J}$ ayant un groupe de rock[[*]](https://sites.google.com/view/rusthead) et se produit à un concert $\mathbf{C}$ dans un bar à Cherbourg. On considère qu'un.e étudiant.e $\mathbf{E}$ a une probabilité de sortir le soir égale à $.5$, et a une probabilité de $.5$ d'aller dans le bar où se produit le groupe.
 

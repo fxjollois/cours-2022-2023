@@ -172,13 +172,12 @@ Un test comporte 10 questions, avec chacune 4 choix possibles et une seule répo
 
 ### Prospection chanceuse ou efficiente
 
-Supposons que nous avons un ensemble de 2000 prospects, et on suppose qu'on a en général un taux de conversion de 20%.
+Supposons que nous avons un ensemble de 500 prospects, et on suppose qu'on a en général un taux de conversion de 20%. Nous avons 3 produits différents à vendre à ces prospects, le taux de conversion est supposé le même entre les 3. 
 
 1. Que puis-je dire de la variable aléatoire modélisant le nombre de clients, après une campagne auprès de ces prospects ?
-1. Suite à cette campagne, nous avons réussi à avoir au final 500 clients. Peut-on dire qu'on a bien été performant ?
-1. Supposons maintenant que nous avons 3 produits différents à vendre à ces prospects, le taux de conversion est supposé le même entre les 3. 
-  - Quelle est la probabilité qu'une personne achète les 3 produits ? Seulement 2 ? Seulement 1 ? Aucun ?
-  - Comment puis-je modéliser le résultat de la campagne marketing sur ces 3 produits ?
+1. Suite à cette campagne, nous avons réussi à avoir 130 clients sur le produit 1, 110 clients sur le produit 2 et 80 clients sur le produit 3. Que peut-on dire de la performance de notre campagne pour chaque produit ?
+1. Quelle est la probabilité qu'une personne achète les 3 produits ? Seulement 2 ? Seulement 1 ? Aucun ? 
+1. Au final, combien de clients (quelque soit le produit) puis-je espérer avoir ?
 
 <!--
 Supposons un enseignant de statistiques $\mathbf{J}$ ayant un groupe de rock[[*]](https://sites.google.com/view/rusthead) et se produit à un concert $\mathbf{C}$ dans un bar à Cherbourg. On considère qu'un.e étudiant.e $\mathbf{E}$ a une probabilité de sortir le soir égale à $.5$, et a une probabilité de $.5$ d'aller dans le bar où se produit le groupe.
