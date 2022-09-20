@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Estimation et Tests</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="FX Jollois" />
+    <script src="StatsProbas_TC2A_TD4_files/header-attrs-2.13/header-attrs.js"></script>
+    <link href="StatsProbas_TC2A_TD4_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="StatsProbas_TC2A_TD4_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <script src="StatsProbas_TC2A_TD4_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="StatsProbas_TC2A_TD4_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Estimation et Tests
+]
+.author[
+### FX Jollois
+]
+.date[
+### BUT TC - 2ème année
+]
+
+---
+
+
+
+
+class: center, middle, section
+# Estimation
+
+---
+### Introduction
+
+#### Comment puis-je connaître un indicateur sur la population française ?
+
+- Impossible à réaliser (trop coûteux, trop compliqué à mettre en oeuvre, ...)
+- Sélection d'un sous-ensemble de la population, appelé **échantillon**
+
+--
+
+#### Comment sélectionner correctement un échantillon ?
+
+- Notion de représentativité
+- Méthodes de sondage pour répondre à ce problème
+
+---
+## Que fait-on ?
+
+Quand on cherche à analyser un phénomène (biologique, économique, météorologique...), on a 2 possibilités
+
+--
+### Loi de probabilité connue a priori
+On vérifie a posteriori que les observations faites à partir d’un échantillon sont en accord avec elle. On effectue alors un test d'ajustement entre la distribution théorique et la distribution observée
+
+--
+### Loi de probabilité inconnue 
+Mais elle est suggérée par la description de l’échantillon (nature de la variable, forme de la distribution des fréquences, valeurs des paramètres descriptifs). Dans ce cas, il est nécessaire d’estimer les paramètres de la loi de probabilité à partir des paramètres établis sur l’échantillon.
+
+---
+## Inférence statistique
+
+--
+### Inférence
+Opération qui consiste à admettre une proposition en raison de son lien avec une proposition préalable tenue pour vraie.
+
+--
+### Inférence statistique
+Ensemble de techniques permettant d'induire les caractéristiques d'un groupe général (la population) à partir de celles d'un groupe particulier (l'échantillon), en fournissant une mesure de la certitude de la prédiction (via la probabilité d'erreur)
+
+---
+## 2 problèmes différents
+
+--
+### Estimation
+Déterminer les **valeurs inconnues** des paramètres de la population à partir des données de l'échantillon. Il est alors nécessaire de déterminer la précision de ces estimations en établissant un *intervalle de confiance* autour des valeurs prédites.
+
+--
+### Tests d'hypothèses
+A partir d'une hypothèse posée, déterminer les conséquences de cette hypothèse sur la population et/ou l'échantillon, et comparer ces conséquences aux observations faites sur l'échantillon. On conclut **en acceptant ou en rejetant l'hypothèse de travail** à partir de règles de décisions objectives. 
+
+---
+## Distribution d'échantillonage
+
+Dans un problème d'estimation, il est nécessaire d'étudier la **loi de probabilité** suivie par l'estimateur
+
+Trois concepts importants :
+
+- Paramètres de la **population** (comme la proportion `\(p\)`, la moyenne `\(\mu\)`, ou la variance `\(\sigma^2\)`)
+
+--
+
+- Paramètres de l'**échantillon** (comme la fréquence `\(f\)`, la moyenne `\(\bar{x}\)`, ou la variance `\(s^2\)`)
+
+--
+
+- Variables aléatoires des paramètres (comme `\(\bar{X}\)`, ...)
+
+---
+## Estimation
+
+- Problème statistique : estimation d'un paramètre inconnu de la population via un échantillon
+
+--
+
+- Résumer l'échantillon à une statistique
+
+--
+
+- Plusieurs catégories de paramètres :
+  - Paramètres de position
+  - Paramètres de dispersion
+  - Paramètres de liaison
+
+--
+
+- Deux types d'estimation :
+  - Estimation ponctuelle
+  - Estimation par intervalle
+
+---
+## Estimation ponctuelle
+
+- Estimation d'un résultat sur la population
+- Unique valeur mesurée dans l'échantillon
+
+--
+
+### Définition
+Soit `\(\theta\)` un paramètre inconnu intervenant dans la loi de probabilité (connue analytiquement) de la variable aléatoire `\(X\)`. Soient `\(x_1, x_2, \ldots, x_n\)` les `\(n\)` valeurs prises par la v.a. `\(X\)` dans un échantillon de taille `\(n\)`. On appelle **estimateur** de `\(\theta\)`, noté `\(T_n\)` la fonction qui fait correspondre aux valeurs `\(x_i\)` de l'échantillon la valeur du paramètre `\(\theta\)`. On note la valeur numérique de cette estimation par
+$$ \hat\theta = T_n(x_1, x_2, \ldots, x_n) $$
+
+---
+## Exemple d'estimation ponctuelle
+
+- Estimation de la taille moyenne de la population française
+
+--
+
+- Echantillon : les étudiants de ce cours
+
+--
+
+- Variable aléatoire suivant une loi normale
+
+--
+
+- Proposer une estimation de la taille moyenne `\(\mu\)`, via l'échantillon `\({x_i}\)` ?
+  - la moyenne
+  - la médiane
+  - le mode
+  - la taille de l'individu 3
+  - ...
+
+---
+## Quel estimateur ?
+
+- Meilleur estimateur de la taille moyenne ? 
+
+--
+
+- Définition mathématique impossible de *meilleur*
+
+--
+
+### Comparer les estimateurs avec certains critères :
+
+--
+
+- **Biais** : l'estimation ne doit pas être systématiquement décalée par rapport à la vraie valeur,
+--
+
+- **Précision** : la variation d'un échantillon à l'autre de l'estimation doit être faible,
+--
+
+- **Convergence** : lorsque la taille de l'échantillon augmente, l'estimateur converge vers le paramètre inconnu `\(\theta\)`,
+--
+
+- **Complexité** : le calcul de l'estimation ne doit pas nécessiter trop de calculs,
+--
+
+- **Robustesse** : les perturbations doivent avoir un impact très limité sur l'estimation.
+
+
+
+---
+## Variable quantitative
+
+### Moyenne
+Soit `\(X\)` une variable aléatoire d'espérance `\(\mu\)` inconnue, la moyenne `\(\hat\mu\)` (ou `\(\bar{x}\)`) de l'échantillon est un estimateur correct de `\(\mu\)` ( `\(E(\hat\mu) = \mu\)` : sans biais et `\(V(\hat\mu) = \frac{\sigma^2}{n} \rightarrow 0\)` : convergent).
+$$ \hat\mu = \frac{\sum_{i=1}^n x_i}{n} $$
+
+---
+## Variable quantitative
+
+### Variance
+`\(\hat\sigma^2\)` n'est pas un bon estimateur de `\(\sigma^2\)` car `\(E(\hat\sigma^2) = \frac{n-1}{n} \sigma^2\)`. Par contre, `\(\hat{\sigma}^{*2}\)` est un estimateur sans biais de `\(\sigma^2\)`, et convergent. Mais `\(\hat{\sigma}^*\)` n'est pas un estimateur sans biais de `\(\sigma\)`.
+`$$\hat{\sigma}^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n}$$`
+`$$\hat{\sigma}^{*2} = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n - 1}$$`
+
+
+---
+## Variable quantitative
+
+### Médiane
+Valeur pour laquelle 50 % des individus ont une valeur plus grande et 50 % plus petite. Intéressant car insensible aux données aberrantes, contrairement à la moyenne.
+$$ \hat{m} : p(X &lt; \hat{m}) = 0.5 $$
+En triant les données `\(x_i\)` par ordre croissant, on obtient la médiane avec
+
+- Si `\(n\)` pair, alors `\(\hat{m} = \frac{\displaystyle x_{n/2} + x_{n/2+1}}{2}\)`
+- Si `\(n\)` impair, alors `\(\hat{m} = \frac{\displaystyle x_{(n+1)}}{2}\)`
+
+
+---
+## Variable qualitative
+
+### Mode
+Mesure prise le plus fréquemment.
+`$$x_{mode} : p(X = x_{mode}) = \max_x p(X = x)$$`
+
+### Proportion
+Soit `\(\hat{p}\)` l'estimation d'une proportion inconnu `\(p\)` et `\(k\)` le nombre d'individus présentant la caractéristique étudiée, la proportion `\(p\)` approxime la vraie valeur de `\(p\)` :
+$$ \hat{p} = \frac{k}{n} $$
+
+
+---
+## Variable qualitative
+
+### Ecart-type d'une proportion
+Soit `\(F_n = \frac{k}{n}\)`, c'est une v.a. construite par la somme de `\(n\)` v.a. suivant une loi de Bernouilli et de même paramètre `\(p\)`. C'est donc (d'après le TCL) une v.a. dont la loi de probabilité tend vers une loi normale de moyenne `\(p\)`. Son écart-type est estimé par 
+$$ \hat{\sigma_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+
+Cette estimation n'est valable que pour les cas où `\(n &gt; 30\)`.
+
+
+
+---
+## Estimation par intervalles
+
+- Intervalle souvent plus intéressant et plus correct que l'affirmation `\(\hat\theta = c\)`
+- Estimation par intervalle de confiance (souvent symétrique)
+
+--
+
+### Définition
+
+Soit `\(X\)` une v.a., `\(\theta\)` le paramètre inconnu et `\(\hat{\theta}\)` son estimation sur `\(X\)`, on cherche ainsi `\(c1\)` et `\(c2\)` tel que 
+$$ p(c1 &lt; X &lt; c2 | \theta = \hat{\theta}) = 1 - \alpha $$
+
+--
+
+### Choix de `\(\alpha\)` dépendant du problème posé
+- Etude de marché prospective : `\(\alpha\)` élevé (intervalles restreints)
+- Etude sur une maladie ou dans une centrale nucléaire : `\(\alpha\)` très faible (intervalles grands)
+- Pratique : prendre un risque `\(\alpha\)` égal à 5 %.
+
+
+---
+## Cas de la loi Normale centrée-réduite
+
+Table de valeurs connues pour `\(P(X &lt; u)\)` (fonction de répartition) [Table complète](https://fr.wikipedia.org/wiki/Loi_normale#Tables_num%C3%A9riques_et_calculs)
+
+`\(\rightarrow\)` Au croisement, on lit `\(P(X &lt; 0,31) = 0.6217\)` 
+
+&lt;table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,00 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,01 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,02 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,03 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,04 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,05 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,06 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,07 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,08 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 0,09 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.5040 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5120 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5199 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5239 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5279 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5319 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5359 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5398 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.5438 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5478 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5517 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5557 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5596 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5636 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5675 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5714 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5753 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5793 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.5832 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5871 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5910 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5948 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.5987 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6026 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6064 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6103 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6141 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: lightgray !important;"&gt; 0,3 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6179 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;font-weight: bold;background-color: lightgray !important;"&gt; 0.6217 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6255 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6293 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6331 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6368 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6406 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6443 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6480 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6517 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6554 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6591 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6628 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6664 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6700 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6772 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6808 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6844 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6879 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6915 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.6950 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.6985 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7019 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7054 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7088 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7123 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7157 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7190 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7224 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7257 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.7291 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7324 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7357 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7389 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7422 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7454 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7486 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7517 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7549 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7580 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.7611 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7642 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7673 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7704 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7734 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7764 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7794 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7823 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7852 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7881 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.7910 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7967 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.7995 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8023 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8051 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8078 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8106 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8133 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 0,9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8159 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.8186 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8212 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8238 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8264 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8289 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8315 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8340 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8365 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8389 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8413 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.8438 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8461 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8485 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8508 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8531 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8554 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8577 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8621 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8643 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.8665 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8686 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8708 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8729 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8749 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8770 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8790 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8810 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8830 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8849 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.8869 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8888 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8907 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8925 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8944 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8962 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8980 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8997 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9015 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9032 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9049 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9066 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9082 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9099 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9115 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9131 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9147 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9177 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9192 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9207 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9222 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9236 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9251 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9265 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9279 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9292 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9306 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9319 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9332 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9345 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9357 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9370 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9382 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9394 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9406 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9418 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9429 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9441 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9452 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9463 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9474 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9484 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9495 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9505 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9515 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9525 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9535 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9545 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9554 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9564 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9573 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9582 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9591 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9608 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9616 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9625 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9633 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9641 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9649 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9656 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9664 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9671 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9678 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9686 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9693 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9699 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9706 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1,9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9713 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9719 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9726 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9732 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9738 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9744 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9750 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9756 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9761 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9767 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9772 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9778 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9783 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9788 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9793 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9798 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9803 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9808 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9812 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9817 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2,1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9821 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9826 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9830 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9834 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9838 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9842 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9846 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9850 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9854 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9857 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2,2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9861 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9864 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9868 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9871 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9875 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9878 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9881 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9884 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9887 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9890 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2,3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9893 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9896 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9898 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9901 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9904 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9906 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9909 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9911 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9913 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9916 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2,4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9918 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: lightgray !important;"&gt; 0.9920 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9922 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9925 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9927 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9929 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9931 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9932 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9934 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.9936 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+## Quelques valeurs à connaître
+
+- `\(P(X &lt; 1.64) = 0.9494974 = \sim 0.95\)`
+  - Si `\(X\)` suit une loi Normale centrée réduite, il y a 95% de chance que sa valeur soit inférieur à 1.64
+--
+
+- `\(P(X &lt; 1.96) = 0.9750\)`
+  - Si `\(X\)` suit une loi Normale centrée réduite, il y a 97.5% de chance que sa valeur soit inférieur à 1.96
+  
+--
+
+Et pour les valeurs négatives ? On se base sur la symétrie de la loi Normale.
+
+- `\(P(X &lt; -1.64) = P(X &gt; 1.64) = 1 - P(X &lt; 1.64) = \sim 0.95\)`
+- `\(P(X &lt; -1.96) = P(X &gt; 1.96) = 1 - P(X &lt; 1.96) = \sim 0.975\)`
+
+--
+
+### Conclusion
+Pour une variable `\(X\)` suivant une loi Normale centrée-réduite, on a donc 95% de chances que sa valeur soit comprise dans l'intervalle `\([-1.96; 1.96]\)`.
+
+---
+## Intervalle de confiance d'une moyenne
+
+### Si `\(\sigma\)` est connu
+
+On a l'intervalle de confiance suivant :
+
+`$$\hat\mu - u_{\alpha/2} \frac{\sigma}{\sqrt{n}} &lt; \mu &lt; \hat\mu + u_{\alpha/2} \frac{\sigma}{\sqrt{n}}$$`
+
+où `\(u_{\alpha/2}\)` est la valeur de la table de la loi normale pour laquelle `\(p(X &gt; u_{\alpha/2}) = \frac{\alpha}{2}\)`. 
+
+Puisqu'on choisit souvent `\(\alpha = 5\%\)`, on a `\(u_{\alpha/2} = 1.96\)`. 
+
+---
+## Intervalle de confiance d'une moyenne
+
+### Si `\(\sigma\)` n'est pas connu
+
+On utilise ici l'intervalle de confiance suivant:
+
+`$$\hat{m} - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} &lt; m &lt; \hat{m} + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}}$$`
+
+où `\(t_{\alpha/2}\)` est la valeur de la table de la loi de Student pour laquelle `\(p(X &gt; u_{\alpha/2}) = \frac{\alpha}{2}\)`.
+
+Si `\(n\)` est grand, on retrouve la valeur 1.96 pour `\(t_{\alpha/2}\)` avec `\(\alpha = 5\%\)`.
+
+
+---
+## Intervalle de confiance d'une proportion
+
+On se base sur le fait que si `\(n\)` est grand, alors la variable aléatoire de la proportion suit approximativement une loi normale. On obtient donc l'intervalle suivant
+
+`$$\hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} &lt; X &lt; \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$`
+On a toujours `\(u_{\alpha/2} = 1.96\)` pour `\(\alpha = 5\%\)`.
+
+
+---
+## Exemple d'estimations
+
+- On a mesuré le niveau de pluie pendant 9 ans, et on a obtenu les valeurs suivantes :
+  - `\(\bar{x} = 610.2222\)` et `\(s = 111.5289\)`
+
+--
+
+- `\(X\)` : niveau de pluie de la région
+  - Suit une loi Normale `\(N(\mu, \sigma)\)`
+
+--
+
+- Estimation de la moyenne `\(\mu\)` par `\(\bar{x} = 610.2222\)`
+
+--
+
+- Estimation par intervalle de confiance à 5% : `\([537.3; 683.1]\)`
+
+
+---
+class: center, middle, section
+# Tests statistiques
+
+---
+## Notions générales sur les tests statistiques
+
+- Idée : niveau de pluie en augmentation
+
+--
+
+- Niveau de pluie suit une loi `\(N(600, 100)\)` (étude précédente)
+
+--
+
+- Mesure du niveau de pluie pendant 9 ans
+  - `\(\bar{x} = 610.2222\)` et `\(s = 111.5289\)`
+
+--
+
+- Que peut-on conclure ?
+
+--
+
+- Opposer deux hypothèses contradictoires :
+  - [ `\(H_0\)` ] le niveau de pluie n'a pas augmenté, donc `\(\mu = 600\)`
+  - [ `\(H_1\)` ] le niveau de pluie a augmenté, donc `\(\mu &gt; 600\)`.
+
+--
+
+- Choix d'une règle de décision
+
+
+---
+## Notions générales sur les tests statistiques
+
+### Comment tester ces hypothèses ? 
+
+- Intérêt naturel porté à `\(\hat\mu\)`, moyenne des observations, et donc estimation du niveau de pluie
+--
+
+- Variable considérée comme la **variable de décision**
+--
+
+- Si `\(H_0\)` vrai, `\(\hat\mu\)` suit une loi `\(N(600, \frac{100}{\sqrt{9}})\)`
+
+--
+
+### Règle de décision
+
+- Si `\(\hat\mu\)` est trop grand, choix de l'hypothèse `\(H_1\)`
+  - Donc si `\(p(\hat\mu &gt; k) = 0.05\)`
+  - 5% de chance de se tromper
+- Sinon, conservation de  `\(H_0\)`
+
+---
+## Notions générales sur les tests statistiques
+
+- Test avec `\(k = 600 + \frac{100}{\sqrt{9}} \times 1.64 = 655\)`
+  - Si `\(\hat\mu &gt; 655\)`, alors on rejette `\(H_0\)` pour conserver `\(H_1\)`
+  - Si `\(\hat\mu \leq 655\)`, alors on conserve `\(H_0\)`
+
+--
+
+### Ensemble des évènements 
+- `\(\{\hat\mu &gt; 655\}\)` : **région critique** ou région de rejet
+- `\(\{\hat\mu \leq 655\}\)` : **région d'acceptation**
+
+
+--
+.example[
+### Sur les données
+`\(\hat\mu = 610.2\)`
+
+`\(\rightarrow\)` Conservation de `\(H_0\)` (pas d'augmentation du niveau de pluie)
+]
+
+---
+## Notions générales sur les tests statistiques
+
+### Mais il existe une possibilité de se tromper
+
+--
+
+- Croire le chercheur alors qu'il avait tort
+--
+
+- Ne pas croire ce chercheur alors qu'il avait raison
+
+--
+
+Test présentant une forte probabilité d'être inexact
+
+--
+
+### Augmentation de la pluie
+
+Le niveau suit finalement une loi `\(N(650,\frac{100}{\sqrt 9})\)`
+
+--
+
+#### Erreur commise quand `\(\hat\mu\)` inférieur à 655
+- Probabilité `\(\beta = p(\hat\mu &lt; 655)\)`
+- `\(u = \frac{\hat\mu - 650}{100 / \sqrt 9}\)` suit une loi `\(N(0,1)\)`
+- `\(\beta = p(u &lt; \frac{655 - 650}{100 / \sqrt 9}) = p(u &lt; 0.15)\)`
+- `\(\beta = 0.56\)`, ce qui est effectivement considérable
+
+---
+## Notions générales sur les tests statistiques
+
+- Deux probabilités d'erreur
+  - `\(\alpha\)` : risque de première espèce
+  - `\(\beta\)`  :  risque de seconde espèce
+
+--
+
+| | `\(H_0\)` vraie | `\(H_1\)` vraie |
+|-|-|-|
+| Choix `\(H_0\)`    | `\(1 - \alpha\)` | `\(\beta\)` |
+| Choix `\(H_1\)`    | `\(\alpha\)` | `\(1 - \beta\)` |
+
+--
+
+- Dans la pratique, plus d'importance à l'hypothèse nulle
+
+- Calcul de `\(\beta\)` souvent impossible
+
+- `\(1 - \beta\)` est appelé **puissance du test**
+
+- Choix des probabilités d'erreur `\(\alpha\)` de 5%, 1% ou 10%
+
+
+---
+## Notions générales sur les tests statistiques
+
+### Pour effectuer un test, voici les étapes à suivre
+
+--
+
+1. Etablir deux **hypothèses contradictoires**, 
+--
+
+1. Déterminer la **variable de décision**,
+--
+
+1. Calculer la **région critique** en fonction de `\(\alpha\)`,
+--
+
+1. Calculer si possible la puissance `\(1 - \beta\)`,
+--
+
+1. Calculer la **valeur expérimentale** de la variable de décision,
+--
+
+1. **Conclure** : rejet ou acceptation de `\(H_0\)`.
+
+--
+
+### Types de test
+
+--
+
+- **Unilatéral** : on cherche à tester si une variable a une moyenne supérieure (ou inférieure) à une certaine valeur
+  - risque sur un seul côté
+--
+
+- **Bilatéral** : on cherche à tester  si une variable a une moyenne égale à une certaine valeur
+  - risque des deux côtés
+
+---
+## Exemple de test
+
+- Niveau de pluie suit une loi `\(N(600, 100)\)` (étude précédente)
+
+--
+
+- Est-ce toujours le même ?
+
+--
+
+- On a mesuré le niveau de pluie pendant 9 ans, et on a obtenu les valeurs suivantes :
+  - `\(\bar{x} = 610.2222\)` et `\(s = 111.5289\)`
+  - Intervalle de confiance à 5% : `\([537.3; 683.1]\)`
+
+--
+
+- Hypothèses
+  - [ `\(H_0\)` ] : le niveau n'a pas changé
+  - [ `\(H_1\)` ] : le niveau a changé
+
+--
+
+- Région critique : en dehors de l'intervalle de confiance
+
+--
+
+`\(\rightarrow\)` **Conservation** de `\(H_0\)` (pas de changement du niveau de pluie)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
