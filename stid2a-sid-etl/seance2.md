@@ -42,10 +42,10 @@ quit;
 
 1. Créer une vue comprenant l'ensemble des informations contenus dans les 4 tables, que vous nommerez `CA_ALL`
 1. Lister les groupes du département "Ménage"
-1. Combien de département ont un sous-groupe nommé "Divers" ? idem mais avec le mot "divers" dedans ?
 1. Lister les provenances contenant la chaîne de caractères "Studio"
-1. Calculer pour chaque provenance son chiffre d'affaires total, en les classant dans l'ordre décroissant par rapport au CA total
-1. Donner le TOP 5 des sous-groupes (en indiquant aussi leur groupe et leur département)
+1. Combien de département ont un sous-groupe nommé "Divers" ? idem mais avec le mot "divers" dedans ?
+1. Calculer pour chaque provenance son chiffre d'affaires (CA) total, en les classant dans l'ordre décroissant par rapport au CA total
+1. Donner le TOP 5 des sous-groupes en fonction de leur CA total (en indiquant aussi leur groupe et leur département)
 1. Pour tous les départements ayant plus de 2 groupes, donner le nombre de sous-groupes pour chacun de leur groupe
     - le tri doit se faire sur les départements puis par ordre décroissant du nombre de sous-groupes
 1. On souhaite tester le lien entre la provenance et le département. Que doit-on préparer comme tableau ?
