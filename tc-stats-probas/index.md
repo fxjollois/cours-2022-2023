@@ -8,7 +8,6 @@
 - [Séance 4](StatsProbas_TC2A_TD4.html) - Estimation et Test
 
 <!--
-- [Séance 4](StatsProbas_TC2A_TD4.pdf) - Estimation et Test
 - [Séance 5](StatsProbas_TC2A_TD5.html) - Exercices autour de l'estimation et des tests
 - [Séance 6](StatsProbas_TC2A_TD6.html) - Exercices autour des tests
 - [Séance 7](StatsProbas_TC2A_TP1.html) - Estimation et tests sous Excel
