@@ -276,11 +276,11 @@ kable(m, digits = 4, escape = F) %>%
 ## Quelques valeurs à connaître
 
 - $P(X < 1.64) = 0.9494974 = \sim 0.95$
-  - Si $X$ suit une loi Normale centrée réduite, il y a 95% de chance que sa valeur soit inférieur à 1.64
+  - Si $X$ suit une loi Normale centrée réduite, il y a 95% de chance que sa valeur soit inférieure à 1.64
 --
 
 - $P(X < 1.96) = 0.9750$
-  - Si $X$ suit une loi Normale centrée réduite, il y a 97.5% de chance que sa valeur soit inférieur à 1.96
+  - Si $X$ suit une loi Normale centrée réduite, il y a 97.5% de chance que sa valeur soit inférieure à 1.96
   
 --
 
@@ -333,7 +333,7 @@ Puisqu'on choisit souvent $\alpha = 5\%$, on a $u_{\alpha/2} = 1.96$.
 
 On utilise ici l'intervalle de confiance suivant:
 
-$$\hat{m} - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} < m < \hat{m} + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}}$$
+$$\hat\mu - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} < \mu < \hat\mu + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}}$$
 
 où $t_{\alpha/2}$ est la valeur de la table de la loi de Student pour laquelle $p(X > u_{\alpha/2}) = \frac{\alpha}{2}$.
 
@@ -345,7 +345,7 @@ Si $n$ est grand, on retrouve la valeur 1.96 pour $t_{\alpha/2}$ avec $\alpha = 
 
 On se base sur le fait que si $n$ est grand, alors la variable aléatoire de la proportion suit approximativement une loi normale. On obtient donc l'intervalle suivant
 
-$$\hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} < X < \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
+$$\hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} < p < \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 On a toujours $u_{\alpha/2} = 1.96$ pour $\alpha = 5\%$.
 
 
