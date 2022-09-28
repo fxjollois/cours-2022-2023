@@ -4,10 +4,17 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 
 ## IUT Paris-Rives de Seine - Département STID
 
-- BUT STID 2ème année - **Ressource *SID* et SAE *Intégration de données* **
+- BUT STID 2ème année - **Ressource SID et SAE Intégration de données **
     - **Formation initiale** : [EMS](stid2a-sid-etl/fi-ems) - [VCOD](stid2a-sid-etl/fi-vcod)
     - **Formation en alternance** : [EMS](stid2a-sid-etl/fa-ems) - [VCOD](stid2a-sid-etl/fa-vcod)
     
+- LP Data Science :
+    - [Bases de données](lp-ds--bd)
+
+- LP Santé :
+    - [Bases de données](lp-sante--bd)
+    - [Tableaux de bord](lp-sante--tdb)
+
 - DU Data Science : 
     - [Python et MongoDB](du-ads)
 
