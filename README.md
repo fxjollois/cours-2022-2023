@@ -5,13 +5,11 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 ## IUT Paris-Rives de Seine - Département STID
 
 - BUT STID 2ème année - **Ressource SID et SAE Intégration de données **
-    - **Formation initiale** : [EMS](stid2a-sid-etl/fi-ems) - [VCOD](stid2a-sid-etl/fi-vcod)
-    - **Formation en alternance** : [EMS](stid2a-sid-etl/fa-ems) - [VCOD](stid2a-sid-etl/fa-vcod)
-
 | | EMS | VCOD |
 |-|:-:|:-:|
 | **Formation initiale**      | [FI-EMS](stid2a-sid-etl/fi-ems) | [FI-VCOD](stid2a-sid-etl/fi-vcod) |
 | **Formation en alternance** | [FA-EMS](stid2a-sid-etl/fa-ems) | [FA-VCOD](stid2a-sid-etl/fa-vcod) |
+
 - LP Data Science :
     - [Bases de données](lp-ds--bd)
 
