@@ -128,3 +128,7 @@
 .small {
     font-size: .7em;
 }
+
+.section {
+    background-color: beige;
+}
