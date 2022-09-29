@@ -5,6 +5,7 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 ## IUT Paris-Rives de Seine - Département STID
 
 - BUT STID 2ème année - **Ressource SID et SAE Intégration de données **
+
 | | EMS | VCOD |
 |-|:-:|:-:|
 | **Formation initiale**      | [FI-EMS](stid2a-sid-etl/fi-ems) | [FI-VCOD](stid2a-sid-etl/fi-vcod) |
