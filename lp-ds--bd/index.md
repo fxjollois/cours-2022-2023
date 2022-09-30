@@ -5,6 +5,9 @@
 - [Cours Modélisation](https://docs.google.com/presentation/d/e/2PACX-1vShmCW6ctqtSpUNnUwJb7hoPZ4FMhPkKfWeZQno26AnGW0MTWMVoJJ-O-YUMHwoZA---TMmTbYYJ0Jk/pub?start=false&loop=false&delayms=3000)
     - [TD1 - Modélisation MCD](td1)
         - [Correction SFA](td1-correction-SFA)
+        - [Correction Bibliothèque](td1-correction-Bibliotheque)
+        - [Correction Gestion des stocks](td1-correction-Stocks)
+
     <!-- - [TD1 - correction](td1-correction) -->
     
 <!--
