@@ -5,6 +5,7 @@
 1. [Introduction à Python](seance1-intro-python.html)
     - [correction](seance1-correction.html)
 2. [Manipulation et Visualisation de données](seance2-stat-python.html)
+    - [correction](seance2-correction.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
