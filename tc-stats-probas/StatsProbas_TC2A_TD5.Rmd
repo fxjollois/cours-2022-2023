@@ -1,7 +1,7 @@
 ---
 title: "Exercices autour de l'estimation et des tests"
 author: "FX Jollois"
-date: "TC - 2ème année - 2021/2022"
+date: "BUT TC - 2ème année"
 output: html_document
 ---
 
@@ -51,12 +51,11 @@ où $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centré
 
 ### Table de la loi Normale
 
+Valeurs importantes de la table de la loi Normale
+
 ```{r}
-m = matrix(pnorm(seq(0, 2.49, by = 0.01)), ncol = 10, byrow = TRUE)
-m = as.data.frame(m)
-colnames(m) = paste0("0,0", 0:9)
-rownames(m) = sub("\\.", ",", as.character(seq(0, 2.4, by = .1)))
-kable(m, digits = 4, escape = F) %>%
+v = c(0.001, 0.005, 0.01, 0.025, 0.05, 0.10)
+knitr::kable(tibble(`P(X < u)` = 1 - v, `u` = qnorm(1 - v))) %>%
   kable_styling()
 ```
 
@@ -72,7 +71,7 @@ Une entreprise souhaite connaître l'âge de ces clients. Pour cela, elle réali
 On cherche à connaître le nombre de gaucher dans la population. On étudie un échantillon de $300$ personnes, dans lequel nous observons $15\%$ de gauchers.
 
 - Donner un intervalle de confiance de la proportion de gauchers dans la population à $95\%$
-- Idem, mais à $92\%$
+- Idem, mais à $90\%$
 
 ### Exercice 3 - Poids des bébés à la naissance
 
