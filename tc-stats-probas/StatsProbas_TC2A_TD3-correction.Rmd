@@ -2,7 +2,7 @@
 title: "Exercices autour des lois et du calcul de probabilités"
 subtitle: "Correction"
 author: "FX Jollois"
-date: "TC - 2ème année - 2021/2022"
+date: "BUT TC - 2ème année"
 output: html_document
 ---
 
@@ -145,7 +145,7 @@ On a une loi discrète à 16 issues (l'ordre a du sens a priori) équi-probable 
 \begin{eqnarray*}
   \Omega &= \{&1111, 1112, 1121, 1122, 1211, 1212, 1221, 1222,\\
          &    &2111, 2112, 2121, 2122, 2211, 2212, 2221, 2222\}
-\end{eqnarray}
+\end{eqnarray*}
 
 Pour chaque évènement élémentaire $\omega$, on a donc 
 $$
@@ -185,37 +185,51 @@ Un test comporte 10 questions, avec chacune 4 choix possibles et une seule répo
 
 ---
 
-### Concerts
+### Prospection chanceuse ou efficiente
 
-Supposons un enseignant $\mathbf{J}$ ayant un groupe de rock et se produit à un concert $\mathbf{C}$ dans un bar à Cherbourg durant le mois d'octobre. On considère qu'un.e étudiant.e $\mathbf{E}$ a une probabilité de sortir le soir égale à $.5$, et a une probabilité de $.5$ d'aller dans le bar où se produit le groupe.
+Supposons que nous avons un ensemble de 500 prospects, et on suppose qu'on a en général un taux de conversion de 20%. Nous avons 3 produits différents à vendre à ces prospects, le taux de conversion est supposé le même entre les 3. 
 
-1. Que puis-je dire de la variable aléatoire modélisant qu'un étudiant $\mathbf{E}$ voit un concert $\mathbf{C}$ ? Quelle est la probabilité de l'évènement $A$ : $\mathbf{E}$ vient à $\mathbf{C}$ ?
-1. Maintenant, on se demande combien d'étudiants parmi les 85 de la promo viendront à un concert. Comment modéliser ce processus ? Quelle est la probabilité qu'au moins 10 étudiants viennent ?
-1. Enfin, l'enseignant se produit au final 3 fois dans le mois. On cherche donc à savoir quelle est la probabilité qu'un étudiant $\mathbf{E}$ voient les trois concerts $\mathbf{C1}$, $\mathbf{C2}$ et $\mathbf{C3}$. Comment puis-je faire ?
-  - Quelle est la probabilité qu'un étudiant vienne à aucun concert ? à un seul concert ? à deux ? au trois ?
-  - Sachant qu'un étudiant qui vient aux trois concerts aura la note maximale (donc 20), celui qui vient à 2 aura 15, à un seul 10, et 0 pour ceux qui ne viennent pas, comment puis-je estimer la moyenne de la promotion ?
-
-> N'hésitez pas à contacter l'enseignant $\mathbf{J}$ pour plus de renseignements sur les concerts &#128521;
+1. Que puis-je dire de la variable aléatoire modélisant le nombre de clients, après une campagne auprès de ces prospects ?
+1. Suite à cette campagne, nous avons réussi à avoir 130 clients sur le produit 1, 110 clients sur le produit 2 et 80 clients sur le produit 3. Que peut-on dire de la performance de notre campagne pour chaque produit ?
+1. Quelle est la probabilité qu'une personne achète les 3 produits ? Seulement 2 ? Seulement 1 ? Aucun ? 
+1. Au final, combien de clients (quelque soit le produit) puis-je espérer avoir ?
 
 #### Solution
 
 On utilise ici aussi l'outil pour les calculs concernant la loi Binomiale.
 
-1. $\mathbf{X}$ suit une loi de Bernouilli $p = .25$
-    - $P(E à C) = P(Bar \cap Sortie) = .5 \times .5 = .25$
-1. $\mathbf{Y}$ suit une loi Binomiale $ \sim B(84, .25)$
-    - $P(Y \le 10) = 0.0024$
-    - $P(Y \ge 20) = 1 - P(Y \le 19) = 1 - 0.3597 = 0.6403$
-    - $P(Y \ge 50) = 1 - P(Y \le 49) = 1 - 1 = 0$
-1. $\mathbf{Z}$ suit une loi Binomiale $\sim B(3, .25)$
-    - Calcul des probabilités
-        - $P(Z = 0) = 0.4219$
-        - $P(Z = 1) = 0.4219$
-        - $P(Z = 2) = 0.1406$
-        - $P(Z = 3) = 0.0156$
-    - On peut estimer $N_{note} = 84 \times P(Z = note)$ le nombre d'étudiants ayant $note$ sur 20.
-        - $E(Z') = \frac{1}{84} \times \sum_{note} \left( note \times 84 \times P(Z = note) \right)$
-        - $E(Z') = 6.64$
+1. Soit $X_1$, $X_2$ et $X_3$ les v.a. estimant le nombre de vente pour chaque produit. Elles suivent toutes les trois une loi Binomiale de paramètre $n=500$ et $p.2$. Dans ce cadre, l'espérance de vente de chaque produit est de 100 unités :
+$$E(X_1) = E(X_2) = E(X_3) = np = 500 \times .2 = 100$$
+1. La question est de savoir si la situation (*i.e* le nombre de ventes) est exceptionnelle. Pour les produits 1 et 2, nous allons chercher la probabilité d'avoir (au moins) cette situation, puisqu'ils dépassent l'espérence de vente. Donc, pour le produit 1, nous cherchons la probabilité d'avoir au moins 130 ventes. On cherche à calculer $P(X_1 \ge 130)$. De même pour le produit 2, on va chercher $P(X_2 \ge 110)$. Pour le produit 3, puisque le résultat est inférieur à ce qu'on espère, on va plutôt chercher $P(X_3 \le 80)$.
+    - Pour le produit 1, **le résultat est très bon, avec moins de 1% de chance de faire aussi bien.**
+\begin{eqnarray*}
+P(X_1 \ge 130) &=& 1 - P(X_1 < 130)    &\mbox{$\rightarrow$ complémentaire}\\
+               &=& 1 - P(X_1 \le 129)  &\mbox{$\rightarrow$ cas discret ici}\\
+               &=& 1 - 0.9993          &\mbox{$\rightarrow$ utilisation de l'outil} \\
+               &=& 0.007
+\end{eqnarray*}
+    - Pour le produit 2, **la situation, bien que favorable, est "normale".**
+\begin{eqnarray*}
+P(X_2 \ge 110) &=& 1 - P(X_2 < 110)\\
+               &=& 1 - P(X_2 \le 109)\\
+               &=& 1 - 0.8556\\
+               &=& 0.1444
+\end{eqnarray*}
+    - Pour le produit 3, **le résultat est très décevant, avec 1.3% de risque de faire aussi peu**
+\begin{eqnarray*}
+P(X_3 \le 80) &=& 0.0130
+\end{eqnarray*}
+1. Maintenant, on va définir $Z$ la v.a. donnant le nombre de produits achetés par un client, parmi les 3 qu'on lui propose. Dans ce cadre, $Z$ suit une loi Binomiale de paramètre $n=3$ et $p=.2$. Grâce à l'outil, on détermine :
+    - Voici les valeurs pour chaque cas possible
+        - $P(Z = 3) = 0.008$
+        - $P(Z = 2) = 0.096$
+        - $P(Z = 1) = 0.384$
+        - $P(Z = 0) = 0.512$
+    - On peut compléter en indiquant qu'un client achète en moyenne $E(Z) = np = 3 \times .2 = .6$ produit
+    - On voit aussi qu'un client a une probabilité 0.488 d'acheter au moins un produit (.384 + .096 + .008)
+1. Pour répondre à cette question, nous définissons $Y$ la v.a. modélisant le nombre de personnes ayant acheté au moins un produit, parmi les 500. $Y$ suit une loi Binomial de paramètres $n=500$ et $p=.488$. On calcule donc l'espérance de $Y$ avec
+$$E(Y) = np = 500 \times .488 = 244$$
+    - On peut donc espérer avec 244 clients au final
 
 
 ---
