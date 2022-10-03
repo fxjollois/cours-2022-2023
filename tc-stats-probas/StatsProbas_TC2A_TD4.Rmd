@@ -333,11 +333,11 @@ Puisqu'on choisit souvent $\alpha = 5\%$, on a $u_{\alpha/2} = 1.96$.
 
 On utilise ici l'intervalle de confiance suivant:
 
-$$\hat\mu - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}} < \mu < \hat\mu + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n}}$$
+$$\hat\mu - t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n-1}} < \mu < \hat\mu + t_{\alpha/2} \frac{\hat{\sigma}}{\sqrt{n-1}}$$
 
-où $t_{\alpha/2}$ est la valeur de la table de la loi de Student pour laquelle $p(X > u_{\alpha/2}) = \frac{\alpha}{2}$.
+où $t_{\alpha/2}$ est la valeur de la table de la loi de *Student*, à $n-1$ degrés de liberté, pour laquelle $p(X > t_{\alpha/2}) = \frac{\alpha}{2}$.
 
-Si $n$ est grand, on retrouve la valeur 1.96 pour $t_{\alpha/2}$ avec $\alpha = 5\%$.
+Si $n$ est grand (*i.a* $\ge 1000$), la loi de *Student* peut approximé par une loi Normale.
 
 
 ---

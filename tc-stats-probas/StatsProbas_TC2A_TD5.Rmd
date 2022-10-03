@@ -23,7 +23,7 @@ $$
 $$
 où les $x_i$ sont les valeurs prises pour les $n$ individus de l'échantillon.
 
-Lorsque $n$ est grand (supérieur à 30), on peut définir un intervalle de confiance avec une probabilité $\alpha$ avec la formule suivante :
+Lorsque $n$ est grand (supérieur à 1000), on peut définir un intervalle de confiance avec une probabilité $\alpha$ avec la formule suivante :
 $$
   \left[
     \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
@@ -31,6 +31,15 @@ $$
   \right]
 $$
 où $s^2$ est la variance calculée sur l'échantillon ($\frac{1}{n-1}\sum_{i=1}^n(x_i - \hat{\mu})^2$) et $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centrée-réduite telle que $P(X > u_{\alpha/2}) = \frac{\alpha}{2}$).
+
+Lorsque $n$ est inférieur à 1000, avec une probabilité $\alpha$, un utilise la formule suivante :
+$$
+  \left[
+    \hat{\mu} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \hat{\mu} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
+  \right]
+$$
+où $t_{\alpha/2}$ représente la valeur dans la table de la loi *Student*, à $n-1$ degré de liberté, telle que $P(X > t_{\alpha/2}) = \frac{\alpha}{2}$).
 
 ### Proportion
 
@@ -51,12 +60,19 @@ où $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centré
 
 ### Table de la loi Normale
 
-Valeurs importantes de la table de la loi Normale
+Valeurs importantes de la table de la loi Normale et de la loi de *Student* (selon les degrés de liberté)
 
 ```{r}
 v = c(0.001, 0.005, 0.01, 0.025, 0.05, 0.10)
-knitr::kable(tibble(`P(X < u)` = 1 - v, `u` = qnorm(1 - v))) %>%
+knitr::kable(tibble(`P(X < u)` = 1 - v, 
+                    `u (loi Normale N(0,1))` = qnorm(1 - v),
+                    `t (loi Student 49)` = qt(1 - v, 49),
+                    `t (loi Student 119)` = qt(1 - v, 119),
+                    `t (loi Student 299)` = qt(1 - v, 299)
+                    ),
+             digits = 3) %>%
   kable_styling()
+
 ```
 
 ### Exercice 1 - Âge moyen des clients
@@ -75,7 +91,7 @@ On cherche à connaître le nombre de gaucher dans la population. On étudie un 
 
 ### Exercice 3 - Poids des bébés à la naissance
 
-Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des $49$ enfants nés a été de $3.55 kg$ et une variance de $0.32$.
+Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des $50$ enfants nés a été de $3.55 kg$ et une variance de $0.32$.
 
 - Déterminer les intervalles de confiance à $90\%$, $95\%$ et $99\%$.
 - Une précédente étude avait conclus à un poids moyen à la naissance de $3.4 kg$. Que peut-on dire ?

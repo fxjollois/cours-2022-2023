@@ -611,7 +611,7 @@ indicateur sur <span class="math inline">\(n\)</span> individus d’un
 valeurs prises pour les <span class="math inline">\(n\)</span> individus
 de l’échantillon.</p>
 <p>Lorsque <span class="math inline">\(n\)</span> est grand (supérieur à
-30), on peut définir un intervalle de confiance avec une probabilité
+1000), on peut définir un intervalle de confiance avec une probabilité
 <span class="math inline">\(\alpha\)</span> avec la formule suivante :
 <span class="math display">\[
   \left[
@@ -622,6 +622,16 @@ de l’échantillon.</p>
 calculée sur l’échantillon (<span class="math inline">\(\frac{1}{n-1}\sum_{i=1}^n(x_i -
 \hat{\mu})^2\)</span>) et <span class="math inline">\(u_{\alpha/2}\)</span> représente la valeur dans la
 table de la loi Normale centrée-réduite telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
+\frac{\alpha}{2}\)</span>).</p>
+<p>Lorsque <span class="math inline">\(n\)</span> est inférieur à 1000,
+avec une probabilité <span class="math inline">\(\alpha\)</span>, un
+utilise la formule suivante : <span class="math display">\[
+  \left[
+    \hat{\mu} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \hat{\mu} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
+  \right]
+\]</span> où <span class="math inline">\(t_{\alpha/2}\)</span>
+représente la valeur dans la table de la loi <em>Student</em>, à <span class="math inline">\(n-1\)</span> degré de liberté, telle que <span class="math inline">\(P(X &gt; t_{\alpha/2}) =
 \frac{\alpha}{2}\)</span>).</p>
 </div>
 <div id="proportion" class="section level3">
@@ -648,7 +658,8 @@ telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
 </div>
 <div id="table-de-la-loi-normale" class="section level3">
 <h3>Table de la loi Normale</h3>
-<p>Valeurs importantes de la table de la loi Normale</p>
+<p>Valeurs importantes de la table de la loi Normale et de la loi de
+<em>Student</em> (selon les degrés de liberté)</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -656,7 +667,16 @@ telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
 P(X &lt; u)
 </th>
 <th style="text-align:right;">
-u
+u (loi Normale N(0,1))
+</th>
+<th style="text-align:right;">
+t (loi Student 49)
+</th>
+<th style="text-align:right;">
+t (loi Student 119)
+</th>
+<th style="text-align:right;">
+t (loi Student 299)
 </th>
 </tr>
 </thead>
@@ -666,7 +686,16 @@ u
 0.999
 </td>
 <td style="text-align:right;">
-3.090232
+3.090
+</td>
+<td style="text-align:right;">
+3.265
+</td>
+<td style="text-align:right;">
+3.160
+</td>
+<td style="text-align:right;">
+3.118
 </td>
 </tr>
 <tr>
@@ -674,7 +703,16 @@ u
 0.995
 </td>
 <td style="text-align:right;">
-2.575829
+2.576
+</td>
+<td style="text-align:right;">
+2.680
+</td>
+<td style="text-align:right;">
+2.618
+</td>
+<td style="text-align:right;">
+2.592
 </td>
 </tr>
 <tr>
@@ -682,7 +720,16 @@ u
 0.990
 </td>
 <td style="text-align:right;">
-2.326348
+2.326
+</td>
+<td style="text-align:right;">
+2.405
+</td>
+<td style="text-align:right;">
+2.358
+</td>
+<td style="text-align:right;">
+2.339
 </td>
 </tr>
 <tr>
@@ -690,7 +737,16 @@ u
 0.975
 </td>
 <td style="text-align:right;">
-1.959964
+1.960
+</td>
+<td style="text-align:right;">
+2.010
+</td>
+<td style="text-align:right;">
+1.980
+</td>
+<td style="text-align:right;">
+1.968
 </td>
 </tr>
 <tr>
@@ -698,7 +754,16 @@ u
 0.950
 </td>
 <td style="text-align:right;">
-1.644854
+1.645
+</td>
+<td style="text-align:right;">
+1.677
+</td>
+<td style="text-align:right;">
+1.658
+</td>
+<td style="text-align:right;">
+1.650
 </td>
 </tr>
 <tr>
@@ -706,7 +771,16 @@ u
 0.900
 </td>
 <td style="text-align:right;">
-1.281552
+1.282
+</td>
+<td style="text-align:right;">
+1.299
+</td>
+<td style="text-align:right;">
+1.289
+</td>
+<td style="text-align:right;">
+1.284
 </td>
 </tr>
 </tbody>
@@ -737,7 +811,7 @@ la population à <span class="math inline">\(95\%\)</span></li>
 <div id="exercice-3---poids-des-bébés-à-la-naissance" class="section level3">
 <h3>Exercice 3 - Poids des bébés à la naissance</h3>
 <p>Un hôpital fait une étude sur le poids des bébés à la naissance. Lors
-du mois écoulé, le poids moyen des <span class="math inline">\(49\)</span> enfants nés a été de <span class="math inline">\(3.55 kg\)</span> et une variance de <span class="math inline">\(0.32\)</span>.</p>
+du mois écoulé, le poids moyen des <span class="math inline">\(50\)</span> enfants nés a été de <span class="math inline">\(3.55 kg\)</span> et une variance de <span class="math inline">\(0.32\)</span>.</p>
 <ul>
 <li>Déterminer les intervalles de confiance à <span class="math inline">\(90\%\)</span>, <span class="math inline">\(95\%\)</span> et <span class="math inline">\(99\%\)</span>.</li>
 <li>Une précédente étude avait conclus à un poids moyen à la naissance
