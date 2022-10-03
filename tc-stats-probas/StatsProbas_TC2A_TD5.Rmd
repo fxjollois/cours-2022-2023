@@ -1,5 +1,6 @@
 ---
 title: "Exercices autour de l'estimation et des tests"
+subtitle: "Intervalle de confiance d'une moyenne, lorsque la variance est inconnue"
 author: "FX Jollois"
 date: "BUT TC - 2ème année"
 output: html_document
@@ -11,117 +12,109 @@ library(dplyr)
 library(kableExtra)
 ```
 
-> [Lien vers émulateur calculatrice scientifique](https://www.numworks.com/fr/simulateur/)
-
 ## Rappels
 
 ### Moyenne
 
 Soit $X$ une v.a. mesurant un indicateur sur $n$ individus d'un échantillon, on peut estimer la moyenne $\mu$ de la population grâce avec $\hat{\mu}$ moyenne de l'échantillon :
 $$
-  \hat{\mu} = \frac{1}{n} \sum_{i=1}^n x_i
+  \hat{\mu} = \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
 $$
 où les $x_i$ sont les valeurs prises pour les $n$ individus de l'échantillon.
 
-Lorsque $n$ est grand (supérieur à 1000), on définit un intervalle de confiance de la moyenne avec une probabilité $\alpha$ avec la formule suivante :
+De même, nous pouvons estimer sa variance avec :
+$$
+  \hat{\sigma}^2 = s^2 =  \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
+$$
+
+Lorsque la variance $\sigma^2$ est inconnue, on définit un intervalle de confiance de la moyenne avec une probabilité $\alpha$, avec la formule suivante :
 $$
   \left[
-    \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
-    \hat{\mu} + u_{\alpha/2} \sqrt{\frac{s^2}{n}}
+    \bar{x} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \bar{x} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
   \right]
 $$
-où $s^2$ est la variance calculée sur l'échantillon ($\frac{1}{n-1}\sum_{i=1}^n(x_i - \hat{\mu})^2$) et $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centrée-réduite telle que $P(X > u_{\alpha/2}) = \frac{\alpha}{2}$).
+où $t_{\alpha/2}$ représente la valeur dans la table de la loi *Student*, à $n-1$ degrés de liberté (*ddl*), telle que $P(X > t_{\alpha/2}) = \frac{\alpha}{2}$.
 
-Lorsque $n$ est inférieur à 1000, avec une probabilité $\alpha$, un utilise la formule suivante :
-$$
-  \left[
-    \hat{\mu} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
-    \hat{\mu} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
-  \right]
-$$
-où $t_{\alpha/2}$ représente la valeur dans la table de la loi *Student*, à $n-1$ degré de liberté, telle que $P(X > t_{\alpha/2}) = \frac{\alpha}{2}$).
+### Loi de *Student*
 
-### Proportion
-
-Soit $X$ une v.a. mesurant l'apparition d'une propriété pour $n$ individus, on a $\hat{p}$ l'estimateur de la proportion dans le population égal à :
-$$
-  \hat{p} = \frac{k}{n}
-$$
-où $k$ est le nombre d'individus ayant la propriété dans l'échantillon.
-
-Lorsque $n$ est grand (supérieur à 30), et $p$ compris dans l'intervalle $[0.1, 0.9]$, on peut définir un intervalle de confiance avec une probabilité $\alpha$ comme suit :
-$$
-  \left[ 
-    \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}; 
-    \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}
-  \right]
-$$
-où $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centrée-réduite telle que $P(X > u_{\alpha/2}) = \frac{\alpha}{2}$).
-
-### Table de la loi Normale
-
-Valeurs importantes de la table de la loi Normale et de la loi de *Student* (selon les degrés de liberté)
+Valeurs importantes de la table de la loi de *Student* (selon les degrés de liberté)
 
 ```{r}
 v = c(0.001, 0.005, 0.01, 0.025, 0.05, 0.10)
 knitr::kable(tibble(`P(X < u)` = 1 - v, 
-                    `u (loi Normale N(0,1))` = qnorm(1 - v),
-                    `t (loi Student 49)` = qt(1 - v, 49),
-                    `t (loi Student 119)` = qt(1 - v, 119),
-                    `t (loi Student 299)` = qt(1 - v, 299)
+                    `dd = 49` = qt(1 - v, 49),
+                    `ddl = 119` = qt(1 - v, 119),
+                    `ddl = 199` = qt(1 - v, 199),
+                    `ddl = 299` = qt(1 - v, 299)
                     ),
              digits = 3) %>%
   kable_styling()
 
 ```
 
+
+### Exemple
+
+Soit $X$ la v.a. estimant la moyenne des étudiants. Dans un échantillon de 50 étudiants, nous obtenons une moyenne de 11.4 avec une variance de 2.7. Nous pouvons déterminer l'intervalle de confiance de la note comme suit :
+$$
+  \left[
+    \bar{x} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \bar{x} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
+  \right]
+$$
+
+On sait donc que :
+
+- $\bar{x}=3.4$
+- $s^2 = 2.7$
+- $t_{\alpha/2} = 2.010$ pour $\alpha = 5\%$
+
+On a donc
+
+$$
+  \left[
+    11.4 - 2.010 \sqrt{\frac{2.7}{49}} ;
+    11.4 + 2.010 \sqrt{\frac{2.7}{49}}
+  \right]
+$$
+
+Après calcul, on obtient donc $[ 10.93 ; 11.87 ]$. 
+
+> On pourra ainsi dire qu'il y a 95% de chances que la moyenne des étudiants soient comprises entre 0.93 et 11.87. 
+
+> Si la question était de savoir si la moyenne serait au-dessus de 10, on pourra affirmer qu'il y a 95% de chances que la moyenne des étudiants soit supérieure à 10.
+
+## Exercices
+
 ### Exercice 1 - Âge moyen des clients
 
-Une entreprise souhaite connaître l'âge de ces clients. Pour cela, elle réalise un sondage sur $120$ personnes. Sur cet échantillon, on obtient un âge moyen de $35.0$ et une variance de $15.08$.
+Une entreprise souhaite connaître l'âge de ces clients. Pour cela, elle réalise un sondage sur 120 personnes. Sur cet échantillon, on obtient un âge moyen de 35.0 et une variance de 15.08.
 
-- On souhaite avoir un intervalle de confiance de la moyenne des clients à $95\%$. Quel est-il ?
-- Et à $90\%$ ?
+- On souhaite avoir un intervalle de confiance de la moyenne des clients à 95%. Quel est-il ?
+- Et à 90% ? Et à 99% ?
 
-### Exercice 2 - Gauchers dans la population
+### Exercice 2 - Poids des bébés à la naissance
 
-On cherche à connaître le nombre de gaucher dans la population. On étudie un échantillon de $300$ personnes, dans lequel nous observons $15\%$ de gauchers.
+Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des 50 enfants nés a été de 3.55 kg et une variance de 0.32.
 
-- Donner un intervalle de confiance de la proportion de gauchers dans la population à $95\%$
-- Idem, mais à $90\%$
+- Déterminer les intervalles de confiance à 90%, 95% et 99%.
+- Une précédente étude avait conclus à un poids moyen à la naissance de 3.4 kg. Que peut-on dire ?
 
-### Exercice 3 - Poids des bébés à la naissance
+### Exercice 3 - Circuits électroniques
 
-Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des $50$ enfants nés a été de $3.55 kg$ et une variance de $0.32$.
+On compare deux circuits électroniques, dont on veut savoir si le gain est identique entre les deux. Nous réalisons 300 mesures pour chacun des circuits, et obtenons les moyennes ($m_i$) et écarts-type ($s_i$) suivants :
 
-- Déterminer les intervalles de confiance à $90\%$, $95\%$ et $99\%$.
-- Une précédente étude avait conclus à un poids moyen à la naissance de $3.4 kg$. Que peut-on dire ?
-
-### Exercice 4 - Prix du menu au restaurant
-
-Le gérant d'une brasserie souhaite faire passer le prix du menu à $15.90€$. Il souhaite estimer la proportion de clients qui seraient prêts à venir déjeuner à ce tarif. Il réalise un sondage auprès des clients présents le midi ce jour-là. Sur les $50$ personnes interrogées, $39$ se disent prêtes à venir déjeuner à ce tarif.
-
-- Quelle est la proportion de personnes qui estiment la hausse raisonnable ?
-- Le gérant a posé comme condition, pour augmenter le prix, qu'il y ait plus de $60\%$ des clients favorables à ce changement. Déterminer l'intervalle de confiance de la proportion à $95\%$. Qu'en déduira le gérant ? Et s'il avait dit qu'il fallait plus de $70\%$ ?
-
-
-### Exercice 5 - Circuits électroniques
-
-Nous souhaitons estimer un intervalle de confiance du gain d'un circuit électronique. On admet que le gain est distribué selon une loi normale d'espérance inconnue $\mu$ et d'écart-type connu $\sigma=20$.Quelle doit être la taille de l'échantillon $n$ pour que la longueur de l'intervalle de confiance à $95\%$  soit égale à 4 ?
-
-On compare deux circuits électroniques, dont on veut savoir si le gain est identique entre les deux. Nous réalisons 500 mesures pour chacun des circuits, et obtenons les moyennes ($m_i$) et écarts-type ($s_i$) suivants :
-
-- $m_1 = 15.1$ et $s_1 = 4.5$
-- $m_2 = 15.9$ et $s_2 = 4.4$
+- $m_1 = 15.1$ et $s_1 = 4.1$
+- $m_2 = 15.9$ et $s_2 = 3.9$
 
 Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à $90%$ ? et à $95\%$ ?
 
-### Exercice 6 - Référendum
+### Exercice 4 - Qualité de production
 
-<!--
-Exercices%20CORRIGES%20sur%20les%20Intervalles%20de%20confiance.pdf
--->
+On désire comparer la qualité de deux doseuses pour boîtes de haricots verts de quantité nominale égale à $800 g$. On prélève un échantillon de 200 éléments sur chacune des deux machines, ce qui donne les deux valeurs moyennes suivantes :
 
-On prévoit de réaliser un référendum. On sait que la réponse *Oui* se situe autour de $50\%$. On se demande donc combien de personnes faudrait-il interroger pour que la proportion de *Oui* soit connue à $1\%$ près  (en plus ou en moins).
+- $m_1 = 807$ et $s^2 = 68$ pour la première machine
+- $m_2 = 805$ et $s^2 = 59$ pour la deuxième machine
 
-Lors de la réalisation de ce sondage, finalement pratiqué sur $1000$ personnes, nous avons obtenu $55\%$ pour le *Oui* et $45\%$ pour le *Non*. Peut-on prévoir le résultat du référendum, avec un taux de confiance de $95\%$ ?
-
+Les dosages moyens de ces deux machines sont-ils différents au risque de $5\%$ ? Sont-elles fiables par rapport au dosage de $800g$ à obtenir ?

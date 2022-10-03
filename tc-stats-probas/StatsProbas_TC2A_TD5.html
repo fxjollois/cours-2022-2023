@@ -588,16 +588,14 @@ pre code {
 
 <h1 class="title toc-ignore">Exercices autour de l’estimation et des
 tests</h1>
+<h3 class="subtitle">Intervalle de confiance d’une moyenne, lorsque la
+variance est inconnue</h3>
 <h4 class="author">FX Jollois</h4>
 <h4 class="date">BUT TC - 2ème année</h4>
 
 </div>
 
 
-<blockquote>
-<p><a href="https://www.numworks.com/fr/simulateur/">Lien vers émulateur
-calculatrice scientifique</a></p>
-</blockquote>
 <div id="rappels" class="section level2">
 <h2>Rappels</h2>
 <div id="moyenne" class="section level3">
@@ -606,60 +604,30 @@ calculatrice scientifique</a></p>
 indicateur sur <span class="math inline">\(n\)</span> individus d’un
 échantillon, on peut estimer la moyenne <span class="math inline">\(\mu\)</span> de la population grâce avec <span class="math inline">\(\hat{\mu}\)</span> moyenne de l’échantillon :
 <span class="math display">\[
-  \hat{\mu} = \frac{1}{n} \sum_{i=1}^n x_i
+  \hat{\mu} = \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i
 \]</span> où les <span class="math inline">\(x_i\)</span> sont les
 valeurs prises pour les <span class="math inline">\(n\)</span> individus
 de l’échantillon.</p>
-<p>Lorsque <span class="math inline">\(n\)</span> est grand (supérieur à
-1000), on définit un intervalle de confiance de la moyenne avec une
-probabilité <span class="math inline">\(\alpha\)</span> avec la formule
+<p>De même, nous pouvons estimer sa variance avec : <span class="math display">\[
+  \hat{\sigma}^2 = s^2 =  \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2
+\]</span></p>
+<p>Lorsque la variance <span class="math inline">\(\sigma^2\)</span> est
+inconnue, on définit un intervalle de confiance de la moyenne avec une
+probabilité <span class="math inline">\(\alpha\)</span>, avec la formule
 suivante : <span class="math display">\[
   \left[
-    \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
-    \hat{\mu} + u_{\alpha/2} \sqrt{\frac{s^2}{n}}
-  \right]
-\]</span> où <span class="math inline">\(s^2\)</span> est la variance
-calculée sur l’échantillon (<span class="math inline">\(\frac{1}{n-1}\sum_{i=1}^n(x_i -
-\hat{\mu})^2\)</span>) et <span class="math inline">\(u_{\alpha/2}\)</span> représente la valeur dans la
-table de la loi Normale centrée-réduite telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
-\frac{\alpha}{2}\)</span>).</p>
-<p>Lorsque <span class="math inline">\(n\)</span> est inférieur à 1000,
-avec une probabilité <span class="math inline">\(\alpha\)</span>, un
-utilise la formule suivante : <span class="math display">\[
-  \left[
-    \hat{\mu} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
-    \hat{\mu} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
+    \bar{x} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \bar{x} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
   \right]
 \]</span> où <span class="math inline">\(t_{\alpha/2}\)</span>
-représente la valeur dans la table de la loi <em>Student</em>, à <span class="math inline">\(n-1\)</span> degré de liberté, telle que <span class="math inline">\(P(X &gt; t_{\alpha/2}) =
-\frac{\alpha}{2}\)</span>).</p>
+représente la valeur dans la table de la loi <em>Student</em>, à <span class="math inline">\(n-1\)</span> degrés de liberté (<em>ddl</em>),
+telle que <span class="math inline">\(P(X &gt; t_{\alpha/2}) =
+\frac{\alpha}{2}\)</span>.</p>
 </div>
-<div id="proportion" class="section level3">
-<h3>Proportion</h3>
-<p>Soit <span class="math inline">\(X\)</span> une v.a. mesurant
-l’apparition d’une propriété pour <span class="math inline">\(n\)</span>
-individus, on a <span class="math inline">\(\hat{p}\)</span>
-l’estimateur de la proportion dans le population égal à : <span class="math display">\[
-  \hat{p} = \frac{k}{n}
-\]</span> où <span class="math inline">\(k\)</span> est le nombre
-d’individus ayant la propriété dans l’échantillon.</p>
-<p>Lorsque <span class="math inline">\(n\)</span> est grand (supérieur à
-30), et <span class="math inline">\(p\)</span> compris dans l’intervalle
-<span class="math inline">\([0.1, 0.9]\)</span>, on peut définir un
-intervalle de confiance avec une probabilité <span class="math inline">\(\alpha\)</span> comme suit : <span class="math display">\[
-  \left[
-    \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}};
-    \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}
-  \right]
-\]</span> où <span class="math inline">\(u_{\alpha/2}\)</span>
-représente la valeur dans la table de la loi Normale centrée-réduite
-telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
-\frac{\alpha}{2}\)</span>).</p>
-</div>
-<div id="table-de-la-loi-normale" class="section level3">
-<h3>Table de la loi Normale</h3>
-<p>Valeurs importantes de la table de la loi Normale et de la loi de
-<em>Student</em> (selon les degrés de liberté)</p>
+<div id="loi-de-student" class="section level3">
+<h3>Loi de <em>Student</em></h3>
+<p>Valeurs importantes de la table de la loi de <em>Student</em> (selon
+les degrés de liberté)</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -667,16 +635,16 @@ telle que <span class="math inline">\(P(X &gt; u_{\alpha/2}) =
 P(X &lt; u)
 </th>
 <th style="text-align:right;">
-u (loi Normale N(0,1))
+dd = 49
 </th>
 <th style="text-align:right;">
-t (loi Student 49)
+ddl = 119
 </th>
 <th style="text-align:right;">
-t (loi Student 119)
+ddl = 199
 </th>
 <th style="text-align:right;">
-t (loi Student 299)
+ddl = 299
 </th>
 </tr>
 </thead>
@@ -686,13 +654,13 @@ t (loi Student 299)
 0.999
 </td>
 <td style="text-align:right;">
-3.090
-</td>
-<td style="text-align:right;">
 3.265
 </td>
 <td style="text-align:right;">
 3.160
+</td>
+<td style="text-align:right;">
+3.132
 </td>
 <td style="text-align:right;">
 3.118
@@ -703,13 +671,13 @@ t (loi Student 299)
 0.995
 </td>
 <td style="text-align:right;">
-2.576
-</td>
-<td style="text-align:right;">
 2.680
 </td>
 <td style="text-align:right;">
 2.618
+</td>
+<td style="text-align:right;">
+2.601
 </td>
 <td style="text-align:right;">
 2.592
@@ -720,13 +688,13 @@ t (loi Student 299)
 0.990
 </td>
 <td style="text-align:right;">
-2.326
-</td>
-<td style="text-align:right;">
 2.405
 </td>
 <td style="text-align:right;">
 2.358
+</td>
+<td style="text-align:right;">
+2.345
 </td>
 <td style="text-align:right;">
 2.339
@@ -737,13 +705,13 @@ t (loi Student 299)
 0.975
 </td>
 <td style="text-align:right;">
-1.960
-</td>
-<td style="text-align:right;">
 2.010
 </td>
 <td style="text-align:right;">
 1.980
+</td>
+<td style="text-align:right;">
+1.972
 </td>
 <td style="text-align:right;">
 1.968
@@ -754,13 +722,13 @@ t (loi Student 299)
 0.950
 </td>
 <td style="text-align:right;">
-1.645
-</td>
-<td style="text-align:right;">
 1.677
 </td>
 <td style="text-align:right;">
 1.658
+</td>
+<td style="text-align:right;">
+1.653
 </td>
 <td style="text-align:right;">
 1.650
@@ -771,13 +739,13 @@ t (loi Student 299)
 0.900
 </td>
 <td style="text-align:right;">
-1.282
-</td>
-<td style="text-align:right;">
 1.299
 </td>
 <td style="text-align:right;">
 1.289
+</td>
+<td style="text-align:right;">
+1.286
 </td>
 <td style="text-align:right;">
 1.284
@@ -786,87 +754,93 @@ t (loi Student 299)
 </tbody>
 </table>
 </div>
+<div id="exemple" class="section level3">
+<h3>Exemple</h3>
+<p>Soit <span class="math inline">\(X\)</span> la v.a. estimant la
+moyenne des étudiants. Dans un échantillon de 50 étudiants, nous
+obtenons une moyenne de 11.4 avec une variance de 2.7. Nous pouvons
+déterminer l’intervalle de confiance de la note comme suit : <span class="math display">\[
+  \left[
+    \bar{x} - t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}} ;
+    \bar{x} + t_{\alpha/2} \sqrt{\frac{s^2}{n - 1}}
+  \right]
+\]</span></p>
+<p>On sait donc que :</p>
+<ul>
+<li><span class="math inline">\(\bar{x}=3.4\)</span></li>
+<li><span class="math inline">\(s^2 = 2.7\)</span></li>
+<li><span class="math inline">\(t_{\alpha/2} = 2.010\)</span> pour <span class="math inline">\(\alpha = 5\%\)</span></li>
+</ul>
+<p>On a donc</p>
+<p><span class="math display">\[
+  \left[
+    11.4 - 2.010 \sqrt{\frac{2.7}{49}} ;
+    11.4 + 2.010 \sqrt{\frac{2.7}{49}}
+  \right]
+\]</span></p>
+<p>Après calcul, on obtient donc <span class="math inline">\([ 10.93 ;
+11.87 ]\)</span>.</p>
+<blockquote>
+<p>On pourra ainsi dire qu’il y a 95% de chances que la moyenne des
+étudiants soient comprises entre 0.93 et 11.87.</p>
+</blockquote>
+<blockquote>
+<p>Si la question était de savoir si la moyenne serait au-dessus de 10,
+on pourra affirmer qu’il y a 95% de chances que la moyenne des étudiants
+soit supérieure à 10.</p>
+</blockquote>
+</div>
+</div>
+<div id="exercices" class="section level2">
+<h2>Exercices</h2>
 <div id="exercice-1---âge-moyen-des-clients" class="section level3">
 <h3>Exercice 1 - Âge moyen des clients</h3>
 <p>Une entreprise souhaite connaître l’âge de ces clients. Pour cela,
-elle réalise un sondage sur <span class="math inline">\(120\)</span>
-personnes. Sur cet échantillon, on obtient un âge moyen de <span class="math inline">\(35.0\)</span> et une variance de <span class="math inline">\(15.08\)</span>.</p>
+elle réalise un sondage sur 120 personnes. Sur cet échantillon, on
+obtient un âge moyen de 35.0 et une variance de 15.08.</p>
 <ul>
 <li>On souhaite avoir un intervalle de confiance de la moyenne des
-clients à <span class="math inline">\(95\%\)</span>. Quel est-il ?</li>
-<li>Et à <span class="math inline">\(90\%\)</span> ?</li>
+clients à 95%. Quel est-il ?</li>
+<li>Et à 90% ? Et à 99% ?</li>
 </ul>
 </div>
-<div id="exercice-2---gauchers-dans-la-population" class="section level3">
-<h3>Exercice 2 - Gauchers dans la population</h3>
-<p>On cherche à connaître le nombre de gaucher dans la population. On
-étudie un échantillon de <span class="math inline">\(300\)</span>
-personnes, dans lequel nous observons <span class="math inline">\(15\%\)</span> de gauchers.</p>
-<ul>
-<li>Donner un intervalle de confiance de la proportion de gauchers dans
-la population à <span class="math inline">\(95\%\)</span></li>
-<li>Idem, mais à <span class="math inline">\(90\%\)</span></li>
-</ul>
-</div>
-<div id="exercice-3---poids-des-bébés-à-la-naissance" class="section level3">
-<h3>Exercice 3 - Poids des bébés à la naissance</h3>
+<div id="exercice-2---poids-des-bébés-à-la-naissance" class="section level3">
+<h3>Exercice 2 - Poids des bébés à la naissance</h3>
 <p>Un hôpital fait une étude sur le poids des bébés à la naissance. Lors
-du mois écoulé, le poids moyen des <span class="math inline">\(50\)</span> enfants nés a été de <span class="math inline">\(3.55 kg\)</span> et une variance de <span class="math inline">\(0.32\)</span>.</p>
+du mois écoulé, le poids moyen des 50 enfants nés a été de 3.55 kg et
+une variance de 0.32.</p>
 <ul>
-<li>Déterminer les intervalles de confiance à <span class="math inline">\(90\%\)</span>, <span class="math inline">\(95\%\)</span> et <span class="math inline">\(99\%\)</span>.</li>
+<li>Déterminer les intervalles de confiance à 90%, 95% et 99%.</li>
 <li>Une précédente étude avait conclus à un poids moyen à la naissance
-de <span class="math inline">\(3.4 kg\)</span>. Que peut-on dire ?</li>
+de 3.4 kg. Que peut-on dire ?</li>
 </ul>
 </div>
-<div id="exercice-4---prix-du-menu-au-restaurant" class="section level3">
-<h3>Exercice 4 - Prix du menu au restaurant</h3>
-<p>Le gérant d’une brasserie souhaite faire passer le prix du menu à
-<span class="math inline">\(15.90€\)</span>. Il souhaite estimer la
-proportion de clients qui seraient prêts à venir déjeuner à ce tarif. Il
-réalise un sondage auprès des clients présents le midi ce jour-là. Sur
-les <span class="math inline">\(50\)</span> personnes interrogées, <span class="math inline">\(39\)</span> se disent prêtes à venir déjeuner à ce
-tarif.</p>
-<ul>
-<li>Quelle est la proportion de personnes qui estiment la hausse
-raisonnable ?</li>
-<li>Le gérant a posé comme condition, pour augmenter le prix, qu’il y
-ait plus de <span class="math inline">\(60\%\)</span> des clients
-favorables à ce changement. Déterminer l’intervalle de confiance de la
-proportion à <span class="math inline">\(95\%\)</span>. Qu’en déduira le
-gérant ? Et s’il avait dit qu’il fallait plus de <span class="math inline">\(70\%\)</span> ?</li>
-</ul>
-</div>
-<div id="exercice-5---circuits-électroniques" class="section level3">
-<h3>Exercice 5 - Circuits électroniques</h3>
-<p>Nous souhaitons estimer un intervalle de confiance du gain d’un
-circuit électronique. On admet que le gain est distribué selon une loi
-normale d’espérance inconnue <span class="math inline">\(\mu\)</span> et
-d’écart-type connu <span class="math inline">\(\sigma=20\)</span>.Quelle
-doit être la taille de l’échantillon <span class="math inline">\(n\)</span> pour que la longueur de l’intervalle de
-confiance à <span class="math inline">\(95\%\)</span> soit égale à 4
-?</p>
+<div id="exercice-3---circuits-électroniques" class="section level3">
+<h3>Exercice 3 - Circuits électroniques</h3>
 <p>On compare deux circuits électroniques, dont on veut savoir si le
-gain est identique entre les deux. Nous réalisons 500 mesures pour
+gain est identique entre les deux. Nous réalisons 300 mesures pour
 chacun des circuits, et obtenons les moyennes (<span class="math inline">\(m_i\)</span>) et écarts-type (<span class="math inline">\(s_i\)</span>) suivants :</p>
 <ul>
-<li><span class="math inline">\(m_1 = 15.1\)</span> et <span class="math inline">\(s_1 = 4.5\)</span></li>
-<li><span class="math inline">\(m_2 = 15.9\)</span> et <span class="math inline">\(s_2 = 4.4\)</span></li>
+<li><span class="math inline">\(m_1 = 15.1\)</span> et <span class="math inline">\(s_1 = 4.1\)</span></li>
+<li><span class="math inline">\(m_2 = 15.9\)</span> et <span class="math inline">\(s_2 = 3.9\)</span></li>
 </ul>
 <p>Peut-on dire qu’il y a une différence entre les deux avec un seuil de
 confiance à <span class="math inline">\(90%\)</span> ? et à <span class="math inline">\(95\%\)</span> ?</p>
 </div>
-<div id="exercice-6---référendum" class="section level3">
-<h3>Exercice 6 - Référendum</h3>
-<!--
-Exercices%20CORRIGES%20sur%20les%20Intervalles%20de%20confiance.pdf
--->
-<p>On prévoit de réaliser un référendum. On sait que la réponse
-<em>Oui</em> se situe autour de <span class="math inline">\(50\%\)</span>. On se demande donc combien de
-personnes faudrait-il interroger pour que la proportion de <em>Oui</em>
-soit connue à <span class="math inline">\(1\%\)</span> près (en plus ou
-en moins).</p>
-<p>Lors de la réalisation de ce sondage, finalement pratiqué sur <span class="math inline">\(1000\)</span> personnes, nous avons obtenu <span class="math inline">\(55\%\)</span> pour le <em>Oui</em> et <span class="math inline">\(45\%\)</span> pour le <em>Non</em>. Peut-on
-prévoir le résultat du référendum, avec un taux de confiance de <span class="math inline">\(95\%\)</span> ?</p>
+<div id="exercice-4---qualité-de-production" class="section level3">
+<h3>Exercice 4 - Qualité de production</h3>
+<p>On désire comparer la qualité de deux doseuses pour boîtes de
+haricots verts de quantité nominale égale à <span class="math inline">\(800 g\)</span>. On prélève un échantillon de 200
+éléments sur chacune des deux machines, ce qui donne les deux valeurs
+moyennes suivantes :</p>
+<ul>
+<li><span class="math inline">\(m_1 = 807\)</span> et <span class="math inline">\(s^2 = 68\)</span> pour la première machine</li>
+<li><span class="math inline">\(m_2 = 805\)</span> et <span class="math inline">\(s^2 = 59\)</span> pour la deuxième machine</li>
+</ul>
+<p>Les dosages moyens de ces deux machines sont-ils différents au risque
+de <span class="math inline">\(5\%\)</span> ? Sont-elles fiables par
+rapport au dosage de <span class="math inline">\(800g\)</span> à obtenir
+?</p>
 </div>
 </div>
 
