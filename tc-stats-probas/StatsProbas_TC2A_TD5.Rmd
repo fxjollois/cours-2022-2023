@@ -23,7 +23,7 @@ $$
 $$
 où les $x_i$ sont les valeurs prises pour les $n$ individus de l'échantillon.
 
-Lorsque $n$ est grand (supérieur à 1000), on peut définir un intervalle de confiance avec une probabilité $\alpha$ avec la formule suivante :
+Lorsque $n$ est grand (supérieur à 1000), on définit un intervalle de confiance de la moyenne avec une probabilité $\alpha$ avec la formule suivante :
 $$
   \left[
     \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
