@@ -6,6 +6,8 @@
     - [correction](seance1-correction.html)
 2. [Manipulation et Visualisation de données](seance2-stat-python.html)
     - [correction](seance2-correction.html)
+3. [Représentation multidimensionnelle via l'ACP](seance3-acp.html)
+    - [sous `python`](seance3-acp-python.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
@@ -16,11 +18,9 @@ Lien vers les plateformes de l'UFR Math-Info :
 sous python ?
 
 
-1. Manipulation de données
-2. Visualisation de données
 3. Analyse de données (ACP, AFC...)
 4. Clustering
-5. Scoring via régression logistique(?)
+5. Scoring via régression logistique (?)
 6. Arbres de décision
 7. Règles d'association
 8. Réseaux de neurones (MLP)
