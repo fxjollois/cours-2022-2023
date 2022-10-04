@@ -14264,7 +14264,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Librairies-utilis&#233;es">Librairies utilis&#233;es<a class="anchor-link" href="#Librairies-utilis&#233;es">&#182;</a></h2><p>Module <a href=""><code>sklearn</code></a> (nommé <em>scikit-learn</em>) très utilisé dans le Machine Learning sous <code>python</code></p>
+<h2 id="Librairies-utilis&#233;es">Librairies utilis&#233;es<a class="anchor-link" href="#Librairies-utilis&#233;es">&#182;</a></h2><p>Module <a href="https://scikit-learn.org/"><code>sklearn</code></a> (nommé <em>scikit-learn</em>) très utilisé dans le Machine Learning sous <code>python</code></p>
 <ul>
 <li>Fonction <code>PCA</code> du module <code>decomposition</code> : réalise les calculs de l'ACP</li>
 <li>Fonction <code>scale</code> du module <code>preprocessing</code> : permet de normaliser les variables (moy = 0, var = 1)</li>
@@ -14511,7 +14511,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="R&#233;alisation-de-l'ACP">R&#233;alisation de l'ACP<a class="anchor-link" href="#R&#233;alisation-de-l'ACP">&#182;</a></h2><p>Ici, <code>scale()</code> permet de normaliser chaque variable</p>
+<h2 id="R&#233;alisation-de-l'ACP">R&#233;alisation de l'ACP<a class="anchor-link" href="#R&#233;alisation-de-l'ACP">&#182;</a></h2><p>Ici, <code>scale()</code> permet donc de normaliser chaque variable</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15351,17 +15351,19 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span>
     <span class="s2">&quot;https://crudata.uea.ac.uk/cru/data/temperature/HadCRUT5.0Analysis_gl.txt&quot;</span><span class="p">,</span> 
     <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;\s+&quot;</span><span class="p">,</span> 
     <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span> <span class="s2">&quot;Annual&quot;</span><span class="p">])</span>
+
 <span class="c1"># .iloc[::2] pour prendre une ligne sur deux</span>
 <span class="c1"># .iloc[:-1] pour supprimer la dernière ligne (2022 n&#39;est pas finie)</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">temp</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+
+<span class="n">temp</span>
 </pre></div>
 
      </div>
@@ -15377,7 +15379,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
 
 
@@ -15416,6 +15418,102 @@ a.anchor-link {
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>1850</th>
+      <td>-0.675</td>
+      <td>-0.333</td>
+      <td>-0.591</td>
+      <td>-0.589</td>
+      <td>-0.508</td>
+      <td>-0.344</td>
+      <td>-0.160</td>
+      <td>-0.208</td>
+      <td>-0.385</td>
+      <td>-0.533</td>
+      <td>-0.283</td>
+      <td>-0.404</td>
+      <td>-0.418</td>
+    </tr>
+    <tr>
+      <th>1851</th>
+      <td>-0.201</td>
+      <td>-0.469</td>
+      <td>-0.646</td>
+      <td>-0.542</td>
+      <td>-0.198</td>
+      <td>-0.137</td>
+      <td>-0.097</td>
+      <td>-0.102</td>
+      <td>-0.091</td>
+      <td>-0.008</td>
+      <td>-0.082</td>
+      <td>-0.228</td>
+      <td>-0.233</td>
+    </tr>
+    <tr>
+      <th>1852</th>
+      <td>-0.375</td>
+      <td>-0.477</td>
+      <td>-0.560</td>
+      <td>-0.585</td>
+      <td>-0.127</td>
+      <td>-0.084</td>
+      <td>0.005</td>
+      <td>-0.136</td>
+      <td>-0.002</td>
+      <td>-0.172</td>
+      <td>-0.305</td>
+      <td>0.065</td>
+      <td>-0.229</td>
+    </tr>
+    <tr>
+      <th>1853</th>
+      <td>-0.233</td>
+      <td>-0.404</td>
+      <td>-0.280</td>
+      <td>-0.386</td>
+      <td>-0.268</td>
+      <td>-0.142</td>
+      <td>-0.083</td>
+      <td>-0.057</td>
+      <td>-0.250</td>
+      <td>-0.392</td>
+      <td>-0.411</td>
+      <td>-0.337</td>
+      <td>-0.270</td>
+    </tr>
+    <tr>
+      <th>1854</th>
+      <td>-0.381</td>
+      <td>-0.361</td>
+      <td>-0.243</td>
+      <td>-0.334</td>
+      <td>-0.291</td>
+      <td>-0.299</td>
+      <td>-0.179</td>
+      <td>-0.239</td>
+      <td>-0.217</td>
+      <td>-0.095</td>
+      <td>-0.410</td>
+      <td>-0.450</td>
+      <td>-0.292</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
     <tr>
       <th>2017</th>
       <td>0.952</td>
@@ -15498,6 +15596,7 @@ a.anchor-link {
     </tr>
   </tbody>
 </table>
+<p>172 rows × 13 columns</p>
 </div>
 </div>
 
