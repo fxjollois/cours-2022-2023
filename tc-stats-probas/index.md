@@ -7,7 +7,8 @@
 - [Séance 3](StatsProbas_TC2A_TD3.html) - Exercices autour des lois et du calcul de probabilités
     - [Correction séance 3](StatsProbas_TC2A_TD3-correction.html)
 - [Séance 4](StatsProbas_TC2A_TD4.html) - Estimation et Test
-- [Séance 5](StatsProbas_TC2A_TD5.html) - Exercices autour de l'estimation et des tests
+- [Séance 5](StatsProbas_TC2A_TD5.html) - Exercices autour de l'estimation et des tests (moyenne)
+- [Séance 6](StatsProbas_TC2A_TD6.html) - Exercices autour de l'estimation et des tests (proportion)
 
 <!--
 - [Séance 6](StatsProbas_TC2A_TD6.html) - Exercices autour des tests
@@ -18,4 +19,6 @@ Lien vers les cours **eCampus** :
 
 - [RCP - Groupes GIIa, GIIb, GIIc](https://ecampus.unicaen.fr/course/view.php?id=22901)
 - [OS - Groupe GIII](https://ecampus.unicaen.fr/course/view.php?id=22902)
+
+
 -->

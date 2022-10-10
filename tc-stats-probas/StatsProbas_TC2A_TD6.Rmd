@@ -1,7 +1,8 @@
 ---
-title: "Exercices autour des tests"
+title: "Exercices autour de l'estimation et des tests"
+subtitle: "Intervalle de confiance d'une proportion"
 author: "FX Jollois"
-date: "TC - 2ème année - 2021/2022"
+date: "BUT TC - 2ème année"
 output: html_document
 ---
 
@@ -9,104 +10,84 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(dplyr)
 library(kableExtra)
-```
 
-> [Lien vers émulateur calculatrice scientifique](https://www.numworks.com/fr/simulateur/)
+f = function(p, n, c = .05) { 
+  i = round(p + c(-1,1) * qnorm(1 - c / 2) * sqrt(p * (1 - p) / n), 2) 
+  paste0("[", paste(i, collapse = "; "), "]")
+}
+f(.15, 300)
+
+```
 
 ## Rappels
 
-| Statistique | Intervalle de confiance |
-|-|-|-|
-| Moyenne | $$
-  \left[
-    \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
-    \hat{\mu} + u_{\alpha/2} \sqrt{\frac{s^2}{n}}
-  \right]
-$$ | 
-| Proportion | $$
+### Proportion
+
+Soit $X$ une v.a. mesurant l'apparition d'une propriété pour $n$ individus, on a $\hat{p}$ l'estimateur de la proportion dans le population égal à :
+$$
+  \hat{p} = \frac{k}{n}
+$$
+où $k$ est le nombre d'individus ayant la propriété dans l'échantillon.
+
+Lorsque $n$ est grand (supérieur à 30), et $p$ compris dans l'intervalle $[0.1, 0.9]$, on peut définir un intervalle de confiance avec une probabilité $\alpha$ comme suit :
+$$
   \left[ 
     \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}; 
     \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}
   \right]
-$$ |
+$$
+où $u_{\alpha/2}$ représente la valeur dans la table de la loi Normale centrée-réduite telle que $P(X > u_{\alpha/2}) = \frac{\alpha}{2}$).
 
-Valeurs importantes de la table de la loi Normale
+### Table de la loi Normale
+
+Valeurs importantes de la table de la loi Normale.
 
 ```{r}
 v = c(0.001, 0.005, 0.01, 0.025, 0.05, 0.10)
-knitr::kable(tibble(`P(X < u)` = 1 - v, `u` = qnorm(1 - v))) %>%
+knitr::kable(tibble(`P(X < u)` = 1 - v, 
+                    `u (loi Normale N(0,1))` = qnorm(1 - v)),
+             digits = 3) %>%
   kable_styling()
 ```
 
-## Exercices
 
-### Exercice 1 - Circuits électroniques
+### Exercice 1 - Gauchers dans la population
 
-On compare deux circuits électroniques, dont on veut savoir si le gain est identique entre les deux. Nous réalisons 500 mesures pour chacun des circuits, et obtenons les moyennes ($m_i$) et écarts-type ($s_i$) suivants :
+On cherche à connaître le nombre de gaucher dans la population. On étudie un échantillon de 300 personnes, dans lequel nous observons 15 % de gauchers.
 
-- $m_1 = 15.1$ et $s_1 = 4.5$
-- $m_2 = 15.8$ et $s_2 = 4.4$
+- Donner un intervalle de confiance de la proportion de gauchers dans la population à 95 %
+- Idem, mais à 90 %
 
-Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à $90%$ ? et à $95\%$ ?
+### Exercice 2 - Prix du menu au restaurant
 
-### Exercice 2 - Référendum
+Le gérant d'une brasserie souhaite faire passer le prix du menu à 15.90€. Il souhaite estimer la proportion de clients qui seraient prêts à venir déjeuner à ce tarif. Il réalise un sondage auprès des clients présents le midi ce jour-là. Sur les 50 personnes interrogées, 39 se disent prêtes à venir déjeuner à ce tarif.
+
+- Quelle est la proportion de personnes qui estiment la hausse raisonnable ?
+- Le gérant a posé comme condition, pour augmenter le prix, qu'il y ait plus de 60 % des clients favorables à ce changement. Déterminer l'intervalle de confiance de la proportion à 95 %. Qu'en déduira le gérant ? Et s'il avait dit qu'il fallait plus de 70 % ?
+
+### Exercice 3 - Référendum
 
 <!--
 Exercices%20CORRIGES%20sur%20les%20Intervalles%20de%20confiance.pdf
 -->
 
-On prévoit de réaliser un référendum. On sait que la réponse *Oui* se situe autour de $50\%$. On se demande donc combien de personnes faudrait-il interroger pour que la proportion de *Oui* soit connue à $1\%$ près  (en plus ou en moins).
+On prévoit de réaliser un référendum. On sait que la réponse *Oui* se situe autour de 50 %. On se demande donc combien de personnes faudrait-il interroger pour que la proportion de *Oui* soit connue à 1 % près  (en plus ou en moins).
 
-Lors de la réalisation de ce sondage, finalement pratiqué sur $1000$ personnes, nous avons obtenu $55\%$ pour le *Oui* et $45\%$ pour le *Non*. Peut-on prévoir le résultat du référendum, avec un taux de confiance de $95\%$ ?
+Lors de la réalisation de ce sondage, finalement pratiqué sur 1000 personnes, nous avons obtenu 55 % pour le *Oui* et 45 % pour le *Non*. Peut-on prévoir le résultat du référendum, avec un taux de confiance de 95 % ?
 
-### Exercice 3 - Qualité de production
+### Exercice 4 - Efficacité d'un médicament
 
-On désire comparer la qualité de deux doseuses pour boîtes de haricots verts de quantité nominale égale à $800 g$. On prélève un échantillon de 200 éléments sur chacune des deux machines, ce qui donne les deux valeurs moyennes suivantes :
+Pour mesurer l'effet d'un nouveau médicament, on créé 3 groupes de 100 personnes chacun. Le comprimé donné diffère entre les groupes :
 
-- $m_1 = 807$ et $s^2 = 20$ pour la première machine
-- $m_2 = 805$ et $s^2 = 16$ pour la deuxième machine
+- Groupe N : nouveau médicament
+- Groupe C : médicament de référence
+- Groupe P : placebo (comprimé sans principe actif)
 
-Les dosages moyens de ces deux machines sont-ils différents au risque de $5\%$ ? Sont-elles fiables par rapport au dosage de $800g$ à obtenir ?
+Après analyse, on observe que les patients ayant guéri :
 
-### Exercice 4 - Satisfaction
+- Groupe N : 68
+- Groupe C : 56
+- Groupe P : 37
 
-Une marque interroge 1000 clients auxquels elle a vendu un des deux modèles qu'elle souhaite comparer. On veut savoir si la perception de la qualité du véhicule est liée au modèle. Le questionnaire donne les résultats suivants :
-
-|  | Très satisfait | Satisfait | Mécontent |
-|-|-:|-:|-:|
-| Modèle 1 | 300 | 150 | 90  |
-| Modèle 2 | 240 | 120 | 100 |
-
-Est-ce que les clients sont mécontents de façon identique entre les 2 modèles, au risque de $5\%$ ?
-
-### Exercice 5 - Changement de rendement
-
-Dans une usine, on cherche à savoir si un changement de l'environnement (musique dans les ateliers en particulier) peut modifier le rendement. Ce dernier est mesuré ici par le nombre moyen de pièces produites à l'heure par chaque ouvrier. 
-
-On compare un même groupe de 33 ouvriers avant et après changement de l'environnement, et on obtient les valeurs suivantes :
-
-|  | Nombre moyen de pièces | Ecart-type |
-|-|-:|-:|
-| Avant | $40.85$ | $6.60$ |
-| Après | $42.88$ | $7.52$ |
-| Différence | $2.03$ | $4.41$ |
-
-1. En comparant les deux résultats avant et après, peut-on dire que le changement d'environnement a impacté le rendement, au risque de $5\%$ ?
-1. Nous avons noté la différence du rendement de chaque ouvrier entre avant et après le changement d'environnement (dernière ligne du tableau). En considérant cet écart, que peut-on dire maintenant ?
-
-### Exercice 6 - Impact d'un débat
-
-Un débat télévisé est organisé entre deux candidats à une élection. Pour connaître l'impact du débat, on prévoit de sonder 200 électeurs avant et après le débat. Les résultats des intentions de vote sont les suivants :
-
-| | Candidat A | Candidat B |
-|-|-:|-:|
-| Avant le débat |  95 | 105 |
-| Après le débat | 104 |  96 |
-
-1. Peut-on dire que le débat a été bénéfique au candidat A dans les intentions de vote, au seuil de $5\%$ ?
-2. En considérant qu'il n'y a 9 personnes qui ont changé leur intention de vote (en passant de B à A), que peut-on dire ?
-
-
-
-
+Peut-on conclure à l'efficacité du nouveau médicament par rapport au placebo ? Et par rapport au médicament référence ? Qu'observe-t'on pour le médicament de référence vis-à-vis du placebo ? Ces analyses sont faites avec un seuil de 5 %.
 
