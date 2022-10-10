@@ -35,6 +35,10 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 
 - [Extraction de connaissances à partir de données structurées et non structurées](m1-dci-ecd) (Master Informatique - parcours DCI)
 
+### UFR Biomédicale, Université Paris Cité
+
+- [Système pour la Data Science](m1-dci-ecd) (Master AMSD/MLSD)
+
 ### INSA ROUEN
 
 - [Introduction au Machine Learning en Python](insa-ms-esd--ml) (Mastère ESD)
