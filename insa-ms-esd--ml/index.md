@@ -9,6 +9,7 @@
     - [correction WGI](acp-demande2-correction.html)
     - [correction Température HadCRUT](acp-demande3-correction.html)
 - **AFC** : [Cours](afc-cours.html) - [Utilisation sous Python](afc-python.slides.html) - [Demande](afc-demande.html)
+    - [correction](afc-demande-correction.html)
 - **ACM** : [Cours](acm-cours.html) - [Utilisation sous Python](acm-python.slides.html)
 
 ### Jour 2 : Clustering
