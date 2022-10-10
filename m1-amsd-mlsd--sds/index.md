@@ -1,4 +1,4 @@
-# Système pour Data Science
+# Système pour la Data Science
 
 ## Master AMSD/MLSD
 
@@ -30,7 +30,6 @@ Idées de trucs à faire :
 - script bash
 - chmod, chown
 
-- sed ?
 - commande awk ?
 - création de comptes linux
 - lancement récurrent de scripts
