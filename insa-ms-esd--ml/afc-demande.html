@@ -14264,7 +14264,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Cat&#233;gories-socio-professionnelles-dans-les-r&#233;gions-fran&#231;aise">Cat&#233;gories socio-professionnelles dans les r&#233;gions fran&#231;aise<a class="anchor-link" href="#Cat&#233;gories-socio-professionnelles-dans-les-r&#233;gions-fran&#231;aise">&#182;</a></h2><p>Nous disposons sur cette <a href="https://www.insee.fr/fr/statistiques/1893185">page</a> de la répartition de la population active de 25 à 54 ans selon la catégorie socioprofessionnelle et la position vis à vis de l’emploi, par commune et département (de 1968 à 2014). Après quelques manipulations, vous pouvez récupérer directement <a href="regions-csp-1968.csv">le fichier 1968</a> et <a href="regions-csp-2014.csv">le fichier 2014</a>, par régions.</p>
+<h2 id="Cat&#233;gories-socio-professionnelles-dans-les-r&#233;gions-fran&#231;aise">Cat&#233;gories socio-professionnelles dans les r&#233;gions fran&#231;aise<a class="anchor-link" href="#Cat&#233;gories-socio-professionnelles-dans-les-r&#233;gions-fran&#231;aise">&#182;</a></h2><p>Nous disposons sur cette <a href="https://www.insee.fr/fr/statistiques/1893185">page</a> de la répartition de la population active de 25 à 54 ans selon la catégorie socioprofessionnelle et la position vis à vis de l’emploi, par commune et département (de 1968 à 2014).</p>
 <p>Les codes ci-dessous vous montrent comment les importer.</p>
 
 </div>
@@ -14276,8 +14276,9 @@ a.anchor-link {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
 
-<span class="n">regions</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://fxjollois.github.io/donnees/regions-csp/regions-csp-1968.csv&quot;</span><span class="p">)</span>
-<span class="n">regions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">regions1968</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://fxjollois.github.io/donnees/regions-csp/regions-csp-1968.csv&quot;</span><span class="p">,</span>
+                              <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Région&quot;</span><span class="p">)</span>
+<span class="n">regions1968</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14316,7 +14317,6 @@ a.anchor-link {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Région</th>
       <th>Agriculteurs Actifs ayant un emploi RP1968</th>
       <th>Agriculteurs Chômeurs RP1968</th>
       <th>Artisans, commerçants, chefs d'entreprise Actifs ayant un emploi RP1968</th>
@@ -14330,11 +14330,25 @@ a.anchor-link {
       <th>Ouvriers Actifs ayant un emploi RP1968</th>
       <th>Ouvriers Chômeurs RP1968</th>
     </tr>
+    <tr>
+      <th>Région</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Île-de-France</td>
+      <th>Île-de-France</th>
       <td>13652</td>
       <td>0</td>
       <td>221520</td>
@@ -14349,8 +14363,7 @@ a.anchor-link {
       <td>34556</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Centre-Val de Loire</td>
+      <th>Centre-Val de Loire</th>
       <td>73128</td>
       <td>0</td>
       <td>53572</td>
@@ -14365,8 +14378,7 @@ a.anchor-link {
       <td>3748</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Bourgogne-Franche-Comté</td>
+      <th>Bourgogne-Franche-Comté</th>
       <td>85284</td>
       <td>0</td>
       <td>61824</td>
@@ -14381,8 +14393,7 @@ a.anchor-link {
       <td>3076</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Normandie</td>
+      <th>Normandie</th>
       <td>113008</td>
       <td>0</td>
       <td>69388</td>
@@ -14397,8 +14408,7 @@ a.anchor-link {
       <td>5376</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Hauts-de-France</td>
+      <th>Hauts-de-France</th>
       <td>86004</td>
       <td>0</td>
       <td>119944</td>
@@ -14429,10 +14439,9 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-
-<span class="n">regions</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://fxjollois.github.io/donnees/regions-csp/regions-csp-2014.csv&quot;</span><span class="p">)</span>
-<span class="n">regions</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regions2014</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://fxjollois.github.io/donnees/regions-csp/regions-csp-2014.csv&quot;</span><span class="p">,</span>
+                              <span class="n">index_col</span> <span class="o">=</span> <span class="s2">&quot;Région&quot;</span><span class="p">)</span>
+<span class="n">regions2014</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14471,7 +14480,6 @@ a.anchor-link {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Région</th>
       <th>Agriculteurs Actifs ayant un emploi RP2014</th>
       <th>Agriculteurs Chômeurs RP2014</th>
       <th>Artisans, commerçants, chefs d'entreprise Actifs ayant un emploi RP2014</th>
@@ -14485,11 +14493,25 @@ a.anchor-link {
       <th>Ouvriers Actifs ayant un emploi RP2014</th>
       <th>Ouvriers Chômeurs RP2014</th>
     </tr>
+    <tr>
+      <th>Région</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Île-de-France</td>
+      <th>Île-de-France</th>
       <td>3373.297125</td>
       <td>195.053895</td>
       <td>203747.801541</td>
@@ -14504,8 +14526,7 @@ a.anchor-link {
       <td>112144.255513</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Centre-Val de Loire</td>
+      <th>Centre-Val de Loire</th>
       <td>13731.136316</td>
       <td>164.913387</td>
       <td>47577.256270</td>
@@ -14520,8 +14541,7 @@ a.anchor-link {
       <td>36237.921528</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Bourgogne-Franche-Comté</td>
+      <th>Bourgogne-Franche-Comté</th>
       <td>20314.763142</td>
       <td>177.683361</td>
       <td>53729.925925</td>
@@ -14536,8 +14556,7 @@ a.anchor-link {
       <td>42277.992665</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Normandie</td>
+      <th>Normandie</th>
       <td>19265.892020</td>
       <td>162.360831</td>
       <td>61807.703240</td>
@@ -14552,8 +14571,7 @@ a.anchor-link {
       <td>50014.556203</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>Hauts-de-France</td>
+      <th>Hauts-de-France</th>
       <td>17767.070961</td>
       <td>184.594238</td>
       <td>87398.160828</td>
