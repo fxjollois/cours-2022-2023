@@ -6,6 +6,8 @@
 
 - **ACP** : [Cours](acp-cours.html) - [Utilisation sous Python](acp-python.slides.html) - [Demande](acp-demande.html)
     - [correction Wine](acp-demande1-correction.html)
+    - [correction WGI](acp-demande2-correction.html)
+    - [correction Température HadCRUT](acp-demande3-correction.html)
 - **AFC** : [Cours](afc-cours.html) - [Utilisation sous Python](afc-python.slides.html) - [Demande](afc-demande.html)
 - **ACM** : [Cours](acm-cours.html) - [Utilisation sous Python](acm-python.slides.html)
 
