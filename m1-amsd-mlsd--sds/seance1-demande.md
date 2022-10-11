@@ -24,14 +24,18 @@ Nous allons utiliser des données réelles sur l'[usage de smartphones](http://a
     - La commande `history` permet de récupérer l'historiques des 500 dernières commandes (`history 10` pour n'avoir que les 10 dernières)
 4. Télécharger le fichier [`UbiqLog4UCI.zip`](http://archive.ics.uci.edu/ml/machine-learning-databases/00369/UbiqLog4UCI.zip) dans ce nouveau répertoire
 5. Le décompresser dans le répertoire de la séance
-6. (re)Compresser le répertoire au format `gz`, puis comparer leur taille (en stockant le résultat dans un fichier texte nommé `compress_compare.txt`)
-7. Sans changer de répertoire, lister les sous-répertoires du nouveau dossier
+6. (re)Compresser le répertoire au format `gz`, puis comparer leur taille 
+    - En stockant le résultat dans un fichier texte nommé `compress_compare.txt`
+8. Sans changer de répertoire, lister les sous-répertoires du nouveau dossier
     - Stocker cette liste de répertoire (avec toutes les informations possibles) dans un fichier texte (à la racine de la séance) nommé `UbiqLog4UCI_list_dir.txt`
 9. Afficher les premières lignes du fichier `log_11-1-2014.txt` présent dans le sous-répertoire `1_M`
-10. En utilisant `grep`, chercher les lignes contenant `Application` dans le même fichier 
-11. Toujours avec `grep`, chercher les lignes contenant `Application` et `outlook` dans le même fichier
+9. Afficher les informations de ce même fichier `log_11-1-2014.txt`
+    - Type
+    - Nombre de caractères, de lignes et d'octets
+11. En utilisant `grep`, chercher les lignes contenant `Application` dans le même fichier 
+12. Toujours avec `grep`, chercher les lignes contenant `Application` et `outlook` dans le même fichier
     - Stocker ce résultat dans un fichier texte à la racine de la séance, nommé `res_grep.txt`
-12. Ajouter à ce fichier les lignes contenant `Application`, puis `google` puis `email`
-13. Faire les 3 dernières demandes avec la commande `sed` (en remplacant `grep` par `sed` dans le nom de fichier)
-1. Ecrire les numéros des individus (première partie du nom du répertoire) correspondant aux hommes (`M`) dans un fichier nommé `idM.txt`
+13. Ajouter à ce fichier les lignes contenant `Application`, puis `google` puis `email`
+14. Faire les 3 dernières demandes avec la commande `sed` (en remplacant `grep` par `sed` dans le nom de fichier)
+15. Ecrire les numéros des individus (première partie du nom du répertoire) correspondant aux hommes (`M`) dans un fichier nommé `idM.txt`
 
