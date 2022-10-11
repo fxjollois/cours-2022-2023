@@ -279,7 +279,7 @@ $ rmdir *
 ## Informations, contenu et recherche d'un fichier
 
 - [`file`](https://manpages.ubuntu.com/manpages/jammy/en/man1/file.1.html) : type de fichier
-- [`wc`](https://manpages.ubuntu.com/manpages/jammy/fr/man1/wc.1.html) : nombre de mots, de lignes et d'octets
+- [`wc`](https://manpages.ubuntu.com/manpages/jammy/fr/man1/wc.1.html) : nombre de caractères, de lignes et d'octets
 
 ```bash
 $ echo "Ceci est encore un test" > test.txt
