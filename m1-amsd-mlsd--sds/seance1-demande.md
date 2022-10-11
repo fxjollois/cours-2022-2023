@@ -25,6 +25,7 @@ Nous allons utiliser des données réelles sur l'[usage de smartphones](http://a
 1. En utilisant `grep`, chercher les lignes contenant `Application` dans le même fichier 
 1. Toujours avec `grep`, chercher les lignes contenant `Application` et `outlook` dans le même fichier
     - Stocker ce résultat dans un fichier texte à la racine de la séance, nommé `res_grep.txt`
+1. Ajouter à ce fichier les lignes contenant ``
 1. Faire les 3 dernières demandes avec la commande `sed` (en remplacant `grep` par `sed` dans le nom de fichier)
 
 
