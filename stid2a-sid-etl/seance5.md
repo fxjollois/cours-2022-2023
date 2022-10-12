@@ -1,7 +1,5 @@
 # Modélisation d'un SID
 
-(A réaliser en groupe de 2)
-
 Le Ministère de la Santé et du Bien-Etre vous sous-traite la réalisation d'un entrepôt de données pour réaliser des études sur les dépenses de santé dans son pays. Les bases de production de cet entrepôt sont les systèmes d'information des centres de sécurité sociale et des assurances santé complémentaire qui gèrent les dossiers (électroniques) des assurés.
 
 Le schéma de l'entrepôt est constitué des tables suivantes (les clés primaires sont en italiques)
