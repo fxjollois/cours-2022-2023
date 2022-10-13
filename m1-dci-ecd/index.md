@@ -9,7 +9,7 @@
 3. [Représentation multidimensionnelle via l'ACP](seance3-acp.html)
     - [sous `python`](seance3-acp-python.html)
     - [correction](seance3-correction.html)
-4. [Classification avec CAH et $k$-means](seance4-classif.html)
+4. [Classification avec CAH et k-means](seance4-classif.html)
     - [sous `python`](seance4-classif-python.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
