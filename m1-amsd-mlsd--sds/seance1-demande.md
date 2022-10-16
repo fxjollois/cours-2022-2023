@@ -23,6 +23,7 @@ Nous allons utiliser des données réelles sur l'[usage de smartphones](http://a
     - Si vous souhaitez prendre des notes sur ce que vous avez fait, vous pouvez donc utiliser ce fichier
     - La commande `history` permet de récupérer l'historiques des 500 dernières commandes (`history 10` pour n'avoir que les 10 dernières)
 4. Télécharger le fichier [`UbiqLog4UCI.zip`](http://archive.ics.uci.edu/ml/machine-learning-databases/00369/UbiqLog4UCI.zip) dans ce nouveau répertoire
+    - URL = `http://archive.ics.uci.edu/ml/machine-learning-databases/00369/UbiqLog4UCI.zip`
 5. Le décompresser dans le répertoire de la séance
 6. (re)Compresser le répertoire au format `gz`, puis comparer leur taille 
     - En stockant le résultat dans un fichier texte nommé `compress_compare.txt`
