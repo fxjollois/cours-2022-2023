@@ -20,6 +20,7 @@
     - [*k*-means](kmeans-python.slides.html) 
     - [DBSCAN](dbscan-python.slides.html)
 - [Demande](classif-demande.html)
+    - [correction Wine](classif-demande1-correction.html)
 
 ### Jour 3 : Etude de cas et évaluation
 
