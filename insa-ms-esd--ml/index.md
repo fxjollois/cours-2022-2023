@@ -22,6 +22,7 @@
 - [Demande](classif-demande.html)
     - [correction Wine](classif-demande1-correction.html)
     - [correction WGI](classif-demande2-correction.html)
+    - [correction Spotify](classif-demande3-correction.html)
 
 ### Jour 3 : Etude de cas et évaluation
 
