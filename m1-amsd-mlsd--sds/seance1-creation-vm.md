@@ -41,7 +41,6 @@
     - Cliquer sur l'icône à droite de "Maître secondaire IDE", et choisir "Choose a disk file"
         - Sélectionner le fichier ISO de Ubuntu Server
         - Cliquer sur Ouvrir
-    - Cocher la case "Lire CD/DVD"
     - Cliquer sur OK
 
 > **La machine va faire comme si le fichier ISO était un disque dur en plus**
