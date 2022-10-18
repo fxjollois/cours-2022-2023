@@ -4,6 +4,8 @@
 
 - [Séance 1](seance1.html) : Langage système de base
     - [demande](seance1-demande)
+- [Séance 2](seance2.html) : Scripts `shell`
+    - [demande](seance2-demande)
 
 <!--
 Pitch général :
