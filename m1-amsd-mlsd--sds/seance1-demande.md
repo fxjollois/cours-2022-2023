@@ -11,7 +11,7 @@
 
 Vous pouvez utiliser ce [tutoriel](seance1-creation-vm) pour vous guider dans la création de la machine virtuelle, que l'on utilisera dans tous les cours par la suite
 
-##archi Répondre aux questions suivantes
+## Répondre aux questions suivantes
 
 Nous allons utiliser des données réelles sur l'[usage de smartphones](http://archive.ics.uci.edu/ml/datasets/UbiqLog+%28smartphone+lifelogging%29)
 
