@@ -20,11 +20,15 @@ Pitch général :
 Idées de données :
 - http://archive.ics.uci.edu/ml/datasets/Activity+recognition+with+healthy+older+people+using+a+batteryless+wearable+sensor
 - http://archive.ics.uci.edu/ml/datasets/UbiqLog+%28smartphone+lifelogging%29
+- http://archive.ics.uci.edu/ml/datasets/WISDM+Smartphone+and+Smartwatch+Activity+and+Biometrics+Dataset+
+
 
 Sources intéressantes :
 - https://linux.die.net/man/1/rscript
 - https://www.techtarget.com/searchwindowsserver/definition/command-line-interface-CLI#:~:text=A%20command%2Dline%20interface%20(CLI)%20is%20a%20text%2D,interfaces%20and%20character%20user%20interfaces.
 - https://connect.ed-diamond.com/GNU-Linux-Magazine/glmf-131/awk-le-langage-script-de-reference-pour-le-traitement-de-fichiers
+
+https://linux.goffinet.org/administration/scripts-shell/
 
 Idées de trucs à faire :
 - script bash

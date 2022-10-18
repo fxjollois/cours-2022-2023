@@ -7,15 +7,15 @@
 #### Demande à réaliser
 
 
-##### Création d'une machine virtuelle Ubuntu Server 
+## Création d'une machine virtuelle Ubuntu Server 
 
 Vous pouvez utiliser ce [tutoriel](seance1-creation-vm) pour vous guider dans la création de la machine virtuelle, que l'on utilisera dans tous les cours par la suite
 
-##### Répondre aux questions suivantes
+##archi Répondre aux questions suivantes
 
 Nous allons utiliser des données réelles sur l'[usage de smartphones](http://archive.ics.uci.edu/ml/datasets/UbiqLog+%28smartphone+lifelogging%29)
 
-1. Créer un répertoire dédié au cours (`sysds` par exemple)
+1. Créer un répertoire dédié au cours (`sysds` exemple)
 1. Créer un répertoire dédié à la séance (`seance1` par exemple)
 1. Créer un fichier texte vide (nommé `notes.txt`)
 2. Ecrire dans ce fichier les deux commandes que vous avez utilisé précédemment, pour rappel plus tard
