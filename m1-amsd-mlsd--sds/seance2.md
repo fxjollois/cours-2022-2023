@@ -117,8 +117,8 @@ $ chmod 755 fichier
 - Première chose à faire, une fois le script créé : ajoutez le droit d'exécution
 
 ```bash
-$ touch script.s # fichier vide
-$ chmod +x script.s # par exemple
+$ touch script.sh # fichier vide
+$ chmod +x script.sh # par exemple
 ```
 
 - Faites `nano script.sh` pour écrire dedans les instructions de la slide 3
@@ -192,7 +192,7 @@ echo a=$a, b=$b # Affiche a=12, b=12+2
 
 ```bash
 a=12
-((b=$a+2))
+(( b=$a+2 ))
 echo a=$a, b=$b # Affiche a=12, b=14
 ```
 
@@ -266,6 +266,7 @@ fi
 ## Structures conditionnelles - `case`
 
 - Utilisation des opérateurs `case`, `in` et `esac` pour finir
+    - Finir les commandes avec `;;`
     - Choix possible suivi de `)` puis des lignes à exécuter
         - opérateur `|` pour combiner plusieurs choix possibles sur une ligne
     - Choix par défaut `*)`
@@ -343,7 +344,7 @@ done
     - définissable partout (même dans un sous-bloc de type `for` ou `if`)
 
 ```bash
-function f{
+function f(){
     # lignes de commande
 }
 f() {
@@ -442,7 +443,7 @@ echo ${a//o}            # Affiche Bnjur
 - Si espace présent dans la chaîne, boucle sur chaque mot
 
 ```bash
-a=Bonjour Bonsoir
+a="Bonjour Bonsoir"
 for m in $a ; do
     echo m=$m           # Affiche Bonjour puis Bonsoir
 done
@@ -532,7 +533,7 @@ exit 0
 1. `shebang`
 1. Commentaires introductifs au programme
     - Détail du fonctionnement
-    - Présentation des parmètres du script
+    - Présentation des paramètres du script
 1. Gestion de l'appel
     - Test que tout est ok (sortie avec erreur sinon)
     - Paramètres présents ? bien écrits ? ...
@@ -541,7 +542,7 @@ exit 0
 1. Corps principal
     - Coeur du script
 1. Fin
-    - Ecriture de fichiers et/ou afficahge dans la console
+    - Ecriture de fichiers et/ou affichage dans la console
     - Sortie du programme avec `exit`
 
 
