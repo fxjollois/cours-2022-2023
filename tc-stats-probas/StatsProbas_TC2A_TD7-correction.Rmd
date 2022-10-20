@@ -24,33 +24,6 @@ IC_proportion = function(n, p, alpha, digits = 2, msg = "") {
 }
 ```
 
-> [Lien vers émulateur calculatrice scientifique](https://www.numworks.com/fr/simulateur/)
-
-## Rappels
-
-| Statistique | Intervalle de confiance |
-|-|-|-|
-| Moyenne | $$
-  \left[
-    \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
-    \hat{\mu} + u_{\alpha/2} \sqrt{\frac{s^2}{n}}
-  \right]
-$$ | 
-| Proportion | $$
-  \left[ 
-    \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}; 
-    \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}
-  \right]
-$$ |
-
-Valeurs importantes de la table de la loi Normale
-
-```{r}
-v = c(0.001, 0.005, 0.01, 0.025, 0.05, 0.10)
-knitr::kable(tibble(`P(X < u)` = 1 - v, `u` = qnorm(1 - v))) %>%
-  kable_styling()
-```
-
 ## Exercices
 
 ### Exercice 1 - Circuits électroniques
