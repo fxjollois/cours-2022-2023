@@ -6,6 +6,8 @@
     - [demande](seance1-demande) - [correction](seance1-correction)
 - [Séance 2](seance2.html) : Scripts `shell`
     - [demande](seance2-demande)
+- [Séance 3](seance3.html) : Correction et commentaires sur les scripts `shell`
+    - [demande](seance3-demande)
 
 <!--
 Pitch général :
