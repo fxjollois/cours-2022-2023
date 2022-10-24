@@ -28,9 +28,8 @@
 
 - [Etude de cas](etude-de-cas-pendigits.slides.html)
 
-<!--
 - [Sujet TP noté](tp-note.html)
--->
+    - [Aide pour l'importation](tp-note-import.html)
 
 ### Liens intéressants 
 
