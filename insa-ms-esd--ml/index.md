@@ -26,7 +26,7 @@
 
 ### Jour 3 : Etude de cas et évaluation
 
-- [Etude de cas](etude-de-cas-pendigits.html)
+- [Etude de cas](etude-de-cas-pendigits.slides.html)
 
 <!--
 - [Sujet TP noté](tp-note.html)
