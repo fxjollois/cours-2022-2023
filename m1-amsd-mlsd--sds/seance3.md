@@ -193,11 +193,11 @@ Version améliorée car `case` ne prend pas en compte les expressions régulièr
 let stop=0
 until [ $stop == 1 ] ; do
 	read -p "Avez-vous compris (Oui/Non/Exit) ? " rep
-	if [[ $rep =~ ^[oO]?[uU]?[iI]?$ ]] ; then
+	if [[ $rep =~ ^[oO][uU]?[iI]?$ ]] ; then
 		echo "Bravo"
-	elif [[ $rep =~ ^[nN]?[oO]?[nN]?$ ]] ; then
+	elif [[ $rep =~ ^[nN][oO]?[nN]?$ ]] ; then
 		echo "N'hésitez pas à poser des questions à l'enseignant !"
-	elif [[ $rep =~ ^[eE]?[xX]?[iI]?[tT]?$ ]] ; then
+	elif [[ $rep =~ ^[eE][xX]?[iI]?[tT]?$ ]] ; then
 		echo "Au revoir"; let stop=1
 	else
 		echo "Merci de lire les consignes"
@@ -228,9 +228,9 @@ On va travailler sur les fichiers présents dans le répertoire `UbiqLog4UCI`.
 ```bash
 #!/bin/bash
 read -p "Numéro d'identifiant : " id
-d=$(ls -d 'UbiqLog4UCI/'$id'_'* 2>/dev/null)
-s=${d#*_}
-if [ $d ] ; then
+r=$(ls -d 'UbiqLog4UCI/'$id'_'* 2>/dev/null)
+s=${r#*_}
+if [ $r ] ; then
 	echo -e "\nIdentifiant existant"
 else
 	echo -e "\nIdentifiant non présent\n"
@@ -241,7 +241,7 @@ case $s in
 	"F") echo -e "\tSexe : Femme";;
 	*) echo "Erreur"
 esac
-echo -e "\tRépertoire :" $d "\n"
+echo -e "\tRépertoire :" $r "\n"
 exit
 ```
 
@@ -277,7 +277,7 @@ esac
 echo -e "\tRépertoire :" $r "\n"
 read -p "Date (jj-mm-aaaa) : " d
 if [ -f 'UbiqLog4UCI/'$id'_'$s'/log_'$d'.txt' ] ; then
-	echo -e "Log existant pour cette date"
+	echo -e "\nLog existant pour cette date"
 	echo -e "\tFichier :" 'UbiqLog4UCI/'$id'_'$s'/log_'$d'.txt'"\n"
 fi
 exit
@@ -380,6 +380,7 @@ if ! [ $3 ] ; then
     read -p "Date (aaaa-mm-jj) : " d
 elif [ $3 != -d ] ; then
     echo "Paramètre -d en deuxième"
+    exit
 elif ! [ $4 ] ; then
     echo "Date à passer en paramètre"
     exit
@@ -458,14 +459,17 @@ fichier=sortie.json
 echo "[" > $fichier
 for d in UbiqLog4UCI/* ; do
 	#echo -n $d
-	is=${d/UbiqLog4UCI\// }
-	i=${is::2}
-	s=${is:3}
+	is=${d/UbiqLog4UCI\//}
+    is=(${is/_/ })
+    i=${is[0]}
+    s=${is[1]}
 	for f in $d/* ; do
 		if [[ $f =~ .*log.*txt ]] ; then
 			#echo -n "."
 			date=${f##*log_}
-			date=${date/.txt/}
+            date=${date/.txt/}
+            date=(${date//-/ })
+            date=${date[2]}-${date[0]}-${date[1]}
 			echo "{" >> $fichier
 			echo "\"origine_rep\": \"$d\"," >> $fichier
 			echo "\"origine_fic\": \"$f\"," >> $fichier
