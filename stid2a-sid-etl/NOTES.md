@@ -8,14 +8,18 @@ Notes de préparation du cours commun aux deux parcours (VCOD et EMS), et dispen
 |  2 | Rappels SQL       | 15/09 |       |       |
 |  3 | Rappels SQL       | 22/09 | 29/09 | 06/10 |
 |  4 | Rappels SQL       | 29/09 |       |       |
-|  5 | Modélisation      | 06/10 | 13/10 | 20/10 |
+|  5 | Modélisation      | 06/10 | 13/10 | 03/11 |
 |  6 | TD Modèlisation   | 13/10 |       |       |
-|  7 | Intégration       | 20/10 | 27/10 | 03/11 |
+|  7 | Intégration       | 27/10 | 10/11 | 17/11 |
 |  8 | TP Intégration    | 27/10 |       |       |
-|  9 | Reporting         | 10/11 | 10/11 | 17/11 |
-| 10 | TP Reporting      | 17/11 |       |       |
-| 11 | Evaluation        | 24/11 | 24/11 | 01/12 |
-| 12 | Evaluation        | 01/12 |       |       ||
+|  9 | Reporting         | 17/11 | 24/11 | 01/12 |
+| 10 | TP Reporting      | 01/12 |       |       |
+| 11 | Evaluation        | ??    | ??    | ??    |
+| 12 | Evaluation        | ??    |       |       ||
+
+| Séance | Sujet | FI | FA EMS | FA VCOD |
+|:-:|:-|-:|-:|-:|
+|  1 | Réflexion *One day* | 24/11 | 27/10 | 20/10 |
 
 
 
