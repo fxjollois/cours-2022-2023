@@ -1,6 +1,11 @@
 # Evaluation
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeD1qZrJhLeaLpNaTHV02ozMOlnrFU7yKstOG2Ls8X3hRiAcA/viewform?embedded=true" width="640" height="5200" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+Les données sont disponibles dans ce répertoire
+
+    H:\COMMUN\Licence Pro DATA MINING\2022-2023\Bases de données\CHINOOK
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRIoeFNV4gzp07DwIbODHLcq_mQkRTZgS0F2t-T6hbuElL_A/viewform?embedded=true" width="640" height="4193" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+
 
 <!--
 ## Travail à faire
