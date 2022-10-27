@@ -21,7 +21,11 @@ Notes de préparation du cours commun aux deux parcours (VCOD et EMS), et dispen
 |:-:|:-|-:|-:|-:|
 |  1 | Réflexion *One day* | 24/11 | 27/10 | 20/10 |
 
+## POUR L'ANNEE PROCHAINE
 
+- Rappels SQL : découper en création puis requêtage, avec cours 
+- TP Intégration : découper en plusieurs demandes, plus explicites
+- Utiliser SQL Server ! En tout cas, ne plus utiliser SQLite
 
 ## Partie Ressource
 
