@@ -37,6 +37,13 @@ INSERT INTO TABLE_DESTINATION
   - Calculer le CA pour chaque catégorie pour chaque année pour chaque pays de vente pour chaque promotion
   - Existe-t'il des clients ayant acheté des produits dans chaque catégorie ? si oui lesquels ?
   - Existe-t'il une promotion ayant fonctionné dans chaque pays ? si oui lesquelles ?
+  - On veut avoir étudier le lien entre les pays et les catégories de produits. 
+  	- Pour cela, nous voulons une table avec 
+  		- en lignes les différents pays, 
+  		- en colonnes les différentes catégories, 
+  		- pour chaque cellule, le CA (pour un pays et une catégorie donc)
+  	- Réaliser la demande avec une PROC SQL, suivie d'une [PROC TRANSPOSE](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/p1r2tjnp8ewe3sn1acnpnrs3xbad.htm)
+ 
 
 
 ## Script SQL de création des tables
