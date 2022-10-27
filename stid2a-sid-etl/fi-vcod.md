@@ -10,6 +10,10 @@
 4. [Evaluation - Modélisation multidimensionnelle](https://moodle.u-paris.fr/mod/page/view.php?id=587707)
 5. [Intégration des données](https://docs.google.com/presentation/d/e/2PACX-1vSvjB8XvSb5UaHnQKjZO5fHsAYCiaPC6BTgRoSjSvR6MzFiXMNBRsiXSJAaO2HeVZOyPTa65eoHyMrg/pub?start=false&loop=false&delayms=3000)
 
+<!--
+6. [TP Intégration de données](seance8)
+-->
+
 
 ## SAE 3.02 : Intégration de données dans un datawarehouse
 
