@@ -11,7 +11,7 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 | **Formation initiale**      | [FI-EMS](stid2a-sid-etl/fi-ems) | [FI-VCOD](stid2a-sid-etl/fi-vcod) |
 | **Formation en alternance** | [FA-EMS](stid2a-sid-etl/fa-ems) | [FA-VCOD](stid2a-sid-etl/fa-vcod) |
 
-- LP Data Science :
+- LP Data Mining :
     - [Bases de données](lp-ds--bd)
 
 - LP Santé :
