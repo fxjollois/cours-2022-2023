@@ -209,6 +209,8 @@ quit;
 ---
 ## 14- Existe-t'il des clients ayant acheté des produits dans chaque catégorie ? si oui lesquels ?
 
+### Version longue avec `EXISTS`
+
 ```sas
 proc sql;
 	title1 14- Existe-t''il des clients ayant acheté des produits dans chaque catégorie ? si oui lesquels ?;
@@ -226,6 +228,11 @@ proc sql;
 						AND FactInternetSales.CustomerKey = DimCustomer.CustomerKey));
 quit;
 ```
+
+---
+## 14- Existe-t'il des clients ayant acheté des produits dans chaque catégorie ? si oui lesquels ?
+
+### Version courte avec une petite astuce
 
 ```sas
 proc sql;
@@ -282,3 +289,4 @@ PROC TRANSPOSE DATA = temp;
 	BY EnglishCountryRegionName;
 PROC PRINT;
 RUN;
+```
