@@ -1,3 +1,7 @@
+---
+layout: slides
+---
+
 class: middle, center, inverse, title
 # Extraction de connaissances à partir de données structurées et non structurées
 
