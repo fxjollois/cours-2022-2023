@@ -1,3 +1,6 @@
+---
+layout: sdlides
+---
 
 class: middle, center, inverse, title
 
