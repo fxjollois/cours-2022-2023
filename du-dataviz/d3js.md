@@ -12,7 +12,7 @@ Les documents de cours sont disponibles sur [ObservableHQ](https://observablehq.
   src="https://observablehq.com/embed/@fxjollois/initiation-a-d3js?cell=*"></iframe>
 -->
 
-- [Cours introductif](d3js--slides.html)
+- [Cours introductif](d3js--slides)
 - [Tutoriel pas à pas](d3js--tutoriel) de construction d'un **TOPn**
 
 ## Travail à réaliser
