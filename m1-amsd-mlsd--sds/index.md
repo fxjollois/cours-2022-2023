@@ -35,9 +35,6 @@ Sources intéressantes :
 https://linux.goffinet.org/administration/scripts-shell/
 
 Idées de trucs à faire :
-- script bash
-- chmod, chown
-
 - commande awk ?
 - création de comptes linux
 - lancement récurrent de scripts
