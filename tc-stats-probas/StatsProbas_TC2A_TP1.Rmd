@@ -40,6 +40,7 @@ Nous allons déjà calculer les intervalles de confiance pour l'âge et le nombr
 - En `H7`, écrire la valeur $5$
 - En `H8`, écrire `LOI.NORMALE.INVERSE.N(1-H7/2/100; 0; 1)`
   - comme $n$ est grand, nous allons approximer la loi de Student par la loi Normale
+  - sans le `.N` pour les logiciels suivants : *Libre Office*, *Google Spreadsheet*, *Apple Numbers*
 - En `H10`, écrire la formule `H3-H8*RACINE(H4/(H5-1))`
 - En `H11`, écrire la formule `H3+H8*RACINE(H4/(H5-1))`
 
@@ -75,12 +76,12 @@ Nous cherchons maintenant à savoir s'il y a une différence entre ceux gagnant 
 - Fusionner les cellules `K1` et `L1`, et écrire dedans **Âge**
 - Ecrire en `K2` et `L2` les modalités *<=50K* et *>50K*
 - En `K3`, écrire `MOYENNE.SI(E:E;"Less than 50K";A:A)` et en `L3`, écrire `MOYENNE.SI(E:E;"More than 50K";A:A)`
-  - Comme `NB.SI()`, `MOYENNE.SI()` réalise une moyenne de certaines cellules (ici, celles de la colonne `D` dont la ligne a la valeur "<=50K" dans la colonne `A`)
+  - Comme `NB.SI()`, `MOYENNE.SI()` réalise une moyenne de certaines cellules (ici, celles de la colonne `D` dont la ligne a la valeur "Less than 50K" dans la colonne `A`)
 - En `K4` et en `L4`, écrire `H4`  
   - Il n'est pas possible de faire la même chose avec l'écart-type (en tout cas, aussi simplement). Nous allons donc considérer que la variance est la même dans les groupes qu'au global. 
-- En `K5` et en `L5`, écrire `NB.SI(E:E;"Less than 50K)` et `NB.SI(E/E;"More than 50K")`
+- En `K5` et en `L5`, écrire `NB.SI(E:E;"Less than 50K)` et `NB.SI(E:E;"More than 50K")`
 - Pour `K7` et `L7`, on écrit la valeur $5$ 
-- Pour `K8`, on écrit `LOI.NORMALE.INVERSE.N(1-K7/2/100; 0; 1)` (idem pour `L8` avec `L7` au lieu de `K8`)
+- Pour `K8`, on écrit `LOI.NORMALE.INVERSE.N(1-K7/2/100; 0; 1)` (idem pour `L8` avec `L7` au lieu de `K7`)
 - Pour `K10`, on écrit `K3-K8*RACINE(K4/K5)` (idem pour `L10` avec des `L` au lieu des `K`)
 - Pour `K11`, on écrit `K3+K8*RACINE(K4/K5)` (idem pour `L10` avec des `L` au lieu des `K`)
 
