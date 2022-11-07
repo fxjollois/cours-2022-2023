@@ -299,8 +299,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -308,16 +308,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -390,12 +383,7 @@ inférieure” et “Borne supérieur”</li>
 <li>En <code>H2</code>, écrire <strong>Age</strong> et en
 <code>I2</code>, écrire <strong>Heures</strong></li>
 <li>En <code>H3</code>, écrire <code>MOYENNE(A:A)</code></li>
-<li>En <code>H4</code>, écrire
-<code>PUISSANCE(ECARTYPE.STANDARD(A:A); 2)</code>
-<ul>
-<li>la variance n’est pas directement obtenable, on passe donc par
-l’écart-type</li>
-</ul></li>
+<li>En <code>H4</code>, écrire <code>VAR(A:A)</code></li>
 <li>En <code>H5</code>, écrire <code>NB(A:A)</code>
 <ul>
 <li>cela calcule le nombre de valeurs numériques dans la colonne
@@ -403,11 +391,15 @@ l’écart-type</li>
 </ul></li>
 <li>En <code>H7</code>, écrire la valeur <span class="math inline">\(5\)</span></li>
 <li>En <code>H8</code>, écrire
-<code>LOI.NORMALE.INVERSE.N(1-H7/2/100; 0; 1)</code></li>
+<code>LOI.NORMALE.INVERSE.N(1-H7/2/100; 0; 1)</code>
+<ul>
+<li>comme <span class="math inline">\(n\)</span> est grand, nous allons
+approximer la loi de Student par la loi Normale</li>
+</ul></li>
 <li>En <code>H10</code>, écrire la formule
-<code>H3-H8*RACINE(H4/H5)</code></li>
+<code>H3-H8*RACINE(H4/(H5-1))</code></li>
 <li>En <code>H11</code>, écrire la formule
-<code>H3+H8*RACINE(H4/H5)</code></li>
+<code>H3+H8*RACINE(H4/(H5-1))</code></li>
 </ul>
 <div id="a-faire" class="section level4">
 <h4>A FAIRE</h4>
@@ -430,11 +422,10 @@ sup”</li>
 <li>On retire un car <code>NBVAL()</code> compte le nombre de cellules
 non vides, en incluant celle de titre donc</li>
 </ul></li>
-<li>En <code>H16</code>, écrire <code>NB.SI(C:C; &quot; Female&quot;)/H15</code>
+<li>En <code>H16</code>, écrire <code>NB.SI(C:C; &quot;Female&quot;)/H15</code>
 <ul>
 <li><code>NB.SI()</code> permet donc de compte le nombre de cellules
 respectant une condition d’égalité</li>
-<li>Ne pas oublier l’espace avant “Female” dans la formule</li>
 </ul></li>
 <li>En <code>H18</code>, écrire la valeur <span class="math inline">\(5\)</span></li>
 <li>En <code>H19</code>, écrire
@@ -447,8 +438,8 @@ respectant une condition d’égalité</li>
 <div id="a-faire-1" class="section level4">
 <h4>A FAIRE</h4>
 <p>Faire de même pour la proportion de personnes ayant un salaire
-supérieur à 50K$ (modalité <code>&quot; &gt;50K&quot;</code>, sans oublier
-l’espace devant la aussi)</p>
+supérieur à 50K$ (modalité <code>&quot;&gt;50K&quot;</code>, sans oublier l’espace
+devant la aussi)</p>
 </div>
 </div>
 <div id="comparaison-basé-sur-le-salaire" class="section level3">
@@ -463,7 +454,7 @@ dedans <strong>Âge</strong></li>
 <em>&lt;=50K</em> et <em>&gt;50K</em></li>
 <li>En <code>K3</code>, écrire
 <code>MOYENNE.SI(E:E;&quot;&lt;=50K&quot;;A:A)</code> et en <code>L3</code>,
-écrire <code>MOYENNE.SI(E:E;&quot; &gt;50K&quot;;A:A)</code>
+écrire <code>MOYENNE.SI(E:E;&quot;&gt;50K&quot;;A:A)</code>
 <ul>
 <li>Comme <code>NB.SI()</code>, <code>MOYENNE.SI()</code> réalise une
 moyenne de certaines cellules (ici, celles de la colonne <code>D</code>

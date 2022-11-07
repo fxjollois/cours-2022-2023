@@ -9,7 +9,7 @@
 |  4 | Estimation et Test                                         | 26/09 | 26/09 | 26/09 | 11/10 |
 |  5 | Exercices autour de l'estimation et des tests (moyenne)    | 03/10 | 03/10 | 03/10 | 25/10 |
 |  6 | Exercices autour de l'estimation et des tests (proportion) | 12/10 | 11/10 | 11/10 | 08/11 |
-|  7 | | 21/10 | 21/10 | 21/10 | 15/11 |
-|  8 | | 07/11 | 07/11 | 07/11 | 06/12 |
-|  9 | | 14/11 | 14/11 | 14/11 | 03/01 |
-| 10 | | 21/11 | 21/11 | 21/11 | 17/01 |
+|  7 | ANNULE | - | - | - | - |
+|  8 | Intervalles de confiances dans un tableur                  | 07/11 | 07/11 | 07/11 | 15/11 |
+|  9 | Travail dans un tableur                                    | 14/11 | 14/11 | 14/11 | 06/12 |
+| 10 | Evaluation                                                 | 21/11 | 21/11 | 21/11 | 03/01 |
