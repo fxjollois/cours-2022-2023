@@ -17,6 +17,7 @@ url = "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.dat
 adult = read_csv(url, col_names = FALSE)
 adult2 = adult[sample(1:nrow(adult), 1000), c(1, 4, 10, 13, 15)]
 colnames(adult2) = c("Age", "Etudes", "Sexe", "Heures", "Salaire")
+adult2$Salaire = factor(adult2$Salaire, labels = c("Less than 50K", "More than 50K"))
 write_xlsx(adult2, "base-tp1.xlsx")
 ```
 
@@ -50,7 +51,7 @@ Faire de même pour le nombre d'heures de travail par semaine
 
 Nous allons maintenant chercher à faire les intervalles de confiance de la proportion de femmes et des personnes ayant un salaire supérieur à 50K$. Réalisez les étapes suivantes :
 
-- En `H14`, écrire **Sexe: Female** et en `I14`, écrire **Salaire: >50K**
+- En `H14`, écrire **Sexe: Femme** et en `I14`, écrire **Salaire: >50K**
 - En `G15` et en dessous, écrire "Nombre", "Proportion", cellule vide, "Risque", "U_alpha/2", cellule vide, "Borne inf" et borne sup"
 - En `H15`, écrire `NBVAL(C:C)-1`
   - On retire un car `NBVAL()` compte le nombre de cellules non vides, en incluant celle de titre donc
@@ -58,12 +59,13 @@ Nous allons maintenant chercher à faire les intervalles de confiance de la prop
   - `NB.SI()` permet donc de compte le nombre de cellules respectant une condition d'égalité
 - En `H18`, écrire la valeur $5$
 - En `H19`, écrire `LOI.NORMALE.INVERSE.N(1-H18/2/100; 0; 1)`
+  - sans le `.N` pour les logiciels suivants : *Libre Office*, *Google Spreadsheet*, *Apple Numbers*
 - En `H21`, écrire la formule `H16-H19*RACINE(H16*(1-H16)/H15)`
 - En `H22`, écrire la formule `H16+H19*RACINE(H16*(1-H16)/H15)`
 
 #### A FAIRE
 
-Faire de même pour la proportion de personnes ayant un salaire supérieur à 50K$ (modalité `">50K"`, sans oublier l'espace devant la aussi)
+Faire de même pour la proportion de personnes ayant un salaire supérieur à 50K$ (modalité `"More than 50K"`)
 
 
 ### Comparaison basé sur le salaire
@@ -72,13 +74,13 @@ Nous cherchons maintenant à savoir s'il y a une différence entre ceux gagnant 
 
 - Fusionner les cellules `K1` et `L1`, et écrire dedans **Âge**
 - Ecrire en `K2` et `L2` les modalités *<=50K* et *>50K*
-- En `K3`, écrire `MOYENNE.SI(E:E;"<=50K";A:A)` et en `L3`, écrire `MOYENNE.SI(E:E;">50K";A:A)`
+- En `K3`, écrire `MOYENNE.SI(E:E;"Less than 50K";A:A)` et en `L3`, écrire `MOYENNE.SI(E:E;"More than 50K";A:A)`
   - Comme `NB.SI()`, `MOYENNE.SI()` réalise une moyenne de certaines cellules (ici, celles de la colonne `D` dont la ligne a la valeur "<=50K" dans la colonne `A`)
 - En `K4` et en `L4`, écrire `H4`  
   - Il n'est pas possible de faire la même chose avec l'écart-type (en tout cas, aussi simplement). Nous allons donc considérer que la variance est la même dans les groupes qu'au global. 
-- En `K5` et en `L5`, écrire `NB(A:A)`
+- En `K5` et en `L5`, écrire `NB.SI(E:E;"Less than 50K)` et `NB.SI(E/E;"More than 50K")`
 - Pour `K7` et `L7`, on écrit la valeur $5$ 
-- Pour `K8` et `L8`, on écrire `LOI.NORMALE.INVERSE.N(1-H18/2/100; 0; 1)`
+- Pour `K8`, on écrit `LOI.NORMALE.INVERSE.N(1-K7/2/100; 0; 1)` (idem pour `L8` avec `L7` au lieu de `K8`)
 - Pour `K10`, on écrit `K3-K8*RACINE(K4/K5)` (idem pour `L10` avec des `L` au lieu des `K`)
 - Pour `K11`, on écrit `K3+K8*RACINE(K4/K5)` (idem pour `L10` avec des `L` au lieu des `K`)
 
@@ -87,4 +89,4 @@ On voit donc que l'âge n'est pas le même selon le salaire.
 #### A FAIRE
 
 - Faire de même pour le nombre d'heures
-- Faire de même pour le sexe (attention, ici, ce sont des proportions)
+- Faire de même pour les femmes (attention, ici, ce sont des proportions - on compare la proportion de femmes gagnant moins de 50K$ à celle de femmes gagnant plus de 50K$)

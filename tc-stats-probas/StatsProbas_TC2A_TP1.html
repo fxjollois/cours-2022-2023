@@ -412,7 +412,7 @@ approximer la loi de Student par la loi Normale</li>
 de la proportion de femmes et des personnes ayant un salaire supérieur à
 50K$. Réalisez les étapes suivantes :</p>
 <ul>
-<li>En <code>H14</code>, écrire <strong>Sexe: Female</strong> et en
+<li>En <code>H14</code>, écrire <strong>Sexe: Femme</strong> et en
 <code>I14</code>, écrire <strong>Salaire: &gt;50K</strong></li>
 <li>En <code>G15</code> et en dessous, écrire “Nombre”, “Proportion”,
 cellule vide, “Risque”, “U_alpha/2”, cellule vide, “Borne inf” et borne
@@ -429,7 +429,11 @@ respectant une condition d’égalité</li>
 </ul></li>
 <li>En <code>H18</code>, écrire la valeur <span class="math inline">\(5\)</span></li>
 <li>En <code>H19</code>, écrire
-<code>LOI.NORMALE.INVERSE.N(1-H18/2/100; 0; 1)</code></li>
+<code>LOI.NORMALE.INVERSE.N(1-H18/2/100; 0; 1)</code>
+<ul>
+<li>sans le <code>.N</code> pour les logiciels suivants : <em>Libre
+Office</em>, <em>Google Spreadsheet</em>, <em>Apple Numbers</em></li>
+</ul></li>
 <li>En <code>H21</code>, écrire la formule
 <code>H16-H19*RACINE(H16*(1-H16)/H15)</code></li>
 <li>En <code>H22</code>, écrire la formule
@@ -438,8 +442,7 @@ respectant une condition d’égalité</li>
 <div id="a-faire-1" class="section level4">
 <h4>A FAIRE</h4>
 <p>Faire de même pour la proportion de personnes ayant un salaire
-supérieur à 50K$ (modalité <code>&quot;&gt;50K&quot;</code>, sans oublier l’espace
-devant la aussi)</p>
+supérieur à 50K$ (modalité <code>&quot;More than 50K&quot;</code>)</p>
 </div>
 </div>
 <div id="comparaison-basé-sur-le-salaire" class="section level3">
@@ -453,8 +456,8 @@ dedans <strong>Âge</strong></li>
 <li>Ecrire en <code>K2</code> et <code>L2</code> les modalités
 <em>&lt;=50K</em> et <em>&gt;50K</em></li>
 <li>En <code>K3</code>, écrire
-<code>MOYENNE.SI(E:E;&quot;&lt;=50K&quot;;A:A)</code> et en <code>L3</code>,
-écrire <code>MOYENNE.SI(E:E;&quot;&gt;50K&quot;;A:A)</code>
+<code>MOYENNE.SI(E:E;&quot;Less than 50K&quot;;A:A)</code> et en <code>L3</code>,
+écrire <code>MOYENNE.SI(E:E;&quot;More than 50K&quot;;A:A)</code>
 <ul>
 <li>Comme <code>NB.SI()</code>, <code>MOYENNE.SI()</code> réalise une
 moyenne de certaines cellules (ici, celles de la colonne <code>D</code>
@@ -468,10 +471,12 @@ tout cas, aussi simplement). Nous allons donc considérer que la variance
 est la même dans les groupes qu’au global.</li>
 </ul></li>
 <li>En <code>K5</code> et en <code>L5</code>, écrire
-<code>NB(A:A)</code></li>
+<code>NB.SI(E:E;&quot;Less than 50K)</code> et
+<code>NB.SI(E/E;&quot;More than 50K&quot;)</code></li>
 <li>Pour <code>K7</code> et <code>L7</code>, on écrit la valeur <span class="math inline">\(5\)</span></li>
-<li>Pour <code>K8</code> et <code>L8</code>, on écrire
-<code>LOI.NORMALE.INVERSE.N(1-H18/2/100; 0; 1)</code></li>
+<li>Pour <code>K8</code>, on écrit
+<code>LOI.NORMALE.INVERSE.N(1-K7/2/100; 0; 1)</code> (idem pour
+<code>L8</code> avec <code>L7</code> au lieu de <code>K8</code>)</li>
 <li>Pour <code>K10</code>, on écrit <code>K3-K8*RACINE(K4/K5)</code>
 (idem pour <code>L10</code> avec des <code>L</code> au lieu des
 <code>K</code>)</li>
@@ -484,8 +489,9 @@ est la même dans les groupes qu’au global.</li>
 <h4>A FAIRE</h4>
 <ul>
 <li>Faire de même pour le nombre d’heures</li>
-<li>Faire de même pour le sexe (attention, ici, ce sont des
-proportions)</li>
+<li>Faire de même pour les femmes (attention, ici, ce sont des
+proportions - on compare la proportion de femmes gagnant moins de 50K$ à
+celle de femmes gagnant plus de 50K$)</li>
 </ul>
 </div>
 </div>
