@@ -8,6 +8,8 @@
     - [demande](seance2-demande)
 - [Séance 3](seance3) : Correction et commentaires sur les scripts `shell`
     - [demande](seance3-demande)
+- [Séance 4](seance4) : Gestion des scripts R et Python en `shell`
+    - [demande](seance4-demande)
 
 <!--
 Pitch général :
