@@ -16,6 +16,14 @@ $ sudo apt upgrade
 $ sudo apt update
 ```
 
+## Installer `mailutils`
+
+Pour pouvoir recevoir des messages envoyés par `cron`
+
+```bash
+$ sudo apt install mailutils
+```
+
 ## Installer les outils de travail
 
 - Installer R si ce n'est pas encore fait
