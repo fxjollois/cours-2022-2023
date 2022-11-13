@@ -11,13 +11,18 @@
 - [Séance 6](StatsProbas_TC2A_TD6.html) - Exercices autour de l'estimation et des tests (proportion)
 
 - [Séance 7](StatsProbas_TC2A_TP1.html) - Intervalles de confiance dans un tableur
+- [Séance 8](StatsProbas_TC2A_TP2.html) - Travail sous Excel
+
+### Lien vers les cours **eCampus** :
+
+- <https://ecampus.unicaen.fr/course/view.php?id=58811>
+
 
 <!--
 - [Séance 6](StatsProbas_TC2A_TD6.html) - Exercices autour des tests
 - [Séance 7](StatsProbas_TC2A_TP1.html) - Estimation et tests sous Excel
 - [Séance 8](StatsProbas_TC2A_TP2.html) - Travail sous Excel
 
-Lien vers les cours **eCampus** :
 
 - [RCP - Groupes GIIa, GIIb, GIIc](https://ecampus.unicaen.fr/course/view.php?id=22901)
 - [OS - Groupe GIII](https://ecampus.unicaen.fr/course/view.php?id=22902)
