@@ -11,6 +11,8 @@
 - [Séance 4](seance4) : Gestion des scripts R et Python en `shell`
     - [demande](seance4-demande)
 
+- [Séance 5](seance5) : Mini-projet *Tableaux de bord temps réel*
+
 <!--
 Pitch général :
 - Avoir un serveur
