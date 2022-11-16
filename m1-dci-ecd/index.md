@@ -12,6 +12,7 @@
 4. [Classification avec CAH et k-means](seance4-classif.html)
     - [sous `python`](seance4-classif-python.html)
     - [correction](seance4-correction.html)
+5. [Application sur données réelles](seance5-donnees-reelles.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
