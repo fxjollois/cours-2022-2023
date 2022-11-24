@@ -1,7 +1,8 @@
 ---
-title: "Exercices autour de l'estimation et des tests - *correction*"
+title: "Exercices autour de l'estimation et des tests"
+subtitle: "Intervalle de confiance d'une moyenne, lorsque la variance est inconnue"
 author: "FX Jollois"
-date: "TC - 2ème année - 2021/2022"
+date: "BUT TC - 2ème année"
 output: html_document
 ---
 
@@ -11,57 +12,35 @@ library(dplyr)
 library(kableExtra)
 
 IC_moyenne = function(n, m, s, alpha, digits = 2, msg = "") {
-  u = qnorm(1 - alpha / 200)
-  bornes = round(m + c(-u, u) * sqrt(s / n), digits = digits)
-  cat(msg, "Intervalle de confiance à ", alpha, "% : [", paste(bornes, collapse = "; "), "]\n", sep = "")
-}
-
-IC_proportion = function(n, p, alpha, digits = 2, msg = "") {
-  u = qnorm(1 - alpha / 200)
-  bornes = round(p + c(-u, u) * sqrt((p * (1 - p)) / n), digits = digits)
-  cat(msg, "Intervalle de confiance à ", alpha, "% : [", paste(bornes, collapse = "; "), "]\n", sep = "")
+  u = qt(1 - alpha / 200, n - 1)
+  bornes = round(m + c(-u, u) * sqrt(s / (n - 1)), digits = digits)
+  cat(msg, "Intervalle de confiance à ", 100 - alpha, "% : [", paste(bornes, collapse = "; "), "]\n", sep = "")
 }
 ```
 
 ### Exercice 1 - Âge moyen des clients
 
-Une entreprise souhaite connaître l'âge de ces clients. Pour cela, elle réalise un sondage sur $120$ personnes. Sur cet échantillon, on obtient un âge moyen de $35.0$ et une variance de $15.08$.
+Une entreprise souhaite connaître l'âge de ces clients. Pour cela, elle réalise un sondage sur 120 personnes. Sur cet échantillon, on obtient un âge moyen de 35.0 et une variance de 15.08.
 
-- On souhaite avoir un intervalle de confiance de la moyenne des clients à $95\%$. Quel est-il ?
-
-- Et à $90\%$ ?
+- On souhaite avoir un intervalle de confiance de la moyenne des clients à 95 %. Quel est-il ?
+- Et à 90 % ? Et à 99 % ?
 
 #### Solution
 
 ```{r}
 IC_moyenne(120, 35, 15.08, 5)
 IC_moyenne(120, 35, 15.08, 10)
+IC_moyenne(120, 35, 15.08, 1)
 ```
 
 <hr>
 
-### Exercice 2 - Gauchers dans la population
+### Exercice 2 - Poids des bébés à la naissance
 
-On cherche à connaître le nombre de gaucher dans la population. On étudie un échantillon de $300$ personnes, dans lequel nous observons $15\%$ de gauchers.
+Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des 50 enfants nés a été de 3.55 kg et une variance de 0.32.
 
-- Donner un intervalle de confiance de la proportion de gauchers dans la population à $95\%$
-- Idem, mais à $92\%$
-
-#### Solution
-
-```{r}
-IC_proportion(300, .15, 5)
-IC_proportion(300, .15, 8, digits = 3)
-```
-
-<hr>
-
-### Exercice 3 - Poids des bébés à la naissance
-
-Un hôpital fait une étude sur le poids des bébés à la naissance. Lors du mois écoulé, le poids moyen des $49$ enfants nés a été de $3.55 kg$ et une variance de $0.32$.
-
-- Déterminer les intervalles de confiance à $90\%$, $95\%$ et $99\%$.
-- Une précédente étude avait conclus à un poids moyen à la naissance de $3.4 kg$. Que peut-on dire ?
+- Déterminer les intervalles de confiance à 90%, 95% et 99%.
+- Une précédente étude avait conclus à un poids moyen à la naissance de 3.4 kg. Que peut-on dire ?
 
 #### Solution
 
@@ -71,66 +50,55 @@ IC_moyenne(49, 3.55, 0.32, 5)
 IC_moyenne(49, 3.55, 0.32, 1)
 ```
 
-En prenant un risque à 10%, on conclue que le poids a changé entre les deux études. alors qu'avec un risque à 5% ou 1%, on conclue que rien n'a changé.
+En prenant un risque à 10%, on conclue que le poids a changé entre les deux études (intervalles ne se chevauchant pas). Alors qu'avec un risque à 5% ou 1%, on conclue que rien n'a changé.
 
 <hr>
 
-### Exercice 4 - Prix du menu au restaurant
-
-Le gérant d'une brasserie souhaite faire passer le prix du menu à $15.90€$. Il souhaite estimer la proportion de clients qui seraient prêts à venir déjeuner à ce tarif. Il réalise un sondage auprès des clients présents le midi ce jour-là. Sur les $50$ personnes interrogées, $39$ se disent prêtes à venir déjeuner à ce tarif.
-
-- Quelle est la proportion de personnes qui estiment la hausse raisonnable ?
-- Le gérant a posé comme condition, pour augmenter le prix, qu'il y ait plus de $60\%$ des clients favorables à ce changement. Déterminer l'intervalle de confiance de la proportion à $95\%$. Qu'en déduira le gérant ? Et s'il avait dit qu'il fallait plus de $70\%$ ?
-
-#### Solution
-
-Il y a donc une proportion de `r 39/50*100` % de clients qui sont OK pour payer plus cher.
-
-```{r}
-IC_proportion(50, .78, 5)
-```
-
-Selon l'intervalle de confiance obtenu, il y a de très fortes chances qu'il y ait plus de $60\%$ des clients favorables. Le gérant peut donc augmenter son tarif.
-
-Par contre, il y a un risque que la proportion soit inférieur à $70\%$. Si le gérant pose ceci comme limite, il ne pourra donc pas conclure à l'augmentation de son tarif.
-
-
-<hr>
-
-### Exercice 5 - Circuits électroniques
-
-Nous souhaitons estimer un intervalle de confiance du gain d'un circuit électronique. On admet que le gain est distribué selon une loi normale d'espérance inconnue $\mu$ et d'écart-type connu $\sigma=20$. Quelle doit être la taille de l'échantillon $n$ pour que la longueur de l'intervalle de confiance à $95\%$  soit égale à 4 ?
-
-On compare deux circuits électroniques, dont on veut savoir si le gain est identique entre les deux. Nous réalisons 500 mesures pour chacun des circuits, et obtenons les moyennes ($m_i$) et écarts-type ($s_i$) suivants :
-
-- $m_1 = 15.1$ et $s_1 = 4.5$
-- $m_2 = 15.9$ et $s_2 = 4.4$
+### Exercice 3 - Circuits électroniques
 
 Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à $90%$ ? et à $95\%$ ?
 
+On compare deux circuits électroniques, dont on veut savoir si le gain est identique entre les deux. Nous réalisons 300 mesures pour chacun des circuits, et obtenons les moyennes ($m_i$) et écarts-type ($s_i$) suivants :
+
+- $m_1 = 15.1$ et $s_1 = 4.1$
+- $m_2 = 15.9$ et $s_2 = 3.9$
+
+Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à 90 % ? et à 95 % ?
+
 #### Solution
 
-Pour rappel, voici la formule de l'intervalle de confiance :
+```{r}
+IC_moyenne(300, 15.1, 4.1**2, 10, msg = "CIRCUIT 1 : ")
+IC_moyenne(300, 15.9, 3.9**2, 10, msg = "CIRCUIT 2 : ")
+```
 
-$$
-  \left[
-    \hat{\mu} - u_{\alpha/2} \sqrt{\frac{s^2}{n}} ;
-    \hat{\mu} + u_{\alpha/2} \sqrt{\frac{s^2}{n}}
-  \right]
-$$
+En considérant un seuil de confiance de 90%, on observe que les deux circuits ont un gain différent (c'est à la limite, mais les intervalles ne se chevauchent pas).
 
-Pour que la longueur de l'intervalle soit égale à 4, il faut que le terme $u_{\alpha/2} \sqrt{\frac{s^2}{n}}$ soit égal à 2.
 
-\begin{align*} 
-u_{\alpha/2} \sqrt{\frac{s^2}{n}} &= 2 \\
-\sqrt{\frac{s^2}{n}} &= \frac{2}{u_{\alpha/2}} \\
-\frac{s^2}{n} &= \left( \frac{2}{u_{\alpha/2}} \right )^2 \\
-\frac{s^2}{n} &= \frac{4}{(u_{\alpha/2})^2}\\
-\frac{n}{s^2} &= \frac{(u_{\alpha/2})^2}{4}\\
-n &= \frac{s^2 (u_{\alpha/2})^2}{4}\\
-n &= \frac{20^2 * 1.96^2}{4}\\
-n &= \sim 384
-\end{align*}
+```{r}
+IC_moyenne(300, 15.1, 4.1**2, 5, msg = "CIRCUIT 1 : ")
+IC_moyenne(300, 15.9, 3.9**2, 5, msg = "CIRCUIT 2 : ")
+```
 
-Il faut donc **384 mesures** pour avoir un intervalle de longueur 4.
+Avec un seuil de confiance à 95%, nous arrivons à la conclusion inverse (les intervalles étant plus larges, ils se chevauchent dans ce cas).
+
+### Exercice 4 - Qualité de production
+
+On désire comparer la qualité de deux doseuses pour boîtes de haricots verts de quantité nominale égale à 800g. On prélève un échantillon de 200 éléments sur chacune des deux machines, ce qui donne les deux valeurs moyennes suivantes :
+
+- $m_1 = 807$ et $s^2 = 68$ pour la première machine
+- $m_2 = 805$ et $s^2 = 59$ pour la deuxième machine
+
+Les dosages moyens de ces deux machines sont-ils différents au risque de $5\%$ ? Sont-elles fiables par rapport au dosage de 800g à obtenir ?
+
+#### Solution
+
+```{r}
+IC_moyenne(200, 807, 68, 10, msg = "MACHINE 1 : ")
+IC_moyenne(200, 805, 59, 10, msg = "MACHINE 2 : ")
+```
+
+Les deux machines ont bien un dosage moyen différent entre elles. De plus, elles ont toutes deux un dosage bien supérieur à la quantité nominale prévue (de 800g).
+
+
 

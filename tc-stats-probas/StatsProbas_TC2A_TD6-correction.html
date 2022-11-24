@@ -357,100 +357,134 @@ pre code {
 
 <h1 class="title toc-ignore">Exercices autour de l’estimation et des
 tests</h1>
-<h3 class="subtitle">Intervalle de confiance d’une moyenne, lorsque la
-variance est inconnue</h3>
+<h3 class="subtitle">Intervalle de confiance d’une proportion</h3>
 <h4 class="author">FX Jollois</h4>
 <h4 class="date">BUT TC - 2ème année</h4>
 
 </div>
 
 
-<div id="exercice-1---âge-moyen-des-clients" class="section level3">
-<h3>Exercice 1 - Âge moyen des clients</h3>
-<p>Une entreprise souhaite connaître l’âge de ces clients. Pour cela,
-elle réalise un sondage sur 120 personnes. Sur cet échantillon, on
-obtient un âge moyen de 35.0 et une variance de 15.08.</p>
+<div id="exercice-1---gauchers-dans-la-population" class="section level3">
+<h3>Exercice 1 - Gauchers dans la population</h3>
+<p>On cherche à connaître le nombre de gaucher dans la population. On
+étudie un échantillon de 300 personnes, dans lequel nous observons 15%
+de gauchers.</p>
 <ul>
-<li>On souhaite avoir un intervalle de confiance de la moyenne des
-clients à 95 %. Quel est-il ?</li>
-<li>Et à 90 % ? Et à 99 % ?</li>
+<li>Donner un intervalle de confiance de la proportion de gauchers dans
+la population à 95%</li>
+<li>Idem, mais à 90%</li>
 </ul>
 <div id="solution" class="section level4">
 <h4>Solution</h4>
-<pre><code>## Intervalle de confiance à 95% : [34.3; 35.7]</code></pre>
-<pre><code>## Intervalle de confiance à 90% : [34.41; 35.59]</code></pre>
-<pre><code>## Intervalle de confiance à 99% : [34.07; 35.93]</code></pre>
+<pre><code>## Intervalle de confiance à 95% : [0.11; 0.19]</code></pre>
+<pre><code>## Intervalle de confiance à 90% : [0.116; 0.184]</code></pre>
 <hr>
 </div>
 </div>
-<div id="exercice-2---poids-des-bébés-à-la-naissance" class="section level3">
-<h3>Exercice 2 - Poids des bébés à la naissance</h3>
-<p>Un hôpital fait une étude sur le poids des bébés à la naissance. Lors
-du mois écoulé, le poids moyen des 50 enfants nés a été de 3.55 kg et
-une variance de 0.32.</p>
+<div id="exercice-2---prix-du-menu-au-restaurant" class="section level3">
+<h3>Exercice 2 - Prix du menu au restaurant</h3>
+<p>Le gérant d’une brasserie souhaite faire passer le prix du menu à
+15.90€. Il souhaite estimer la proportion de clients qui seraient prêts
+à venir déjeuner à ce tarif. Il réalise un sondage auprès des clients
+présents le midi ce jour-là. Sur les 50 personnes interrogées, 39 se
+disent prêtes à venir déjeuner à ce tarif.</p>
 <ul>
-<li>Déterminer les intervalles de confiance à 90%, 95% et 99%.</li>
-<li>Une précédente étude avait conclus à un poids moyen à la naissance
-de 3.4 kg. Que peut-on dire ?</li>
+<li>Quelle est la proportion de personnes qui estiment la hausse
+raisonnable ?</li>
+<li>Le gérant a posé comme condition, pour augmenter le prix, qu’il y
+ait plus de 60 % des clients favorables à ce changement. Déterminer
+l’intervalle de confiance de la proportion à 95 %. Qu’en déduira le
+gérant ? Et s’il avait dit qu’il fallait plus de 70 % ?</li>
 </ul>
 <div id="solution-1" class="section level4">
 <h4>Solution</h4>
-<pre><code>## Intervalle de confiance à 90% : [3.41; 3.69]</code></pre>
-<pre><code>## Intervalle de confiance à 95% : [3.39; 3.71]</code></pre>
-<pre><code>## Intervalle de confiance à 99% : [3.33; 3.77]</code></pre>
-<p>En prenant un risque à 10%, on conclue que le poids a changé entre
-les deux études (intervalles ne se chevauchant pas). Alors qu’avec un
-risque à 5% ou 1%, on conclue que rien n’a changé.</p>
+<p>Il y a donc une proportion de 78 % de clients qui sont OK pour payer
+plus cher.</p>
+<pre><code>## Intervalle de confiance à 95% : [0.67; 0.89]</code></pre>
+<p>Selon l’intervalle de confiance obtenu, il y a de très fortes chances
+qu’il y ait plus de 60% des clients favorables. Le gérant peut donc
+augmenter son tarif.</p>
+<p>Par contre, il y a un risque que la proportion soit inférieur à 70%.
+Si le gérant pose ceci comme limite, il ne pourra donc pas conclure à
+l’augmentation de son tarif.</p>
 <hr>
 </div>
 </div>
-<div id="exercice-3---circuits-électroniques" class="section level3">
-<h3>Exercice 3 - Circuits électroniques</h3>
-<p>Peut-on dire qu’il y a une différence entre les deux avec un seuil de
-confiance à <span class="math inline">\(90%\)</span> ? et à <span class="math inline">\(95\%\)</span> ?</p>
-<p>On compare deux circuits électroniques, dont on veut savoir si le
-gain est identique entre les deux. Nous réalisons 300 mesures pour
-chacun des circuits, et obtenons les moyennes (<span class="math inline">\(m_i\)</span>) et écarts-type (<span class="math inline">\(s_i\)</span>) suivants :</p>
-<ul>
-<li><span class="math inline">\(m_1 = 15.1\)</span> et <span class="math inline">\(s_1 = 4.1\)</span></li>
-<li><span class="math inline">\(m_2 = 15.9\)</span> et <span class="math inline">\(s_2 = 3.9\)</span></li>
-</ul>
-<p>Peut-on dire qu’il y a une différence entre les deux avec un seuil de
-confiance à 90 % ? et à 95 % ?</p>
+<div id="exercice-3---référendum" class="section level3">
+<h3>Exercice 3 - Référendum</h3>
+<p>On prévoit de réaliser un référendum. On sait que la réponse
+<em>Oui</em> se situe autour de 50 %. On se demande donc combien de
+personnes faudrait-il interroger pour que la proportion de <em>Oui</em>
+soit connue à 1 % près (en plus ou en moins).</p>
+<p>Lors de la réalisation de ce sondage, finalement pratiqué sur 1000
+personnes, nous avons obtenu 55 % pour le <em>Oui</em> et 45 % pour le
+<em>Non</em>. Peut-on prévoir le résultat du référendum, avec un taux de
+confiance de 95 % ?</p>
 <div id="solution-2" class="section level4">
 <h4>Solution</h4>
-<pre><code>## CIRCUIT 1 : Intervalle de confiance à 90% : [14.71; 15.49]</code></pre>
-<pre><code>## CIRCUIT 2 : Intervalle de confiance à 90% : [15.53; 16.27]</code></pre>
-<p>En considérant un seuil de confiance de 90%, on observe que les deux
-circuits ont un gain différent (c’est à la limite, mais les intervalles
-ne se chevauchent pas).</p>
-<pre><code>## CIRCUIT 1 : Intervalle de confiance à 95% : [14.63; 15.57]</code></pre>
-<pre><code>## CIRCUIT 2 : Intervalle de confiance à 95% : [15.46; 16.34]</code></pre>
-<p>Avec un seuil de confiance à 95%, nous arrivons à la conclusion
-inverse (les intervalles étant plus larges, ils se chevauchent dans ce
-cas).</p>
+<p>Pour rappel, voici la formule de l’intervalle de confiance :</p>
+<p><span class="math display">\[
+  \left[
+    \hat{p} - u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} ;
+    \hat{p} + u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+  \right]
+\]</span></p>
+<p>Pour que la longueur de l’intervalle soit égale à 2, il faut que le
+terme <span class="math inline">\(u_{\alpha/2}
+\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> soit égal à 1% (soit 0.01).
+Puisqu’on veut un intervalle de confiance à 95%, on a <span class="math inline">\(u_{\alpha/2}=1.96\)</span>. Et on suppose donc que
+<span class="math inline">\(\hat{p}=0.5\)</span> (cf sujet).</p>
+<p><span class="math display">\[
+  u_{\alpha/2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} = 0.01\\
+  1.96\sqrt{\frac{0.5 \times 0.5}{n}} = 0.01 \\
+  1.96\sqrt{\frac{0.25}{n}} = 0.01 \\
+  \sqrt{\frac{0.25}{n}} = \frac{0.01}{1.96}\\
+  \frac{0.25}{n} = \left(\frac{0.01}{1.96}\right)^2\\
+  \frac{n}{0.25} = \left(\frac{1.96}{0.01}\right)^2\\
+  n = \left(\frac{1.96}{0.01}\right)^2 \times 0.25\\
+  n = \sim 9604
+\]</span></p>
+<p>Il faut donc interroger <strong>9604 personnes</strong> pour avoir un
+intervalle de longueur 1.</p>
+<pre><code>## OUI : Intervalle de confiance à 95% : [0.52; 0.58]</code></pre>
+<pre><code>## NON : Intervalle de confiance à 95% : [0.42; 0.48]</code></pre>
+<p>On peut donc estimer que ce sera le OUI qui remportera le suffrage
+lors de ce référendum.</p>
 </div>
 </div>
-<div id="exercice-4---qualité-de-production" class="section level3">
-<h3>Exercice 4 - Qualité de production</h3>
-<p>On désire comparer la qualité de deux doseuses pour boîtes de
-haricots verts de quantité nominale égale à 800g. On prélève un
-échantillon de 200 éléments sur chacune des deux machines, ce qui donne
-les deux valeurs moyennes suivantes :</p>
+<div id="exercice-4---efficacité-dun-médicament" class="section level3">
+<h3>Exercice 4 - Efficacité d’un médicament</h3>
+<p>Pour mesurer l’effet d’un nouveau médicament, on créé 3 groupes de
+100 personnes chacun. Le comprimé donné diffère entre les groupes :</p>
 <ul>
-<li><span class="math inline">\(m_1 = 807\)</span> et <span class="math inline">\(s^2 = 68\)</span> pour la première machine</li>
-<li><span class="math inline">\(m_2 = 805\)</span> et <span class="math inline">\(s^2 = 59\)</span> pour la deuxième machine</li>
+<li>Groupe N : nouveau médicament</li>
+<li>Groupe C : médicament de référence</li>
+<li>Groupe P : placebo (comprimé sans principe actif)</li>
 </ul>
-<p>Les dosages moyens de ces deux machines sont-ils différents au risque
-de <span class="math inline">\(5\%\)</span> ? Sont-elles fiables par
-rapport au dosage de 800g à obtenir ?</p>
+<p>Après analyse, on observe que les patients ayant guéri :</p>
+<ul>
+<li>Groupe N : 68</li>
+<li>Groupe C : 56</li>
+<li>Groupe P : 37</li>
+</ul>
+<p>Peut-on conclure à l’efficacité du nouveau médicament par rapport au
+placebo ? Et par rapport au médicament référence ? Qu’observe-t’on pour
+le médicament de référence vis-à-vis du placebo ? Ces analyses sont
+faites avec un seuil de 5 %.</p>
 <div id="solution-3" class="section level4">
 <h4>Solution</h4>
-<pre><code>## MACHINE 1 : Intervalle de confiance à 90% : [806.03; 807.97]</code></pre>
-<pre><code>## MACHINE 2 : Intervalle de confiance à 90% : [804.1; 805.9]</code></pre>
-<p>Les deux machines ont bien un dosage moyen différent entre elles. De
-plus, elles ont toutes deux un dosage bien supérieur à la quantité
-nominale prévue (de 800g).</p>
+<pre><code>## Groupe N : Intervalle de confiance à 95% : [0.589; 0.771]</code></pre>
+<pre><code>## Groupe C : Intervalle de confiance à 95% : [0.463; 0.657]</code></pre>
+<pre><code>## Groupe P : Intervalle de confiance à 95% : [0.275; 0.465]</code></pre>
+<p>Dans cette étude, on conclue les éléments suivants :</p>
+<ul>
+<li>Le nouveau médicament N n’est pas plus efficace que le médicament de
+référence C</li>
+<li>Ce nouveau médicament N est par contre très largement plus efficace
+qu’un placebo P</li>
+<li>Finalement, le médicament de référence C n’est pas plus efficace que
+le placebo P</li>
+</ul>
 </div>
 </div>
 

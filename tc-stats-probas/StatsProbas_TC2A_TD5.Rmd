@@ -108,13 +108,13 @@ On compare deux circuits électroniques, dont on veut savoir si le gain est iden
 - $m_1 = 15.1$ et $s_1 = 4.1$
 - $m_2 = 15.9$ et $s_2 = 3.9$
 
-Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à $90%$ ? et à $95\%$ ?
+Peut-on dire qu'il y a une différence entre les deux avec un seuil de confiance à 90 % ? et à 95 % ?
 
 ### Exercice 4 - Qualité de production
 
-On désire comparer la qualité de deux doseuses pour boîtes de haricots verts de quantité nominale égale à $800 g$. On prélève un échantillon de 200 éléments sur chacune des deux machines, ce qui donne les deux valeurs moyennes suivantes :
+On désire comparer la qualité de deux doseuses pour boîtes de haricots verts de quantité nominale égale à 800g. On prélève un échantillon de 200 éléments sur chacune des deux machines, ce qui donne les deux valeurs moyennes suivantes :
 
 - $m_1 = 807$ et $s^2 = 68$ pour la première machine
 - $m_2 = 805$ et $s^2 = 59$ pour la deuxième machine
 
-Les dosages moyens de ces deux machines sont-ils différents au risque de $5\%$ ? Sont-elles fiables par rapport au dosage de $800g$ à obtenir ?
+Les dosages moyens de ces deux machines sont-ils différents au risque de $5\%$ ? Sont-elles fiables par rapport au dosage de 800g à obtenir ?

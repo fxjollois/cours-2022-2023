@@ -523,8 +523,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -532,16 +532,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -825,22 +818,21 @@ chacun des circuits, et obtenons les moyennes (<span class="math inline">\(m_i\)
 <li><span class="math inline">\(m_2 = 15.9\)</span> et <span class="math inline">\(s_2 = 3.9\)</span></li>
 </ul>
 <p>Peut-on dire qu’il y a une différence entre les deux avec un seuil de
-confiance à <span class="math inline">\(90%\)</span> ? et à <span class="math inline">\(95\%\)</span> ?</p>
+confiance à 90 % ? et à 95 % ?</p>
 </div>
 <div id="exercice-4---qualité-de-production" class="section level3">
 <h3>Exercice 4 - Qualité de production</h3>
 <p>On désire comparer la qualité de deux doseuses pour boîtes de
-haricots verts de quantité nominale égale à <span class="math inline">\(800 g\)</span>. On prélève un échantillon de 200
-éléments sur chacune des deux machines, ce qui donne les deux valeurs
-moyennes suivantes :</p>
+haricots verts de quantité nominale égale à 800g. On prélève un
+échantillon de 200 éléments sur chacune des deux machines, ce qui donne
+les deux valeurs moyennes suivantes :</p>
 <ul>
 <li><span class="math inline">\(m_1 = 807\)</span> et <span class="math inline">\(s^2 = 68\)</span> pour la première machine</li>
 <li><span class="math inline">\(m_2 = 805\)</span> et <span class="math inline">\(s^2 = 59\)</span> pour la deuxième machine</li>
 </ul>
 <p>Les dosages moyens de ces deux machines sont-ils différents au risque
 de <span class="math inline">\(5\%\)</span> ? Sont-elles fiables par
-rapport au dosage de <span class="math inline">\(800g\)</span> à obtenir
-?</p>
+rapport au dosage de 800g à obtenir ?</p>
 </div>
 </div>
 
