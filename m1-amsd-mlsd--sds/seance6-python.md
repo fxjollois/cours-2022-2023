@@ -53,6 +53,7 @@ list(d)
 Ici, nous avons accès à deux fonctions pour dénombrer les documents. La première est `count_documents({})`, dont le paramètre `{}` est à mettre obligatoirement (il sert à spécifier le filtre de restriction sur les documents, mais doit être spécifier tout de même s'il n'y a aucune restriction). La deuxième fonction (`estimated_document_count()`) sert à estimer le nombre de documents, à utiliser de préférence en cas de multiples serveurs et de données massives.
 
 - Tous les restaurants
+
 ```python
 db.restaurants.count_documents({})
 db.restaurants.estimated_document_count()
@@ -69,21 +70,25 @@ Pour sélectionner les documents, nous allons utiliser le paramètre dans la fon
     - `$gt`, `$gte`, `$lt`, `$lte`, `$ne` : comparaison (resp. *greater than*, *greater than or equal*, *less than*, *less than or equal*, *not equal*)
 
 - Restaurants de *Brooklyn*
+
 ```python
 db.restaurants.count_documents({ "borough": "Brooklyn" })
 ```
 
 - Restaurants de *Brooklyn* proposant de la cuisine française
+
 ```python
 db.restaurants.count_documents({ "borough": "Brooklyn", "cuisine": "French" })
 ```
 
 - Restaurants de *Brooklyn* proposant de la cuisine française ou italienne
+
 ```python
 db.restaurants.count_documents({ "borough": "Brooklyn", "cuisine": { "$in": ["French", "Italian"]} })
 ```
 
 - Idem mais écrit plus lisiblement
+
 ```python
 db.restaurants.count_documents(
   { 
@@ -95,6 +100,7 @@ db.restaurants.count_documents(
 
 - Restaurants situés sur *Franklin Street*
     - Notez l'accès au champs `street` du champs `address`
+    
 ```python
 db.restaurants.count_documents(
   { 
@@ -104,6 +110,7 @@ db.restaurants.count_documents(
 ```
 
 - Restaurants ayant eu un score de 0
+
 ```python
 db.restaurants.count_documents(
   { 
@@ -113,6 +120,7 @@ db.restaurants.count_documents(
 ```
 
 - Restaurants ayant eu un score inférieur à 5
+
 ```python
 db.restaurants.count_documents(
   { 
@@ -132,6 +140,7 @@ db.restaurants.distinct(key = "borough")
 ```
 
 - Cuisine pour les restaurants de *Brooklyn*
+
 ```python
 db.restaurants.distinct(
   key = "cuisine",
@@ -140,6 +149,7 @@ db.restaurants.distinct(
 ```
 
 - Grade des restaurants de *Brooklyn*
+
 ```python
 db.restaurants.distinct(
   key = "grades.grade",
@@ -176,18 +186,21 @@ Pour n'avoir que le premier document, on utilise le paramètre `limit` (pas de f
 
 - Récupération des 5 premiers documents
     - Notez le contenu des colonnes `address` et `grades`.
+    
 ```python
 import pandas
 pandas.DataFrame(db.restaurants.find(limit = 5))
 ```
 
 - Restaurants *Shake Shack* (uniquement les attributs `"street"` et `"borough"`)
+
 ```python
 c = db.restaurants.find({ "name": "Shake Shack" }, { "address.street": 1, "borough": 1 })
 pandas.DataFrame(c)
 ```
 
 - Idem sans l'identifiant interne
+
 ```python
 c = db.restaurants.find(
     { "name": "Shake Shack" }, 
@@ -196,8 +209,8 @@ c = db.restaurants.find(
 pandas.DataFrame(c)
 ```
 
-
 - 5 premiers restaurants du quartier *Queens*, avec une note A et un score supérieur à 50 (on affiche le nom et la rue du restaurant
+
 ```python
 c = db.restaurants.find(
     {"borough": "Queens", "grades.score": { "$gte":  50}},
@@ -207,8 +220,8 @@ c = db.restaurants.find(
 pandas.DataFrame(c)
 ```
 
-
 - Restaurants *Shake Shack* dans différents quartiers (*Queens* et *Brooklyn*)
+
 ```python
 c = db.restaurants.find(
     {"name": "Shake Shack", "borough": {"$in": ["Queens", "Brooklyn"]}}, 
@@ -217,8 +230,8 @@ c = db.restaurants.find(
 pandas.DataFrame(c)
 ```
 
-
 - Restaurants du Queens ayant une note supérieure à 50, mais trié par ordre décroissant de noms de rue, et ordre croissant de noms de restaurants
+
 ```python
 c = db.restaurants.find(
     {"borough": "Queens", "grades.score": { "$gt":  50}},
@@ -285,6 +298,7 @@ Le calcul d'agrégats (tel que celui fait en SQL par exemple) se fait avec la fo
 #### Exemples
 
 - Limite aux 5 premiers restaurants
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -294,8 +308,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Idem avec tri sur le nom du restaurant
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -306,9 +320,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Idem en se restreignant à *Brooklyn*
     - Notez que nous obtenons uniquement 5 restaurants au final
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -320,9 +334,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Mêmes opérations mais avec la restriction en amont de la limite
     - Nous avons ici les 10 premiers restaurants de *Brooklyn* donc
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -334,9 +348,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Séparation des 5 premiers restaurants sur la base des évaluations (`grades`)
     - Chaque ligne correspond maintenant a une évaluation pour un restaurant
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -348,6 +362,7 @@ pandas.DataFrame(c)
 ```
 
 - Idem précédemment, en se restreignant à celle ayant eu *B*
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -360,6 +375,7 @@ pandas.DataFrame(c)
 ```
 
 - Si on inverse les opérations `$unwind` et `$match`, le résultat est clairement différent
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -371,9 +387,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On souhaite ici ne garder que le nom et le quartier des 10 premiers restaurants
     - Notez l'ordre (alphabétique) des variables, et pas celui de la déclaration
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -384,8 +400,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Ici, on supprime l'adresse et les évaluations 
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -396,8 +412,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - En plus du nom et du quartier, on récupère l'adresse mais dans un nouveau champs 
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -409,6 +425,7 @@ pandas.DataFrame(c)
 ```
 
 - On ajoute le nombre de visites pour chaque restaurant (donc la taille du tableau `grades`)
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -419,8 +436,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On trie ce résultat par nombre décroissant de visites, et on affiche les 10 premiers
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -432,8 +449,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On ne garde maintenant que le premier élément du tableau `grades` (indicé 0)
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -444,8 +461,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - `$first` permet aussi de garder uniquement le premier élément du tableau `grades` de façon explicite (`$last` pour le dernier)
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -456,8 +473,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On peut aussi faire des opérations sur les chaînes, tel que la mise en majuscule du nom
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -469,6 +486,7 @@ pandas.DataFrame(c)
 ```
 
 - On peut aussi vouloir ajouter un champs, comme ici le nombre d'évaluations
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -480,6 +498,7 @@ pandas.DataFrame(c)
 ```
 
 - On extrait ici les trois premières lettres du quartier
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -493,9 +512,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On fait de même, mais on met en majuscule et on note *BRX* pour le *Bronx*
     - on garde le quartier d'origine pour vérification ici
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -515,8 +534,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On calcule ici le nombre total de restaurants
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -526,9 +545,7 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On fait de même, mais par quartier
-
 
 ```python
 c = db.restaurants.aggregate(
@@ -539,8 +556,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Une fois le dénombrement fait, on peut aussi trié le résultat
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -551,8 +568,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - La même opération est réalisable directement avec `$sortByCount`
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -562,8 +579,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Pour faire le calcul des notes moyennes des restaurants du *Queens*, on exécute le code suivant
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -575,8 +592,8 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 -  Il est bien évidemment possible de faire ce calcul par quartier et de les trier selon les notes obtenues (dans l'ordre décroissant)
+
 ```python
 c = db.restaurants.aggregate(
     [
@@ -588,9 +605,9 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - On peut aussi faire un regroupement par quartier et par rue (en ne prenant que la première évaluation - qui est la dernière en date a priori), pour afficher les 10 rues où on mange le plus sainement
     - Notez que le `$match` permet de supprimer les restaurants sans évaluations (ce qui engendrerait des moyennes = `None`)
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -610,10 +627,10 @@ c = db.restaurants.aggregate(
 pandas.DataFrame(c)
 ```
 
-
 - Pour comprendre la différence entre `$addToSet` et `$push`, on les applique sur les grades obtenus pour les 10 premiers restaurants
     - `$addToSet` : valeurs distinctes
     - `$push` : toutes les valeurs présentes
+    
 ```python
 c = db.restaurants.aggregate(
     [
@@ -628,8 +645,6 @@ c = db.restaurants.aggregate(
 )
 pandas.DataFrame(c)
 ```
-
-
 
 
 ## Difficultés potentielles liées à Python

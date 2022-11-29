@@ -73,16 +73,19 @@ m$count(query = '{ "borough": "Brooklyn" }')
 ```
 
 - Restaurants de *Brooklyn* proposant de la cuisine française
+
 ```r
 m$count(query = '{ "borough": "Brooklyn", "cuisine": "French" }')
 ```
 
 - Restaurants de *Brooklyn* proposant de la cuisine française ou italienne
+
 ```r
 m$count(query = '{ "borough": "Brooklyn", "cuisine": { "$in": ["French", "Italian"]} }')
 ```
 
 - Idem mais écrit plus lisiblement
+
 ```r
 m$count(query = '
   { 
@@ -94,6 +97,7 @@ m$count(query = '
 
 - Restaurants situés sur *Franklin Street*
     - Notez l'accès au champs `street` du champs `address`
+    
 ```r
 m$count(query = '
   { 
@@ -103,6 +107,7 @@ m$count(query = '
 ```
 
 - Restaurants ayant eu un score de 0
+
 ```r
 m$count(query = '
   { 
@@ -112,6 +117,7 @@ m$count(query = '
 ```
 
 - Restaurants ayant eu un score inférieur à 5
+
 ```r
 m$count(query = '
   { 
@@ -140,6 +146,7 @@ m$distinct(
 ```
 
 - Grade des restaurants de *Brooklyn*
+
 ```r
 m$distinct(
   key = "grades.grade",
@@ -175,11 +182,13 @@ Pour n'avoir que le premier document, on utilise le paramètre `limit` (pas de f
 
 - Récupération des 5 premiers documents
     - Notez le contenu des colonnes `address` (décomposé en plusieurs colonnes) et `grades` (format peu compréhensible).
+    
 ```r
 m$find(limit = 5)
 ```
 
 - Restaurants *Shake Shack* (uniquement les attributs `"street"` et `"borough"`)
+
 ```r
 m$find(
     '{ "name": "Shake Shack" }', 
@@ -188,6 +197,7 @@ m$find(
 ```
 
 - Idem sans l'identifiant interne
+
 ```r
 m$find(
     '{ "name": "Shake Shack" }', 
@@ -196,6 +206,7 @@ m$find(
 ```
 
 - 5 premiers restaurants du quartier *Queens*, avec une note A et un score supérieur à 50 (on affiche le nom et la rue du restaurant
+
 ```r
 m$find(
     '{"borough": "Queens", "grades.score": { "$gte":  50}}',
@@ -205,6 +216,7 @@ m$find(
 ```
 
 - Restaurants *Shake Shack* dans différents quartiers (*Queens* et *Brooklyn*)
+
 ```r
 m$find(
     '{"name": "Shake Shack", "borough": {"$in": ["Queens", "Brooklyn"]}}', 
@@ -213,6 +225,7 @@ m$find(
 ```
 
 - Restaurants du Queens ayant une note supérieure à 50, mais trié par ordre décroissant de noms de rue, et ordre croissant de noms de restaurants (uniquement les 10 premiers).
+
 ```r
 m$find(
     '{"borough": "Queens", "grades.score": { "$gt":  50}}',
@@ -288,7 +301,6 @@ m$aggregate('
 ')
 ```
 
-
 - Idem avec tri sur le nom du restaurant
 
 ```r
@@ -299,7 +311,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - Idem en se restreignant à *Brooklyn*
     - Notez que nous obtenons uniquement 5 restaurants au final
@@ -314,7 +325,6 @@ m$aggregate('
 ')
 ```
 
-
 - Mêmes opérations mais avec la restriction en amont de la limite
     - Nous avons ici les 10 premiers restaurants de *Brooklyn* donc
 
@@ -327,7 +337,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - Séparation des 5 premiers restaurants sur la base des évaluations (`grades`)
     - Chaque ligne correspond maintenant a une évaluation pour un restaurant
@@ -365,7 +374,6 @@ m$aggregate('
 ')
 ```
 
-
 - On souhaite ici ne garder que le nom et le quartier des 10 premiers restaurants
     - Notez l'ordre (alphabétique) des variables, et pas celui de la déclaration
 
@@ -378,7 +386,6 @@ m$aggregate('
 ')
 ```
 
-
 - Ici, on supprime l'adresse et les évaluations 
 
 ```r
@@ -389,7 +396,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - En plus du nom et du quartier, on récupère l'adresse mais dans un nouveau champs 
 
@@ -413,7 +419,6 @@ m$aggregate('
 ')
 ```
 
-
 - On trie ce résultat par nombre décroissant de visites, et on affiche les 10 premiers
 
 ```r
@@ -426,7 +431,6 @@ m$aggregate('
 ')
 ```
 
-
 - On ne garde maintenant que le premier élément du tableau `grades` (indicé 0)
 
 ```r
@@ -438,7 +442,6 @@ m$aggregate('
 ')
 ```
 
-
 - `$first` permet aussi de garder uniquement le premier élément du tableau `grades` de façon explicite (`$last` pour le dernier)
 
 ```r
@@ -449,7 +452,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - On peut aussi faire des opérations sur les chaînes, tel que la mise en majuscule du nom
 
@@ -487,7 +489,6 @@ m$aggregate('
 ')
 ```
 
-
 - On fait de même, mais on met en majuscule et on note *BRX* pour le *Bronx*
     - on garde le quartier d'origine pour vérification ici
 
@@ -509,7 +510,6 @@ m$aggregate('
 ')
 ```
 
-
 - On calcule ici le nombre total de restaurants
 
 ```r
@@ -520,7 +520,6 @@ m$aggregate('
 ')
 ```
 
-
 - On fait de même, mais par quartier
 
 ```r
@@ -530,7 +529,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - Une fois le dénombrement fait, on peut aussi trié le résultat
 
@@ -543,7 +541,6 @@ m$aggregate('
 ')
 ```
 
-
 - La même opération est réalisable directement avec `$sortByCount`
 
 ```r
@@ -553,7 +550,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - Pour faire le calcul des notes moyennes des restaurants du *Queens*, on exécute le code suivant
 
@@ -567,7 +563,6 @@ m$aggregate('
 ')
 ```
 
-
 -  Il est bien évidemment possible de faire ce calcul par quartier et de les trier selon les notes obtenues (dans l'ordre décroissant)
 
 ```r
@@ -579,7 +574,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - On peut aussi faire un regroupement par quartier et par rue (en ne prenant que la première évaluation - qui est la dernière en date a priori), pour afficher les 10 rues où on mange le plus sainement
     - Notez que le `$match` permet de supprimer les restaurants sans évaluations (ce qui engendrerait des moyennes = `None`)
@@ -601,7 +595,6 @@ m$aggregate('
     ]
 ')
 ```
-
 
 - Pour comprendre la différence entre `$addToSet` et `$push`, on les applique sur les grades obtenus pour les 10 premiers restaurants
     - `$addToSet` : valeurs distinctes

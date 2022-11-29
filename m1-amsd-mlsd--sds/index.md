@@ -13,6 +13,11 @@
 
 - [Séance 5](seance5) : Mini-projet *Tableaux de bord temps réel*
 
+- [Séance 6](seance6) : Introduction à MongoDB
+    - [tutoriel MongoDB - R](seance6-r)
+    - [tutoriel MongoDB - Python](seance6-python)
+    - [demande](seance6-demande)
+
 <!--
 Pitch général :
 - Avoir un serveur
