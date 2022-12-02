@@ -2,11 +2,21 @@
 
 Nous allons utiliser la base [ca_tout.mdb](data/ca_tout.mdb) (à télécharger donc) dans l'outil **Tableau**. Si vous êtes sous Mac ou si le chargement a du mal avec Tableau, vous devez utiliser le fichier [ca_tout.csv](data/ca_tout.csv).
 
-## Connexion de la base dans Tableau
+## Connexion de la base dans Tableau 
+
+### si via `ca_tout.mdb`
 
 - Sélectionner 'Microsoft Access' et aller choisir le fichier
 - Utiliser la table `tout` (qui est une vue comprenant toutes les informations du datamart)
 - Vérifier que les attributs ont le bon type (normalement, tout est ok)
+
+### si va `ca_tout.csv`
+
+- Sélectionner 'Fichier texte' et aller choisir le fichier
+- Cliquer sur la flèche à droite du nom de fichier dans la partie de droite, et sélectionner 'Propriétés du fichier texte'
+- Changer le séparateur pour mettre 'Virgule'
+- Vérifier que les attributs ont le bon type (normalement, tout est ok)
+    - Vous aurez peut-être juste à déplacer `mois_numero` et `annee`  dans les dimensions
 
 ## Paramètrage des données
 
@@ -128,7 +138,7 @@ Vous devriez avoir un reporting comme dans [ce fichier](ca--tdb.twbx)
 
 ## A faire
 
-Créer une vue très synthétique, en mode carte de performance, avec :
+Créer une vue très synthétique avec :
 
 - Evolution complète, sur la période, du chiffre d'affaire
 - Evolution de la répartition par département 
