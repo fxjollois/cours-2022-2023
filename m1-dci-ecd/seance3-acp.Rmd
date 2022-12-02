@@ -3,6 +3,7 @@ title: "Extraction de connaissances à partir de données structurées et non st
 subtitle: "Séance 3 : Analyse en Composantes Principales (ACP)"
 output: 
   xaringan::moon_reader:
+    css: ["default", "default-fonts", "style.css"]
     nature:
       highlightStyle: github
       countIncrementalSlides: false

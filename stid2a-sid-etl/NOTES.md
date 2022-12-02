@@ -12,7 +12,7 @@ Notes de préparation du cours commun aux deux parcours (VCOD et EMS), et dispen
 |  6 | TD Modèlisation   | 13/10 |       |       |
 |  7 | Intégration       | 27/10 | 10/11 | 17/11 |
 |  8 | TP Intégration    | 27/10 |       |       |
-|  9 | Reporting         | 17/11 | 24/11 | 01/12 |
+|  9 | Reporting         | 17/11 | 07/12 | 01/12 |
 | 10 | TP Reporting      | 01/12 |       |       |
 | 11 | Evaluation        | ??    | ??    | ??    |
 | 12 | Evaluation        | ??    |       |       ||
