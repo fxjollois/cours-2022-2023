@@ -446,6 +446,10 @@ DT::datatable(summary(m)$coefficients, options = list(paging = FALSE, searching 
   DT::formatSignif(columns = c(1, 2, 3, 4), digits = 3)
 ```
 
+---
+### Exemple - données `adult`
+
+
 - Matrice de confusion, (avec seuil de décision à 0.5)
   - prédit en lignes et observé en colonnes
 
