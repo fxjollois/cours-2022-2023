@@ -14,6 +14,8 @@
     - [correction](seance4-correction.html)
 5. [Application sur données réelles](seance5-donnees-reelles.html)
     - [correction](seance5-correction.html)
+6. [Modélisation via régression](seance6-reglog.html)
+    - [sous `python`](seance6-reglog-python.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)
