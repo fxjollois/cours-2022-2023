@@ -18,6 +18,8 @@
     - [tutoriel MongoDB - Python](seance6-python)
     - [demande](seance6-demande)
 
+- [Projet](projet) : Suite du travail de la séance 5 et rendu final pour évaluation
+
 <!--
 Pitch général :
 - Avoir un serveur
