@@ -20,6 +20,25 @@
 
 - [Projet](projet) : Suite du travail de la séance 5 et rendu final pour évaluation
 
+---
+
+## Machine virtuelle
+
+Vous trouverez ci-dessous le lien de téléchargement d'une machine virtuelle complètement créée et paramètrée (en suivant les différents tutoriels indiqués) :
+
+<https://filesender.renater.fr/?s=download&token=e6176b19-341e-4707-9ade-ea1dc6d4c3cb> (taille d'environ **3Go** - téléchargeable avec le 21 décembre)
+
+Voici comment l'importer dans VirtualBox pour pouvoir l'utiliser :
+
+1. Dans Virtual Box, cliquer sur *Fichier* dans le menu, puis *Importer un appareil virtuel*
+1. Choisir le fichier `Serveur Data Science.ova`
+1. Cliquer sur *Finish* (ou *Terminer*)
+    - l'importation prend un peu de temps
+1. Lors de son lancement, vous devrez sûrement avoir un avertissement et une fenêtre pour choisir un autre mode d'accès
+    - Choisir donc **Accès par pont** (*Bridged access* ou qqch du genre)
+
+Pour rappel, l'utilisateur est `user` et le mot de passe est `123456`.
+
 <!--
 Pitch général :
 - Avoir un serveur
