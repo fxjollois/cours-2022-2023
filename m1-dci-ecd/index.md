@@ -17,6 +17,7 @@
 6. [Modélisation via régression](seance6-reglog.html)
     - [sous `python`](seance6-reglog-python.html)
     - [correction](seance6-correction.html)
+7. [Modélisation via d'autres modèles](seance7-autres-python.html)
 
 Lien vers les plateformes de l'UFR Math-Info : 
 - [JupyterHub](https://jupyter.ens.math-info.univ-paris5.fr/)

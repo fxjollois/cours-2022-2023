@@ -3,7 +3,7 @@ title: "Extraction de connaissances à partir de données structurées et non st
 subtitle: "Séance 7 : Modélisation supervisée via autres modèles"
 output: 
   xaringan::moon_reader:
-    css: ["default", "default-fonts", "../style.css"]
+    css: ["default", "default-fonts", "../remarkjs-v2.css"]
     nature:
       highlightStyle: github
       countIncrementalSlides: false
