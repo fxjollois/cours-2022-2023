@@ -3,6 +3,10 @@
 - SID :
   - Faire plus dataviz et API
   - SAE Intégration -> obligation d'utiliser des APIs justement
+  - Autres remarques :
+    - Rappels SQL : découper en création puis requêtage, avec cours
+    - TP Intégration : découper en plusieurs demandes, plus explicites
+    - Utiliser SQL Server ! En tout cas, ne plus utiliser SQLite
 
 - LPs : à virer car finies
 
@@ -20,7 +24,7 @@
   - Première séance : faire une vraie introduction au Machine Learning, avec éventuellement une étude de cas
   - Programme éventuel :
     - Jour 1 : Intro (ML, Apprentissage non-supervisé, étude de cas...) - ACP
-    - Jour 2 : Classif (k-means, CAH) - Autres méthodes de classif (DBSCAN, BIRCH ? autre ?)
+    - Jour 2 : Classif (k-means, CAH) - Autres méthodes de classif (SOM ?, DBSCAN, BIRCH ? autre ?)
     - Jour 3 : Autres méthodes (MDS, NMF, ?) - TP noté ?
 
 - TC Cherbourg Stats :
