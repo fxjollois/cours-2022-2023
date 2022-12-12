@@ -24,7 +24,7 @@
   - Première séance : faire une vraie introduction au Machine Learning, avec éventuellement une étude de cas
   - Programme éventuel :
     - Jour 1 : Intro (ML, Apprentissage non-supervisé, étude de cas...) - ACP
-    - Jour 2 : Classif (k-means, CAH) - Autres méthodes de classif (SOM ?, DBSCAN, BIRCH ? autre ?)
+    - Jour 2 : Classif (k-means, CAH) - Autres méthodes de classif (SOM ?, DBSCAN, BIRCH ? autre ?) + **Evaluation des résultats**
     - Jour 3 : Autres méthodes (MDS, NMF, ?) - TP noté ?
 
 - TC Cherbourg Stats :
