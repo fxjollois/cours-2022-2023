@@ -2,7 +2,7 @@
 
 ## Ecrire les requêtes SQL permettant de créer les tables de ce MRD
 
-- VILLE(<u>CodeVille</u>, ANomVille, MNomVille)
+- VILLE (<ins>CodeVille</ins>, ANomVille, MNomVille)
 ```
 CREATE TABLE VILLE (
     CodeVille INT NOT NULL PRIMARY KEY,
@@ -11,7 +11,7 @@ CREATE TABLE VILLE (
 );
 ```
 
-- MUSEE(<u>CodeMusee</u>, NomMusee, #CodeVille)
+- MUSEE (<ins>CodeMusee</ins>, NomMusee, #CodeVille)
 ```
 CREATE TABLE MUSEE (
     CodeMusee INT NOT NULL PRIMARY KEY,
@@ -29,7 +29,7 @@ CREATE TABLE MUSEE (
 );
 ```
 
-- SITE(<u>CodeSite</u>, DesSite, CivSite)
+- SITE (<ins>CodeSite</ins>, DesSite, CivSite)
 ```
 CREATE TABLE SITE (
     CodeSite INT NOT NULL PRIMARY KEY,
@@ -38,7 +38,7 @@ CREATE TABLE SITE (
 );
 ```
 
-- OBJET(<u>NumObj</u>, DesObj, TypeObj, DateObj, #CodeMusee, #CodeSite)
+- OBJET (<ins>NumObj</ins>, DesObj, TypeObj, DateObj, #CodeMusee, #CodeSite)
 ```
 CREATE TABLE OBJET (
     NumObj INT NOT NULL PRIMARY KEY,
@@ -50,7 +50,7 @@ CREATE TABLE OBJET (
 );
 ```
 
-- AUTEUR(<u>NumAuteur</u>, NomAuteur, PrenomAuteur)
+- AUTEUR (<ins>NumAuteur</ins>, NomAuteur, PrenomAuteur)
 ```
 CREATE TABLE AUTEUR (
     NumAuteur INT NOT NULL PRIMARY KEY,
@@ -59,7 +59,7 @@ CREATE TABLE AUTEUR (
 );
 ```
 
-- EDITEUR(<u>NumEdi</u>, DesEdi)
+- EDITEUR (<ins>NumEdi</ins>, DesEdi)
 ```
 CREATE TABLE EDITEUR (
     NumEdi INT NOT NULL PRIMARY KEY,
@@ -67,7 +67,7 @@ CREATE TABLE EDITEUR (
 );
 ```
 
-- OUVRAGE(<u>NumOuv</u>, TitreOuv, #NumEdi)
+- OUVRAGE (<ins>NumOuv</ins>, TitreOuv, #NumEdi)
 ```
 CREATE TABLE OUVRAGE (
     NumOuv INT NOT NULL PRIMARY KEY,
@@ -77,18 +77,18 @@ CREATE TABLE OUVRAGE (
 );
 ```
 
-- LOCALISE(<u>#CodeVille, #CodeSite</u>)
+- SITUATION (<ins>#CodeVille, #CodeSite</ins>)
 ```
-CREATE TABLE LOCALISE (
+CREATE TABLE SITUATION (
     CodeVille INT NOT NULL REFERENCES VILLE,
     CodeSite INT NOT NULL REFERENCES SITE,
     PRIMARY KEY (CodeVille, CodeSite)
 );
 ```
 
-- EXPOSE(<u>#NumObj, #CodeMusee, DateDeb</u>, DateFin)
+- EXPOSITION (<ins>#NumObj, #CodeMusee, DateDeb</ins>, DateFin)
 ```
-CREATE TABLE EXPOSE (
+CREATE TABLE EXPOSITION (
     NumObj INT NOT NULL REFERENCES OBJET,
     CodeMusee INT NOT NULL REFERENCES MUSEE,
     DateDeb DATE NOT NULL,
@@ -97,16 +97,16 @@ CREATE TABLE EXPOSE (
 );
 ```
 
-- REFOBJ(<u>#NumOuv, #NumObj</u>)
+- REFOBJET (<ins>#NumOuv, #NumObj</ins>)
 ```
-CREATE TABLE REFOBJ (
+CREATE TABLE REFOBJET (
     NumOuv INT NOT NULL REFERENCES OUVRAGE,
     NumObj INT NOT NULL REFERENCES OBJET,
     PRIMARY KEY (NumOuv, NumObj)
 );
 ```
 
-- REFSITE(<u>#NumOuv, #CodeSite</u>)
+- REFSITE (<ins>#NumOuv, #CodeSite</ins>)
 ```
 CREATE TABLE REFSITE (
     NumOuv INT NOT NULL REFERENCES OUVRAGE,
@@ -115,9 +115,9 @@ CREATE TABLE REFSITE (
 );
 ```
 
-- ECRIT(<u>#NumAuteur, #NumOuv</u>)
+- ECRITURE (<ins>#NumAuteur, #NumOuv</ins>)
 ```
-CREATE TABLE ECRIT (
+CREATE TABLE ECRITURE (
     NumAuteur INT NOT NULL REFERENCES AUTEUR,
     NumOuv INT NOT NULL REFERENCES OUVRAGE,
     PRIMARY KEY (NumAuteur, NumOuv)
