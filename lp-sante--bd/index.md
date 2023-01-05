@@ -12,13 +12,7 @@
 - [Cours Modèle relationnel](https://docs.google.com/presentation/d/e/2PACX-1vR3QQQT7o77V2wAiLpilh0iACfQ8uP4mznxkM912DQ4DltNNDx884cbreRLQkgwmjUHGSofNGYTH8oC/pub?start=false&loop=false&delayms=3000)
     - [TD2 - MRD et algèbre relationnel](td2)
     - [TD2 - correction MRD](td2-correction-MRD)
-    
-<!--
-- [Cours Modèle relationnel](https://docs.google.com/presentation/d/e/2PACX-1vR3QQQT7o77V2wAiLpilh0iACfQ8uP4mznxkM912DQ4DltNNDx884cbreRLQkgwmjUHGSofNGYTH8oC/pub?start=false&loop=false&delayms=3000) 
-    - [TD2 - MRD et algèbre relationnel](td2)
--->
-<!--    - [TD2 - correction créations des tables](td2-correction-creations) -->
-<!--    - [TD2 - correction requêtes](td2-correction-requetes) -->
+    - [TD2 - correction créations des tables](td2-correction-creations)
    
 <!--
 - [TP SQL](tp1)
