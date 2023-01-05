@@ -24,12 +24,17 @@ A partir du modèle de la base et des fichiers de données fournies, nous allons
 
 1. Télécharger les 9 fichiers de données
     - les placer idéalement dans un répertoire dédié.
-2. Créer la base de données
-3. Créer les tables et les renseigner (i.e. mettre les valeurs dedans)
-    - les voies d'administration sont listées dans une seule variable, et séparées par des “;” (par exemple "cutanée;orale;sublinguale"). Il faut donc ici aussi faire une nouvelle table "VoieAdministration" et insérer les données correctement.
-4. Créer le script d'importation des données
-    - les taux et les prix sont dans au format chaîne de caractères (resp. "xx %" et "xx,xx") et donc à modifier avant importation. 
-5. Répondez aux demandes suivantes :
+2. Charger les données dans R
+    - Utiliser de préférence la fonction `read_delim()` du package `readr`
+    - Pour le séparateur, celui-ci est une tabulation et on l'indique avec l'option `delim = "\t"`
+    - Les noms des variables n'étant pas présent, il faut aussi mettre `col_names = FALSE`
+    - Pour l'encodage, si vous avez un souci, vous pouvez utiliser l'option `locale = readr::locale(encoding = "latin1")`
+    - Les taux et les prix sont dans au format chaîne de caractères (resp. "xx %" et "xx,xx") et donc à modifier avant importation. 
+4. Créer la base de données
+    - avec `dbConnect()`
+5. Créer les tables à partir des data.frames créés dans R
+    - Utiliser `dbWriteTable()`
+7. Répondez aux demandes suivantes :
     - Combien de médicaments sont dans la BD ?
     - Combien de génériques ?
     - Donner les différents types de génériques.
@@ -37,8 +42,10 @@ A partir du modèle de la base et des fichiers de données fournies, nous allons
     - Donner les 10 médicaments ayant les présentations les plus onéreuses 
     - Quels sont les dix médicaments avec le plus de composants (Code CIS, Dénomination et nombre de composants) ?
     - Pour chaque type de générique, on veut savoir le nombre de médicaments associés, ainsi que leur taux de remboursement moyen et leur prix moyen.
-    - Quelles sont les voies d’administration possibles ? Et combien de médicaments sont concernés pour chaque voie ?
     - Quels sont les médicaments dont le service médical rendu (ou SMR) est jugé insuffisant ? Indiquez leur taux de remboursement et leur prix, en les classant par prix décroissant.
+
+
+
     - On veut les informations suivantes dans une table à deux colonnes (statistique, valeur) :
         - Nombre de médicaments
         - Nombre de médicaments avec autorisation active
