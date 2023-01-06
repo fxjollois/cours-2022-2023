@@ -15,8 +15,9 @@
     - [TD2 - correction créations des tables](td2-correction-creations)
     - [TD2 - correction requêtes](td2-correction-requetes)
    
-<!--
 - [TP SQL](tp1)
+
+<!--
 - [TP SQL](tp1)
 -->
 <!--    - [TP - correction](tp1-correction) -->
