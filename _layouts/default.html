@@ -22,6 +22,7 @@
     <div class="wrapper">
       <header>
         <p><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a> | Documents de mes cours pour l'année 2022-2023 | <a href="https://fxjollois.github.io/" target="_blank">FX Jollois</a></p>
+        <p><a id="parent">Page du cours</a></p>
       </header>
       <section>
 
@@ -33,5 +34,11 @@
       </footer>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+        div = document.getElementById("parent")
+        url = document.URL.split("?")[0].split("/")
+        url.pop()
+        div.href = url.join("/")
+    </script>
   </body>
 </html>
