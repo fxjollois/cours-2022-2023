@@ -36,13 +36,6 @@ A partir du modèle de la base et des fichiers de données fournies, nous allons
     - Pour chaque type de générique, on veut savoir le nombre de médicaments associés, ainsi que leur taux de remboursement moyen et leur prix moyen.
     - Quelles sont les voies d’administration possibles ? Et combien de médicaments sont concernés pour chaque voie ?
     - Quels sont les médicaments dont le service médical rendu (ou SMR) est jugé insuffisant ? Indiquez leur taux de remboursement et leur prix, en les classant par prix décroissant.
-    - On veut les informations suivantes dans une table à deux colonnes (statistique, valeur) :
-        - Nombre de médicaments
-        - Nombre de médicaments avec autorisation active
-        - Nombre de médicaments avec surveillance renforcée
-        - Taux moyen de remboursement (pour ceux avec autorisation active)
-        - Prix moyen (idem que le taux)
-        - Durée moyenne de leur mise sur le marché (en nombre de jours - idem que le taux)
     
 ## Réalisation pour la première table `CIS`
 
