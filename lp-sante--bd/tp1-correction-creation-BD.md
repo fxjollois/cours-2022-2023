@@ -26,7 +26,13 @@ Le script ci-dessous réalise les étapes suivantes :
 3. Déconnexion à la base de données
 4. Suppression des variables utilisées dans le script (`don` et `db`)
 
-L'option `show_col_type = FALSE` a été ajouté pour ne pas voir la liste des colonnes lors de l'importation des données.
+Il est important de noter les points suivants :
+
+- Option `show_col_type = FALSE` ajouté pour ne pas voir la liste des colonnes lors de l'importation des données
+- Option `delim = "\t"` ajouté afin d'être sûr que ce code puisse être ré-utilisé sans problème
+-  Toutes les étapes de vérifications et/ou de tests (comme l'affichage du contenu des fichiers) ont été supprimé
+
+> L'idée est que ce script soit exécutable directement (avec la fonction `source()`) pour la création de la base de données une prochaine fois. Il est important d'écrire des scripts propres de ce type lorsqu'on est dans un environnement professionnel.
 
 ```r
 library(RSQLite)
@@ -57,6 +63,7 @@ CREATE TABLE CIS (
 
 don = read_delim("CIS_bdpm.txt", 
                  col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS")
@@ -89,6 +96,7 @@ CREATE TABLE CIS_CIP (
 
 don = read_delim("CIS_CIP_bdpm.txt", 
                  col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS_CIP")
@@ -120,6 +128,7 @@ CREATE TABLE CIS_COMPO (
 
 don = read_delim("CIS_COMPO_bdpm.txt", 
                  col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 don$X9 = NULL # dernière colonne vide
@@ -139,7 +148,8 @@ CREATE TABLE CIS_CPD (
 ")
 
 don = read_delim("CIS_CPD_bdpm.txt", 
-                 col_names = F, delim = "\t",
+                 col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS_CPD")
@@ -161,6 +171,7 @@ CREATE TABLE CIS_GENER (
 
 don = read_delim("CIS_GENER_bdpm.txt", 
                  col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 don$X6 = NULL
@@ -179,7 +190,8 @@ CREATE TABLE HAS_Liens (
 ")
 
 don = read_delim("HAS_LiensPageCT_bdpm.txt", 
-                 col_names = F, delim = "\t",
+                 col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "HAS_Liens")
@@ -202,7 +214,8 @@ CREATE TABLE CIS_HAS_ASMR (
 ")
 
 don = read_delim("CIS_HAS_ASMR_bdpm.txt", 
-                 col_names = F, delim = "\t",
+                 col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS_HAS_ASMR")
@@ -225,7 +238,8 @@ CREATE TABLE CIS_HAS_SMR (
 ")
 
 don = read_delim("CIS_HAS_SMR_bdpm.txt", 
-                 col_names = F, delim = "\t",
+                 col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS_HAS_SMR")
@@ -246,7 +260,8 @@ CREATE TABLE CIS_Infos (
 ")
 
 don = read_delim("CIS_InfoImportantes_20230105122631_bdpm.txt", 
-                 col_names = F, delim = "\t",
+                 col_names = F, 
+                 delim = "\t",
                  locale = readr::locale(encoding = "latin1"),
                  show_col_types = FALSE)
 names(don) = dbListFields(db, "CIS_Infos")
