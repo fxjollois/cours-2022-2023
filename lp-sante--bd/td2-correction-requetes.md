@@ -26,15 +26,15 @@ SELECT DISTINCT TypeObj
 ```
 SELECT NomAuteur, PrenomAuteur
     FROM OUVRAGE 
-        INNER JOIN ECRIT USING (NumAuteur)
+        INNER JOIN ECRITURE USING (NumAuteur)
         INNER JOIN AUTEUR USING (NumOuv)
     WHERE TitreOuv = "Mémoire sur quelques antiquités remarquables du département des Vosges";
 ```
 ou
 ```
 SELECT NomAuteur, PrenomAuteur
-    FROM OUVRAGE, ECRIT, AUTEUR
-    WHERE OUVRAGE.NumOuv  = ECRIT.NumOuv
+    FROM OUVRAGE, ECRITURE, AUTEUR
+    WHERE OUVRAGE.NumOuv  = ECRITURE.NumOuv
     AND   ECRIT.NumAuteur = AUTEUR.NumAuteur
     AND   TitreOuv = "Mémoire sur quelques antiquités remarquables du département des Vosges";
 ```
@@ -59,7 +59,7 @@ SELECT MNomVille, ANomVille
 ```
 SELECT CodeMusee, NomMusee, COUNT(*) AS "Nb Objet"
     FROM MUSEE 
-        INNER JOIN EXPOSE USING (CodeMusee)
+        INNER JOIN EXPOSITION USING (CodeMusee)
         INNER JOIN VILLE USING (CodeVille)
     WHERE DateDeb <= DATE("now")
     AND DateFin >= DATE("now")
@@ -69,7 +69,7 @@ ou
 ```
 SELECT CodeMusee, NomMusee, COUNT(*) AS "Nb Objet"
     FROM MUSEE
-        INNER JOIN EXPOSE USING (CodeMusee)
+        INNER JOIN EXPOSITION USING (CodeMusee)
         INNER JOIN VILLE USING (CodeVille)
     WHERE DATE("now") BETWEEN DateDeb AND DateFin
     GROUP BY CodeMusee, NomMusee;
@@ -78,8 +78,8 @@ SELECT CodeMusee, NomMusee, COUNT(*) AS "Nb Objet"
 #### Donnez les 5 auteurs ayant écrit le plus d'ouvrages.
 ```
 SELECT NumAuteur, NomAuteur, PrenomAuteur, COUNT(*) AS "Nb Livres"
-    FROM AUTEUR, ECRIT
-    WHERE AUTEUR.NumAuteur = ECRIT.NumAuteur
+    FROM AUTEUR, ECRITURE
+    WHERE AUTEUR.NumAuteur = ECRITURE.NumAuteur
     GROUP BY NumAuteur, NomAuteur, PrenomAuteur
     ORDER BY 4 DESC
     LIMIT 5;
@@ -104,7 +104,7 @@ SELECT COUNT(*) AS "Nb sites",
 ```
 SELECT MNomVille, ANomVille, COUNT(*) AS "Nb Références"
     FROM VILLE
-        INNER JOIN LOCALISE USING (CodeVille)
+        INNER JOIN SITUATION USING (CodeVille)
         INNER JOIN REFSITE USING (CodeSite)
     GROUP BY MNomVille, ANomVille
     ORDER BY 3 DESC
@@ -116,7 +116,7 @@ SELECT MNomVille, ANomVille, COUNT(*) AS "Nb Références"
 SELECT DesObjet
     FROM OBJET
     WHERE NOT EXISTS (SELECT *
-                        FROM EXPOSE
+                        FROM EXPOSITION
                         WHERE NumObj = OBJET.NumObj
                         AND   CodeMusee = OBJET.CodeMusee);
 ```
@@ -125,7 +125,7 @@ ou
 SELECT DesObjet
     FROM OBJET
     WHERE NumObj NOT IN (SELECT NumObj
-                            FROM EXPOSE
+                            FROM EXPOSITION
                             WHERE CodeMusee = OBJET.CodeMusee);
 ```
 
@@ -134,7 +134,7 @@ SELECT DesObjet
 SELECT DesObj
     FROM OBJET
     WHERE NOT EXISTS (SELECT *
-                        FROM REFOBJ
+                        FROM REFOBJET
                         WHERE NumObj = OBJET.NumObj);
 ```
 ou
@@ -142,15 +142,15 @@ ou
 SELECT DesObj
     FROM OBJET
     WHERE NumObj NOT IN (SELECT NumObj
-                            FROM REFOBJ);
+                            FROM REFOBJET);
 ```
 
 #### Existe-t'il un auteur ayant écrit sur toutes les civilisations connues ?
 ```
 SELECT NumAuteur, NomAuteur, PrenomAuteur
-    FROM AUTEUR, ECRIT, REFSITE, SITE
+    FROM AUTEUR, ECRITURE, REFSITE, SITE
     WHERE AUTEUR.NumAuteur = ECRIT.NumAuteur
-    AND   ECRIT.NumOuv = REFSITE.NumOuv
+    AND   ECRITURE.NumOuv = REFSITE.NumOuv
     AND   REFSITE.CodeSite = SITE.CodeSite
     GROUP BY NumAuteur, NomAuteur, PrenomAuteur
     HAVING COUNT(DISTINCT CivSite) = (SELECT COUNT(DISTINCT CivSite) 
@@ -167,11 +167,11 @@ SELECT NumAuteur, NomAuteur, PrenomAuteur
                 (SELECT CivSite
                     FROM SITE
                         INNER JOIN REFISTE USING (CodeSite)
-                        INNER JOIN ECRIT USING (NumOuv)
+                        INNER JOIN ECRITURE USING (NumOuv)
                     WHERE NumAuteur = AUTEUR.NumAuteur
                     AND CodeSite = SITE.CodeSite));
 ```
 
-Ici, on cherche un auteur pour lequel il n'existe pas de civilisation dans la table site qui ne soit pas dans la liste des civilisations sur lequel cet auteur a écrit via les livres et les sites.
+Ici, on cherche un auteur pour lequel il n'existe pas de civilisation dans la table SITE qui ne soit pas dans la liste des civilisations sur lequel cet auteur a écrit via les livres et les sites.
 
     

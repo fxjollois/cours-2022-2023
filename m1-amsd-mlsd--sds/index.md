@@ -26,7 +26,7 @@
 
 Vous trouverez ci-dessous le lien de téléchargement d'une machine virtuelle complètement créée et paramètrée (en suivant les différents tutoriels indiqués) :
 
-<https://filesender.renater.fr/?s=download&token=e6176b19-341e-4707-9ade-ea1dc6d4c3cb> (taille d'environ **3Go** - téléchargeable avec le 21 décembre)
+<https://filesender.renater.fr/?s=download&token=74018a9f-3f0c-4388-bcd9-4cfdb7add1df> (taille d'environ **3Go** - téléchargeable avec le 18 janvier)
 
 Voici comment l'importer dans VirtualBox pour pouvoir l'utiliser :
 
