@@ -16,6 +16,7 @@
     - [TD2 - correction requêtes](td2-correction-requetes)
    
 - [TP SQL](tp1)
+    - [TP - correction créations de la BD](tp1-correction-creation-BD)
 
 <!--
 - [TP SQL](tp1)
