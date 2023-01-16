@@ -24,7 +24,7 @@ Créer une application affichant des données
             - ...
         - Doit fonctionner avec les fichiers suivants
             - <http://fxjollois.github.io/donnees/hepatitis.TXT>
-            - <http://fxjollois.github.io/donnees/US_DATA.csv>
+            - <http://fxjollois.github.io/donnees/US_DATA.dlm>
             - <http://fxjollois.github.io/donnees/heart_bis.txt>
             - <http://fxjollois.github.io/donnees/Detroit_homicide.txt>
     - Fichier `.RData` : choix de la variable à utiliser dedans pour le data.frame
