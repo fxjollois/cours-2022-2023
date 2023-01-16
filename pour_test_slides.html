@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" type = "text/css" href = "remarkjs-v2.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
+        <textarea id="source">
+            <!-- 
+                Rien car sourceUrl : nom du fichier md pour tester l'affichage des slides
+            -->
+        </textarea>
+        <script src="remark.js"></script>
+        <script>
+            var slideshow = remark.create({
+                sourceUrl: 'm1-amsd-mlsd--prog-web/seance-ui.md',
+                ratio: "16:9",
+                countIncrementalSlides: false
+            });
+        </script>
+    </body>
+</html>
