@@ -38,6 +38,7 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 ### UFR Biomédicale, Université Paris Cité
 
 - [Système pour la Data Science](m1-amsd-mlsd--sds) (Master AMSD/MLSD)
+- [Prog web](m1-amsd-mlsd--prog-web) (Master AMSD/MLSD)
 
 ### INSA ROUEN
 
