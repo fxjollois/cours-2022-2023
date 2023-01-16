@@ -33,12 +33,12 @@ Ce site regroupe l'ensemble des documents que j'utilise dans mes cours pour l'an
 
 ### UFR Math-Info, Université Paris Cité
 
-- [Extraction de connaissances à partir de données structurées et non structurées](m1-dci-ecd) (Master Informatique - parcours DCI)
+- [Extraction de connaissances à partir de données structurées et non structurées](m1-dci-ecd) (Master Informatique - DCI - M1)
 
 ### UFR Biomédicale, Université Paris Cité
 
-- [Système pour la Data Science](m1-amsd-mlsd--sds) (Master AMSD/MLSD)
-- [Prog web](m1-amsd-mlsd--prog-web) (Master AMSD/MLSD)
+- [Système pour la Data Science](m1-amsd-mlsd--sds) (Master AMSD/MLSD - M1)
+- [Programmation web](m1-amsd-mlsd--prog-web) (Master AMSD/MLSD - M1)
 
 ### INSA ROUEN
 
