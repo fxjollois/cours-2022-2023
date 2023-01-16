@@ -122,8 +122,9 @@ code {
 }
 .right-column50 {
   width: 45%;
+  height: 92%;
   float: right;
-  padding-top: 1em;
+  /* padding-top: 1em; */
 }
 
 
