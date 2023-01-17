@@ -28,6 +28,6 @@ Créer une application affichant des données
             - <http://fxjollois.github.io/donnees/heart_bis.txt>
             - <http://fxjollois.github.io/donnees/Detroit_homicide.txt>
     - Fichier `.RData` : choix de la variable à utiliser dedans pour le data.frame
-        - Doit fonctionner avec le fichier <donnees.RData>
+        - Doit fonctionner avec le fichier [donnees.RData](donnees.RData)
             - Présence de 2 dataframes : `texas` et `diamands` (à pouvoir choisir donc)
 
