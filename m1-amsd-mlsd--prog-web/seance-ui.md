@@ -512,7 +512,7 @@ uiOutput("interface")
 
 ##### Si un seul élèment
 ```r
-output$interface <- renderInfoBox({
+output$interface <- renderUI({
     # divers calculs si besoin
     p(class = "bg-danger", "ERROR")
 })
@@ -521,7 +521,7 @@ output$interface <- renderInfoBox({
 ##### Si plusieurs élèments
 
 ```r
-output$interface <- renderValueBox({
+output$interface <- renderUI({
     # divers calculs si besoin
     list(
         p(class = "bg-primary", "OK"),
