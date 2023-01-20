@@ -18,6 +18,7 @@
 - [TP SQL](tp1)
     - [TP - correction création de la BD](tp1-correction-creation-BD)
     - [TP - correction création de la table `VoiesAdm`](tp1-correction-creation-table-VoiesAdm)
+    - [TP - correction des requêtes](tp1-correction-requetes)
 
 <!--
 - [TP SQL](tp1)
