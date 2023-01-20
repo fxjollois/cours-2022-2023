@@ -34,8 +34,15 @@ A partir du modèle de la base et des fichiers de données fournies, nous allons
     - Donner les 10 médicaments ayant les présentations les plus onéreuses 
     - Quels sont les dix médicaments avec le plus de composants (Code CIS, Dénomination et nombre de composants) ?
     - Pour chaque type de générique, on veut savoir le nombre de médicaments associés, ainsi que leur taux de remboursement moyen et leur prix moyen.
-    - Quelles sont les voies d’administration possibles ? Et combien de médicaments sont concernés pour chaque voie ?
+    - Quelles sont les voies d'administration possibles ? Et combien de médicaments sont concernés pour chaque voie ?
     - Quels sont les médicaments dont le service médical rendu (ou SMR) est jugé insuffisant ? Indiquez leur taux de remboursement et leur prix, en les classant par prix décroissant.
+5. Questions complémentaires
+  - Pour chaque médicament, récupérer la dernière évaluation (dernières valeurs SMR et ASMR obtenues), avec la date
+  - Calculer par année le nombre de médicaments mis sur le marché (et l'afficher dans un graphique)
+  - Faire de même, mais de façon plus fine par mois de chaque année
+  - Calculer le temps entre la date d'AMM et la date de commercialisation pour chaque médicament, et représenter la sous la forme d'un graphique
+  - Lister les 10 composants les plus présents dans les médicaments
+
     
 ## Réalisation pour la première table `CIS`
 
