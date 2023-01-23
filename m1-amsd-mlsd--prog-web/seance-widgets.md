@@ -26,6 +26,8 @@ https://fxjollois.github.io/cours-2018-2019/stid-2afa--prog-r/seance5-bis.html
 
 - `DT`: Des tableaux améliorés
 
+- `formattable`: (aussi) des tableaux améliorés
+
 - `sparkline` : Des graphiques simples de type [**sparkline**](https://fr.wikipedia.org/wiki/Sparkline) dans un tableau
 
 - `leaflet` : Des cartes
@@ -60,7 +62,7 @@ class: section, middle, center
 ## Exemple simple
 
 - Affichage de l'ensemble du `data.frame` `txhousing` (présent dans la librairie `ggplot2`)
-- Possibilité de tri, de recherche d'une chaâine et de navigation dans la table
+- Possibilité de tri, de recherche d'une chaîne et de navigation dans la table
 
 
 ```r
@@ -263,6 +265,158 @@ server = function(input, output) {
 }
 
 shinyApp(ui, server)
+```
+
+---
+class: section, middle, center
+## `formattable`
+
+---
+## `formattable`
+
+- Package [`formattable`](https://renkun-ken.github.io/formattable/) permettant de générer des tableaux paramétrables
+
+- Présentations plus intéressantes
+
+- Pas spécialement adapté à de grands tableaux
+
+--
+
+- `formattableOutput()` 
+    - Nom de la table à utiliser dans la partie serveur
+
+--
+
+- `renderFormattable()` 
+    - Data frame à afficher sous la forme d'un `formattable`
+
+
+---
+## Exemple simple
+
+- Affichage des premières lignes du `data.frame` `txhousing` (présent dans la librairie `ggplot2`)
+
+
+```r
+library(shiny)
+library(shinydashboard)
+library(formattable)
+library(ggplot2)
+
+shinyApp(
+  ui = dashboardPage(
+    dashboardHeader( title = "Test formattable" ),
+    dashboardSidebar(),
+    dashboardBody(
+      formattableOutput("tableau"),
+      
+    ),
+    title = "Test formattable",
+    skin = "yellow"
+  ),
+  server = function(input, output) {
+    output$tableau <- renderFormattable({
+      formattable(head(txhousing, 10))
+    })
+  }
+)
+```
+
+---
+## Un peu de formatage 
+
+- Fonctions déjà présentes
+
+- `accounting()` : pour une mise en forme comptable
+    - ici, on indique que le séparateur de milliers (`big.mark`) est l'espace
+
+- `currency()` : format monétaire
+    - idem, espace comme séparateur de milliers
+    - ajout du symbole € (avant le nombre)
+
+- `percent()` : format pourcentage
+
+---
+### Avant l'appli
+
+```r
+resume = txhousing %>%
+  group_by(city) %>%
+  summarise(volume = sum(volume, na.rm = TRUE)) %>%
+  mutate(volume = accounting(volume, big.mark = " "),
+         volumeEuro = currency(volume, symbol = "€", big.mark = " "),
+         part = percent(volume / sum(volume, na.rm = TRUE)))
+```
+
+### Dans la partie serveur
+
+```r
+output$tableau <- renderFormattable({
+      formattable(resume)
+    })
+```
+
+---
+## Couleurs du texte en fonction de la valeur de la variable
+
+- `formatter` : Création d'une fonction de formatage de style
+
+- `style` : fonction permettant de définir le style CSS voulu 
+
+### A définir en amont de l'application
+
+```r
+format_perf <- formatter(
+  "span", 
+  style = x ~ style(color = ifelse(x > .20, "green", ifelse(x < .01, "red", "black"))))
+```
+
+### Dans la partie serveur
+
+```r
+formattable(resume, list(part = format_perf))
+```
+
+---
+## Couleurs du texte en fonction de la valeur d'une autre variable
+
+- Même fonction, mais changement de la *formule* dans le paramètre `style`
+
+### A définir en amont de l'application
+
+```r
+format_vol <- formatter(
+  "span", 
+  style = ~ style(color = ifelse(part > .20, "green", "black"),
+                  "font-weight" = ifelse(part > .20, "bold", NA)))
+```
+
+### Dans la partie serveur
+
+```r
+formattable(resume, list(part = format_perf, volume = format_vol, volumeEuro = format_vol))
+```
+
+---
+## Couleurs de fonds en fonction de la valeur de la variable
+
+- `color_tile` : Couleurs de fond en fonction de la variable (choix des couleurs en paramètres)
+
+- `color_bar` : barre de largeurs différentes selon la valeur (valeur max = toute la largeur)
+
+- Attention, des soucis d'affichage peuvent apparaître
+
+### Dans la partie serveur
+
+```r
+formattable(
+  resume, 
+  list(
+    volume = format_vol,
+    volumeEuro = color_tile("", "darkgreen"),
+    part = color_bar("orange")
+  )
+)
 ```
 
 ---

@@ -1,38 +1,46 @@
 library(shiny)
 library(shinydashboard)
-library(DT)
-library(dplyr)
+library(formattable)
 library(ggplot2)
+library(dplyr)
 
-resume = txhousing %>% 
-  group_by(city) %>% 
-  summarise(volume = sum(volume, na.rm = T), 
-            median = median(median, na.rm = T))
+resume = txhousing %>%
+  group_by(city) %>%
+  summarise(volume = sum(volume, na.rm = TRUE)) %>%
+  mutate(volume = accounting(volume, big.mark = " "),
+         volumeEuro = currency(volume, symbol = "€", big.mark = " "),
+         part = percent(volume / sum(volume, na.rm = TRUE)))
 
-ui = dashboardPage(
-  dashboardHeader(title = "Test DT"),
-  dashboardSidebar(),
-  dashboardBody(
-    dataTableOutput("tableau"),
-    plotOutput("graphique")
-  ),
-  title = "Test DT",
-  skin = "yellow"
+format_vol <- formatter(
+  "span", 
+  style = ~ style(color = ifelse(part > .20, "green", "black"),
+                  "font-weight" = ifelse(part > .20, "bold", NA)))
+formattable(resume, list(part = format_perf, volumeEuro = format_volume))
+
+formattable(
+  resume, 
+  list(
+    volume = format_vol,
+    volumeEuro = color_tile("", "darkgreen"),
+    part = color_bar("orange")
+  )
 )
 
-server = function(input, output) {
-  output$tableau <- renderDataTable({
-    datatable(resume)
-  })
-  
-  output$graphique <- renderPlot({
-    df = resume %>%
-      mutate(affiche = ifelse(row_number() %in% input$tableau_rows_current, "oui", "non"),
-             selection = ifelse(row_number() %in% input$tableau_rows_selected, "oui", "non"))
-    ggplot(df, aes(median, volume, label = city, color = affiche, size = selection)) +
-      geom_point() +
-      theme_classic()
-  })
-}
 
-shinyApp(ui, server)
+shinyApp(
+  ui = dashboardPage(
+    dashboardHeader( title = "Test formattable" ),
+    dashboardSidebar(),
+    dashboardBody(
+      formattableOutput("tableau"),
+      
+    ),
+    title = "Test formattable",
+    skin = "yellow"
+  ),
+  server = function(input, output) {
+    output$tableau <- renderFormattable({
+      formattable(resume, list(part = format_perf))
+    })
+  }
+)
