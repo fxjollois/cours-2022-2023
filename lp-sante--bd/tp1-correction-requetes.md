@@ -204,7 +204,6 @@ dfb4 = dbGetQuery(db, "
 SELECT CodeCIS, DateAMM, DateComm, JULIANDAY(DateComm) - JULIANDAY(DateAMM) AS Duree
   FROM CIS INNER JOIN CIS_CIP USING (CodeCIS);
            ")
-dfb4
 
 ggplot(dfb4, aes(x = Duree)) +
   geom_boxplot(fill = "gray70") +
