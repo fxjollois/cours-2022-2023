@@ -26,7 +26,7 @@ https://fxjollois.github.io/cours-2018-2019/stid-2afa--prog-r/seance5-bis.html
 
 - `DT`: Des tableaux améliorés
 
-- `formattable`: (aussi) des tableaux améliorés
+- `formattable`: (encore) des tableaux améliorés
 
 - `sparkline` : Des graphiques simples de type [**sparkline**](https://fr.wikipedia.org/wiki/Sparkline) dans un tableau
 
