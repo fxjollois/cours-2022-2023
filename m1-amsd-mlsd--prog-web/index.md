@@ -6,5 +6,6 @@
     - [demande](seance-ui-demande) - [correction](seance-ui-correction)
 
 - [Séance Widgets](seance-widgets) : Shiny - Widgets HTML
-    - [demande](seance-widgets-demande)
+    - [demande](seance-widgets-demande) - [correction](seance-widgets-correction)
+
 
