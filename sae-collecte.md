@@ -15,14 +15,14 @@
         - `findplacefromtext` renvoie les `place_id` candidats
         - `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery`
 
-            {
-                candidates: [
-                    {
-                        place_id: "ChIJ8dLLgqN65kcRQ9_G2dBSAe4"
-                    }
-                ],
-                status: "OK"
-            }
+                {
+                    candidates: [
+                        {
+                            place_id: "ChIJ8dLLgqN65kcRQ9_G2dBSAe4"
+                        }
+                    ],
+                    status: "OK"
+                }
     
     - Plus d'infos à partir d'une adresse
         - `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=IUT+143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery&fields=formatted_address,name,geometry,business_status`
