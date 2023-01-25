@@ -9,7 +9,11 @@
     - [Exemple de décodage](https://api-adresse.data.gouv.fr/reverse/?lon=2.267746&lat=48.841983) : coordonnées vers adresse(s)
     
 - [Google API Places](https://developers.google.com/maps/documentation/places/web-service)
-    - https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery
+    - `API_KEY` est à remplacer par la clé que vous pouvez obtenir dans votre console Google Cloud
+        - <https://console.cloud.google.com/google/maps-apis/api-list>
+    - Appel avec l'adresse de l'IUT : 
+        - `findplacefromtext` renvoie les `place_id` candidats
+        - `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery`
 
             {
                 candidates: [
@@ -20,8 +24,106 @@
                 status: "OK"
             }
     
-    - Plus d'infos : https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=IUT+143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery&fields=formatted_address,name,geometry,business_status
-    - Autre : https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=48.841983,2.267746&radius=100&key=API_KEY
+    - Plus d'infos à partir d'une adresse
+        - `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=IUT+143+avenue+de+versailles+75016+paris&key=API_KEY&inputtype=textquery&fields=formatted_address,name,geometry,business_status`
+    - Gédo-décodage possible : des coordonnées vers un ou plusieurs adresses 
+        - `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=48.841983,2.267746&radius=100&key=API_KEY`
+    - Récupération des informations à partir d'un `place_id` :
+        - `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ8dLLgqN65kcRQ9_G2dBSAe4&key=YOUR_API_KEY`
 
-https://maps.googleapis.com/maps/api/place/findplacefromtext/json?parameters
-https://maps.googleapis.com/maps/api/place/findplacefromtext/json?parameters
+                {
+                    html_attributions: [ ],
+                    result: {
+                        address_components: [
+                            {
+                                long_name: "143",
+                                short_name: "143",
+                                types: [
+                                    "street_number"
+                                ]
+                            },
+                            {
+                                long_name: "Avenue de Versailles",
+                                short_name: "Av. de Versailles",
+                                types: [
+                                    "route"
+                                ]
+                            },
+                            {
+                                long_name: "Paris",
+                                short_name: "Paris",
+                                types: [
+                                    "locality",
+                                    "political"
+                                ]
+                            },
+                            {
+                                long_name: "Département de Paris",
+                                short_name: "Département de Paris",
+                                types: [
+                                    "administrative_area_level_2",
+                                    "political"
+                                ]
+                            },
+                            {
+                                long_name: "Île-de-France",
+                                short_name: "IDF",
+                                types: [
+                                    "administrative_area_level_1",
+                                    "political"
+                                ]
+                            },
+                            {
+                                long_name: "France",
+                                short_name: "FR",
+                                types: [
+                                    "country",
+                                    "political"
+                                ]
+                            },
+                            {
+                                long_name: "75016",
+                                short_name: "75016",
+                                types: [
+                                    "postal_code"
+                                ]
+                            }
+                        ],
+                        adr_address: "<span class="street-address">143 Av. de Versailles</span>, <span class="postal-code">75016</span> <span class="locality">Paris</span>, <span class="country-name">France</span>",
+                        formatted_address: "143 Av. de Versailles, 75016 Paris, France",
+                        geometry: {
+                            location: {
+                                lat: 48.84202330000001,
+                                lng: 2.267862
+                            },
+                            viewport: {
+                                northeast: {
+                                    lat: 48.8434585802915,
+                                    lng: 2.269258680291502
+                                },
+                                southwest: {
+                                    lat: 48.8407606197085,
+                                    lng: 2.266560719708498
+                                }
+                            }
+                        },
+                        icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/geocode-71.png",
+                        icon_background_color: "#7B9EB0",
+                        icon_mask_base_uri: "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+                        name: "143 Av. de Versailles",
+                        place_id: "ChIJ8dLLgqN65kcRQ9_G2dBSAe4",
+                        plus_code: {
+                            compound_code: "R7R9+R4 Paris, France",
+                            global_code: "8FW4R7R9+R4"
+                        },
+                        reference: "ChIJ8dLLgqN65kcRQ9_G2dBSAe4",
+                        types: [
+                            "street_address"
+                        ],
+                        url: "https://maps.google.com/?q=143+Av.+de+Versailles,+75016+Paris,+France&ftid=0x47e67aa382cbd2f1:0xee0152d0d9c6df43",
+                        utc_offset: 60,
+                        vicinity: "Paris"
+                    },
+                    status: "OK"
+                }
+
