@@ -145,10 +145,11 @@ driver = webdriver.Chrome(chromedrive_path)
 ```
 - Création de l'URL à récupérer
 ```python
-base_url = "https://www.google.com/maps/place/"
+base_url = "https://www.google.com/maps/search/"
 place_info = "IUT+paris+rives+de+seine"
+comp_url = "/@48.8489968,2.3125954,12z"
 
-url = base_url + place_info
+url = base_url + place_info + comp_url
 url
 ```
 - Deuxième étape : récupération du contenu HTML
@@ -167,5 +168,11 @@ soup = BeautifulSoup(html)
 results = soup.select("div[aria-label*='Informations']")
 results
 ```
+- Dernière étape : une fois qu'on a récupéré tout ce qu'on souhaite, on ferme correctement le navigateur
+```python
+driver.close()
+```
+
+
 
 
