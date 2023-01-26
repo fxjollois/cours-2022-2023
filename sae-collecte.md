@@ -1,5 +1,7 @@
 # SAE Collecte de données web
 
+## Quelques open data ou API intéressantes
+
 - [Open data de l'APUR](https://opendata.apur.org/search?collection=Dataset&tags=apur_bd_economie)
 
 - [Open data de la mairie de Paris](https://opendata.paris.fr/pages/home/)
@@ -126,4 +128,44 @@
                     },
                     status: "OK"
                 }
+
+## Web-scraping avec Python
+
+- Inspiré par cette page : <https://outscraper.com/how-to-scrape-google-maps-with-python-and-selenium/>
+- Installation à faire auparavant :
+    - Packages [`selenium`](https://selenium-python.readthedocs.io/api.html#locate-elements-by) et [`bs4`](https://www.crummy.com/software/BeautifulSoup) (BeautifulSoup) pour Python
+    - Exécutable [`chromedriver`](https://chromedriver.chromium.org/downloads) (selon votre OS)
+- Première étape : configurer le navigateur 
+```python
+from selenium import webdriver
+
+chromedrive_path = './chromedriver' # chemin vers votre exécutable 
+# (ici vous faites cela bien, dans le même répertoire que mon notebook)
+driver = webdriver.Chrome(chromedrive_path)
+```
+- Création de l'URL à récupérer
+```python
+base_url = "https://www.google.com/maps/place/"
+place_info = "IUT+paris+rives+de+seine"
+
+url = base_url + place_info
+url
+```
+- Deuxième étape : récupération du contenu HTML
+    - Lors de la première exécution de ce code, une fenêtre va s'ouvrir dans laquelle vous devrez cliquer (a priori sur "Tout accepter")
+    - **NE PAS FERMER CETTE FENETRE !**
+    - Relancer le code une deuxième fois pour effectivement récupérer le contenu désiré
+```python
+driver.get(url)
+html = driver.page_source
+```
+- Troisième étape : recherche de ce qui nous intéresse (ici la partie Informations)
+```python
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(html)
+results = soup.select("div[aria-label*='Informations']")
+results
+```
+
 
