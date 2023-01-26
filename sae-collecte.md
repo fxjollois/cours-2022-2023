@@ -4,6 +4,9 @@
 
 - [Open data de l'APUR](https://opendata.apur.org/search?collection=Dataset&tags=apur_bd_economie)
 
+- [Base de données SIRENE](https://www.sirene.fr/sirene/public/static/acces-donnees)
+    - Tous les numéros de SIREN et SIRET
+
 - [Open data de la mairie de Paris](https://opendata.paris.fr/pages/home/)
 
 - [Base nationale d'adresse](https://adresse.data.gouv.fr/api-doc/adresse)
