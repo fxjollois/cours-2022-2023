@@ -26,6 +26,7 @@ Vous devez améliorer le tableau de bord, en réalisant les éléments suivants 
         - Germany
         - United Kingdom
     - le code ci-dessous vous permet de calculer les valeurs en base 100 en 1996 pour chaque pays et chaque année
+
 ```r
 prod_base100 = prod %>%
   select(Country, Year, Documents) %>%
