@@ -30,5 +30,7 @@ Vous devez améliorer le tableau de bord, en réalisant les éléments suivants 
 prod %>%
   select(Country, Year, Documents) %>%
   pivot_wider(names_from = Year, values_from = Documents, names_prefix = "Year") %>%
-  mutate(across(starts_with("Year"), ~ .x / Year1996 * 100))
+  mutate(across(starts_with("Year"), ~ .x / Year1996 * 100)) %>%
+  pivot_longer(-Country) %>%
+  mutate(Year = as.numeric(sub("Year", "", name)))
 ```
