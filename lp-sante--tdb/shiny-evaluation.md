@@ -27,10 +27,17 @@ Vous devez améliorer le tableau de bord, en réalisant les éléments suivants 
         - United Kingdom
     - le code ci-dessous vous permet de calculer les valeurs en base 100 en 1996 pour chaque pays et chaque année
 ```r
-prod %>%
+prod_base100 = prod %>%
   select(Country, Year, Documents) %>%
   pivot_wider(names_from = Year, values_from = Documents, names_prefix = "Year") %>%
   mutate(across(starts_with("Year"), ~ .x / Year1996 * 100)) %>%
   pivot_longer(-Country) %>%
   mutate(Year = as.numeric(sub("Year", "", name)))
+
+exemple_pays_choisis = c("France", "Germany", "China", "United States", "United Kingdom")
+ggplot(prod_base100 %>% filter(Country %in% exemple_pays_choisis),
+       aes(Year, value, col = Country)) +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "", y = "Evolution depuis 1996")
 ```
