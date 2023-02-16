@@ -29,14 +29,14 @@ Voici les différentes étapes à suivre pour réaliser une première dataviz as
 ### Vérification des données (type particulièrement)
 
 - Toutes sont des numériques (symbole `#` au dessus du nom des variables)
-- Sauf `Country`, avec un symbole représentant une terre, qui indique que c'est une variable géographique
+- Sauf `Country`, avec un symbole représentant une terre, qui indique que c'est une variable géographique, et `Region` qui est une variable alpha-numérique (repéré par le symbole `Abc`).
 
 ### Première **Feuille** et premier tableau : *Production scientifique*
 
 - Cliquer sur *Feuille 1* en bas à gauche
-- Double-cliquer sur `Documents`, dans les **Mesures**
+- Double-cliquer sur `Documents`, à gauche
 - Cliquer sur le tableau dans la partie **Montre moi** (en haut à droite)
-- Glisser et Déplacer `Country` (dans les **Dimensions**) dans la partie pour les lignes
+- Glisser et Déplacer `Country` dans la partie pour les lignes
 - Faire un clic droit dans la zone au-dessus des valeurs obtenues puis choisir le tri dans l'ordre décroissant
 - Faire un clic droit sur `Country` dans le tableau et choisir *Filtre...*
     - Cliquer sur *Premiers*, choisir *Par champs* puis *OK*
@@ -56,7 +56,7 @@ Voici les différentes étapes à suivre pour réaliser une première dataviz as
 - Faire de même pour 2015
 - Toujours dans **Analyse**
     - Faire un Glisser/Déplacer de *Ligne de moyenne* maintenant
-    - Sélectionner le croisement `SOMME ...` et *Table*
+    - Sélectionner le croisement `SOMME(Documents)` et *Table*
     - Nous avons maintenant une ligne représentant la production scientifique annuelle moyenne (toujours autant modifiable)
 - Changer aussi le titre de la feuille (*Evolution mondiale* par exemple)
 - Changer le titre (idem que précédement)
@@ -75,7 +75,16 @@ Voici les différentes étapes à suivre pour réaliser une première dataviz as
 > Nous avons notre premier tableau de bord
     
 - Revenir sur le TOP pour avoir les 20 premiers pays
+    - Voir la partie *Filtres*
 - Examinez sur le tableau de bord que la modification a été prise en compte
+
+> Toute modification d'un tableau ou d'un graphique est bien évidemment reporté sur les tableaux de bords les intégrant
+
+- Dans le tableau de bord, sélectionnez le TOP
+- Cliquer sur l'entonnoir affiché à droite (on voit s'afficher *Utiliser comme filtre*)
+- Sélectionner un payx dans le tableau -> Le graphique se met à jour automatiquement (c'est celui spécifique au pays sélectionné)
+
+> Tout tableau ou graphique peut servir de filtre dans un tableau de bord, pour les autres tableaux et graphiques
 
 ### Troisième feuille et première carte : *Cartographie de la production scientifique*
 
@@ -89,12 +98,28 @@ Voici les différentes étapes à suivre pour réaliser une première dataviz as
 - Nous avons une carte choroplèthe indiquant la production scientifique des pays
 - Glisser/Déplacer `Citations` dans l'icône **infobulle** dans **Repères**
 - Faire de même avec `H.index`
-    - Faire un clic droit sur la zone `SOMME(H.index)`, et choisir `Mesure (somme)` puis `Moyenne`
+    - Faire un clic droit sur la zone `SOMME(H.index)`, et choisir `Mesure (somme)` puis `Médiane`
 - En pointant la souris sur un pays, nous avons aussi le nombre total de citations et le *H index* moyen annuel
     - Cliquer sur *Infobulle* pour personnaliser l'affichage
 - Changer le titre de la feuille (*cartographie* par exemple) et du graphique si vous le souhaitez
 
 > Nous avons notre première carte choroplèthe
+
+- Nous remarquons, en bas à droite, que nous avons 2 inconnus : ce sont des noms de pays non reconnus par tableau
+- Cliquer sur *2 inconnu(e)s*
+- Choisir *Modifier les emplacements*
+- Cocher la case en bas *Afficher uniquement les emplacements...*
+- Pour *Democratic Republic Congo*, nous pouvons aisément penser que c'est la *République Démocratique du Congo*
+- Pour *Netherlands Antilles*, c'est a priori *Bonaire, Saint-Eustache et Saba*
+
+> Il est possible d'avoir recours à ce mécanisme lors du changement de noms de pays, régions ou villes
+
+- Maintenant, cliquer sur *Infobulle*
+- Aller à la ligne après la dernière
+- Cliquer sur *Insérer* (en haut à droite de la fenêtre) et choisir dans *Feuilles* la feuille correspond au graphique créé
+- Cliquer sur OK
+
+> Nous avons intégrer le graphique de l'évolution dans l'infobulle s'affichant lorsque la souris passe sur un pays
 
 ### Quatrième feuille : *Evolution de la contribution des plus importants pays*
 
@@ -223,15 +248,11 @@ IF ([Year] = [pChoixAnnee]) THEN [Documents] ELSE 0 END
 
 > Nous avons notre première *story*, permettant aux utilisateurs d'explorer les données.
 
-### Au final
-
-Vous devriez avoir à la fin quelque chose proche de ce [résultat](https://public.tableau.com/profile/fx.jollois#!/vizhome/DUDataviz-2019-2020-Rsultat1/Histoire1?publish=yes).
-
 ## A FAIRE
 
 Espace de dépôt du travail (pensez à mettre votre nom dans le nom du fichier ) : 
 
-
+<https://cloud.parisdescartes.fr/index.php/s/Yz6KJa7rof7QMRa>
 
 ### Réaliser les *feuilles* suivantes :
 
