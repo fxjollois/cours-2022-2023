@@ -9,8 +9,8 @@
 2 possibilités :
 
 - Installation des outils sur votre ordinateur, en suivant la procédure décrite sur [cette page](../infos-mongo)
-- Utilisation d'une machine virtuelle avec *VritualBox*, en suivant cette procédure :
-    - Télécharger le fichier [Python MongoDB.ova](https://filesender.renater.fr/?s=download&token=ed7f01b9-df71-464d-808d-98d646b186b1)
+- Utilisation d'une machine virtuelle avec [*VirtualBox*](https://www.virtualbox.org/) (gratuit), en suivant cette procédure :
+    - Télécharger le fichier [Python MongoDB.ova](https://filesender.renater.fr/?s=download&token=78d95e70-f126-4b70-8f3d-3b169bad3f1f) (lien fonctionnel jusqu'au 30 mars 2023)
     - Dans Virtual Box, cliquer sur *Fichier* dans le menu, puis *Importer un appareil virtuel*
     - Choisir le fichier téléchargé
     - Cliquer sur *Finish* (ou *Terminer*)
@@ -21,8 +21,11 @@
     - Lancer la machine virtuelle
     - Se connecter à la machine
         - Utilisateur : **user** et mot de passe : **123456**
+        - Noter qu'il y a parfois des afficahges sur la console qui peuvent perturber. Appuyer plusieurs fois sur *Entrée* pour vous assurer que vous avez un affichage similaire à celui-ci :
+        ```
+        user@pythonmongodb$ 
+        ```
     - Exécuter la commande `./monip` pour connaître l'addresse IP de votre machine
-    - Exécuter la commande `jupyterhub` pour lancer le serveur Jupyter
     - Aller dans un navigateur et taper l'adresse suivante dans la barre d'adresse :
         - `194.168.1.xx:8000` (le `xx` est à remplacer par la valeur dans votre adresse IP)
     - Se connecter à JupyterHub avec les mêmes identifiants
