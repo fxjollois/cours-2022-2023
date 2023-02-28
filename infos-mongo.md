@@ -88,3 +88,27 @@ restaurants
 > db.restaurants.count()
 25359
 ```
+
+
+## Données AirBnB
+
+Certains des cours nécessitent l'utilisation de données *AirBnB*. Pour les utiliser sur votre ordinateur, vous devez déjà télécharger le [fichier `listingsAndReviews.json`](https://cloud.parisdescartes.fr/index.php/s/5q5eAHmCRMci6Bf) (attention : ~110 Mo). Puis suivre les instructions ci-dessous.
+
+### Avec Compass
+
+- Créer une collection `listingsAndReviews` (par exemple), dans la base de données `test` (par exemple)
+- Charger les données dans la collection, en cliquant sur *ADD DATA*
+
+### Sous Python
+
+Le code ci-dessous permet de lire les données dans le fichier JSON puis de les insérer dans la colleciton `listingsAndReviews` de la base `test`.
+
+```python
+import pymongo
+import json
+data = json.load(open("listingsAndReviews.json", "r"))
+client = pymongo.MongoClient()
+db = client.test
+db.listingsAndReviews.insert_many(data)
+```
+
