@@ -101,14 +101,26 @@ Certains des cours nécessitent l'utilisation de données *AirBnB*. Pour les uti
 
 ### Sous Python
 
-Le code ci-dessous permet de lire les données dans le fichier JSON puis de les insérer dans la colleciton `listingsAndReviews` de la base `test`.
+Le code ci-dessous permet de lire les données dans le fichier JSON puis de les insérer dans la collection `listingsAndReviews` de la base `test`. Les modifications sont nécessaires pour que les données numériques et dates soient bien prises en compte.
 
 ```python
 import pymongo
 import json
+from copy import deepcopy
+from datetime import datetime
+
 data = json.load(open("listingsAndReviews.json", "r"))
+
+for i in range(len(airbnb)):
+    for e in ["price", "security_deposit", "cleaning_fee", "bathrooms", "extra_people", "guests_included"]:
+        if (data[i].get(e) is not None):
+            data[i][e] = float(data[i][e]["$numberDecimal"])
+    for d in ["last_scraped", "calendar_last_scraped", "first_review", "last_review"]:
+        if (data[i].get(d) is not None):
+            data[i][d] = datetime.strptime(data[i][d]["$date"], "%Y-%m-%dT%H:%M:%SZ")
+            
 client = pymongo.MongoClient()
 db = client.test
-db.listingsAndReviews.insert_many(data)
+db.airbnb.insert_many(data)
 ```
 
