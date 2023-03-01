@@ -3,7 +3,9 @@
 
 ## Rendu
 
-Envoyez votre fichier (notebook `ipynb` - avec votre nom dans le nom du fichier) par mail à **francois-xavier.jollois@u-paris.fr**.
+Espace de dépôt du travail (notebook `ipynb` - avec votre nom dans le nom du fichier) :
+
+<https://cloud.parisdescartes.fr/index.php/s/8tqTRDDTQMDKGRp>
 
 2 parties :
 
@@ -28,7 +30,7 @@ Nécessitent une recherche sur la toile pour compléter ce qu’on a déjà vu d
 
 ## AirBnB
 
-Nous allons travailler sur des données AirBnB. Celles-ci sont stockées sur le serveur Mongo dans la collection `listingsAndReviews` de la base `sample_airbnb`.
+Nous allons travailler sur des données AirBnB. Celles-ci sont stockées sur le serveur Mongo dans la collection `airbnb` de la base `test`.
 
 > [Aide sur les données](https://docs.atlas.mongodb.com/sample-data/sample-airbnb)
 
@@ -40,7 +42,8 @@ Une fois créée la connexion à la collection dans Python, répondre aux questi
 1. Donner le nombre de logements de type "Entire home/apt"
 1. Donner le nombre de logements proposant la "TV" et le "Wifi (cf `amenities`) 
 1. Donner le nombre de logements n'ayant eu aucun avis
-1. Lister les informations du logement "10545725" (cf _id)
+    - il exite les champs `number_of_reviews` et `reviews` (tableau des avis)
+1. Lister les informations du logement "10545725" (cf `_id`)
 1. Lister le nom, la rue et le pays des logements dont le prix est supérieur à 10000
 1. Donner le nombre de logements par type
 1. Donner le nombre de logements par pays
