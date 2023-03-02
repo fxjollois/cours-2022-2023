@@ -10,7 +10,7 @@
 
 - Installation des outils sur votre ordinateur, en suivant la procédure décrite sur [cette page](../infos-mongo)
 - Utilisation d'une machine virtuelle avec [*VirtualBox*](https://www.virtualbox.org/) (gratuit), en suivant cette procédure :
-    - Télécharger le fichier [Python MongoDB.ova]() (lien fonctionnel jusqu'au 31 mars 2023)
+    - Télécharger le fichier [Python MongoDB.ova](https://filesender.renater.fr/?s=download&token=7b4badd3-0525-4fdb-aa06-90b4419abf49) (lien fonctionnel jusqu'au 31 mars 2023)
     - Dans Virtual Box, cliquer sur *Fichier* dans le menu, puis *Importer un appareil virtuel*
     - Choisir le fichier téléchargé
     - Cliquer sur *Finish* (ou *Terminer*)
