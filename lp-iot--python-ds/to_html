@@ -1,4 +1,4 @@
-for f in seance*.ipynb ; do
+for f in *.ipynb ; do
 	echo $f
-	jupyter nbconvert --to markdown $f
+	jupyter nbconvert --to html $f
 done
