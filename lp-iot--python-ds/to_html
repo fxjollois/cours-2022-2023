@@ -1,0 +1,4 @@
+for f in seance*.ipynb ; do
+	echo $f
+	jupyter nbconvert --to markdown $f
+done
