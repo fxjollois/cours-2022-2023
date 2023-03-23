@@ -9,6 +9,7 @@ Jour 1 :
 - [Introduction à Python](seance1-intro)
   - [correction](seance1-intro-correction)
 - [ACP](seance2-ACP)
+  - [correction](seance2-ACP-correction)
 
 Jour 2 :
 
