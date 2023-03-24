@@ -3,6 +3,7 @@
 - [Introduction à MongoDB](python-mongodb.slides.html)
 
 - [TP à faire](python-mongodb-evaluation)
+    - [correction du début, sur `restaurants`](python-mongodb-correction-debut)
 
 ## Pour travail sur votre ordinateur
 
