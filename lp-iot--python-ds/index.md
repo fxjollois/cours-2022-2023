@@ -14,6 +14,7 @@ Jour 1 :
 Jour 2 :
 
 - [Classification](seance3-classification)
+  - [correction](seance3-classification-correction)
 - [Application](seance4-application) 
 
 
