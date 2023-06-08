@@ -1,5 +1,5 @@
 ---
-layout: sdlides
+layout: slides
 ---
 
 class: middle, center, inverse, title
