@@ -28,6 +28,11 @@ Après une analyse du fonctionnement d'un fédération sportive organisant des c
 8. Pour chaque lieu, la durée moyenne des épreuves qui s'y sont déroulées, à condition qu'il y ait eu au moins deux épreuves disputées dans ce lieu (2 points)
 9. Liste des équipes ayant toujours gagnées les compétitions auxquelles elles ont participées – elles auront donc gagné toutes leurs épreuves (2 points)
 
+### Rendu
+
+Envoyer un document texte au format PDF, avec le code SQL à :
+
+> `francois-xavier.jollois@u-paris.fr`
 
 ## Partie II : Tableaux de bord (noté aussi sur 20 points)
 
