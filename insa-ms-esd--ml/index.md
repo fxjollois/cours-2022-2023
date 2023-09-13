@@ -5,11 +5,7 @@
 ### Jour 1 : Analyse exploratoire
 
 - **ACP** : [Cours](acp-cours.html) - [Utilisation sous Python](acp-python.slides.html) - [Demande](acp-demande.html)
-    - [correction Wine](acp-demande1-correction.html)
-    - [correction WGI](acp-demande2-correction.html)
-    - [correction Température HadCRUT](acp-demande3-correction.html)
 - **AFC** : [Cours](afc-cours.html) - [Utilisation sous Python](afc-python.slides.html) - [Demande](afc-demande.html)
-    - [correction](afc-demande-correction.html)
 - **ACM** : [Cours](acm-cours.html) - [Utilisation sous Python](acm-python.slides.html)
 
 ### Jour 2 : Clustering
@@ -20,9 +16,6 @@
     - [*k*-means](kmeans-python.slides.html) 
     - [DBSCAN](dbscan-python.slides.html)
 - [Demande](classif-demande.html)
-    - [correction Wine](classif-demande1-correction.html)
-    - [correction WGI](classif-demande2-correction.html)
-    - [correction Spotify](classif-demande3-correction.html)
 
 ### Jour 3 : Etude de cas et évaluation
 
