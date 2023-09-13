@@ -7,16 +7,12 @@ Ce cours est une introduction à l'utilisation de `python` pour la science des d
 Jour 1 :
 
 - [Introduction à Python](seance1-intro)
-  - [correction](seance1-intro-correction)
 - [ACP](seance2-ACP)
-  - [correction](seance2-ACP-correction)
 
 Jour 2 :
 
 - [Classification](seance3-classification)
-  - [correction](seance3-classification-correction)
 - [Application](seance4-application) 
-  - [correction](seance4-application-correction)
 
 
 
