@@ -3,11 +3,11 @@
 ## Master AMSD/MLSD
 
 - [Séance 1](seance1) : Langage système de base
-    - [demande](seance1-demande) - [correction](seance1-correction)
+    - [demande](seance1-demande)
 - [Séance 2](seance2) : Scripts `shell`
-    - [demande](seance2-demande) - [correction](seance2-correction)
+    - [demande](seance2-demande)
 - [Séance 3](seance3) : Correction et commentaires sur les scripts `shell`
-    - [demande](seance3-demande) - [correction](seance3-correction)
+    - [demande](seance3-demande)
 - [Séance 4](seance4) : Gestion des scripts R et Python en `shell`
     - [demande](seance4-demande)
 
